@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Datenschutz · Mein Jahr KVF 26</title>
+<link rel="icon" href="icon-192.png" sizes="192x192" type="image/png">
+<style>
+:root{
+  --ground:#F4F6F5; --surface:#FFFFFF;
+  --ink:#182124; --ink2:#48585B; --muted:#6E7E81;
+  --line2:#C2CDCC; --focus:#1F6670;
+  --sans:"IBM Plex Sans",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+  --serif:"IBM Plex Serif",Georgia,"Times New Roman",serif;
+  --mono:"IBM Plex Mono",ui-monospace,"SF Mono",Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme:dark){:root{
+  --ground:#12181A; --surface:#1A2124;
+  --ink:#E3EAEA; --ink2:#AFBCBD; --muted:#8B9A9C;
+  --line2:#3C4A4D; --focus:#4FA9B4;
+}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--ground);color:var(--ink);font-family:var(--sans);
+  font-size:15px;line-height:1.6;-webkit-font-smoothing:antialiased}
+.wrap{max-width:680px;margin:0 auto;padding:30px 18px 70px}
+.eyebrow{font-family:var(--mono);font-size:10.5px;letter-spacing:.09em;
+  text-transform:uppercase;color:var(--muted);margin:0 0 7px}
+h1{font-family:var(--serif);font-size:26px;font-weight:600;margin:0 0 20px;letter-spacing:-.012em}
+h2{font-size:16px;font-weight:600;margin:30px 0 8px}
+p{margin:0 0 12px;color:var(--ink2)}
+b{color:var(--ink)}
+ul{margin:0 0 12px;padding-left:20px;color:var(--ink2)}
+li{margin-bottom:6px}
+.kasten{border:2px solid var(--ink);background:var(--surface);padding:15px 17px;margin:22px 0}
+.kasten p:last-child{margin-bottom:0}
+a{color:var(--focus)}
+footer{margin-top:40px;padding-top:16px;border-top:1px solid var(--line2);
+  font-size:13px;color:var(--muted)}
+</style>
+</head>
+<body>
+<div class="wrap">
+<p class="eyebrow">Mein Jahr · KVF 26</p>
+<h1>Datenschutz</h1>
+
+<div class="kasten">
+  <p><b>Kurz gesagt:</b> Diese App sammelt keine Daten. Alles, was du einträgst, bleibt im Speicher deines eigenen Geräts. Es gibt keinen Server, der etwas davon erfährt.</p>
+</div>
+
+<h2>Welche Daten werden verarbeitet?</h2>
+<p>Ausschließlich die Einträge, die du selbst in der App machst – also Noten, Notizen und Wochenrückblicke. Diese liegen im <b>localStorage</b> deines Browsers, einem Speicherbereich, auf den nur diese eine Seite auf diesem einen Gerät zugreifen kann.</p>
+
+<h2>Werden Daten übertragen?</h2>
+<p>Nein. Die App hat kein Backend, keine Datenbank und keine Anmeldung. Deine Einträge werden zu keinem Zeitpunkt hochgeladen – weder an die Schule noch an Dritte.</p>
+<p>Beim ersten Aufruf lädt die Seite zwei Dinge aus dem Netz:</p>
+<ul>
+  <li>die Schriftarten von <b>fonts.googleapis.com</b> (Google Fonts)</li>
+  <li>in Microsoft Teams zusätzlich das Teams-Skript von <b>res.cdn.office.net</b>, damit die Darstellung zum Teams-Design passt</li>
+</ul>
+<p>Dabei wird – wie bei jedem Aufruf einer Website – die IP-Adresse deines Geräts an den jeweiligen Anbieter übermittelt. Danach werden beide Dateien lokal zwischengespeichert; ab dann funktioniert die App auch ohne Internet.</p>
+
+<h2>Wer kann meine Einträge sehen?</h2>
+<p>Nur du, auf dem Gerät, auf dem du sie gemacht hast. Lehrkräfte, Schulleitung und IT haben keinen Zugriff – technisch nicht, weil die Daten das Gerät nie verlassen.</p>
+
+<h2>Was passiert bei Löschung?</h2>
+<p>Wenn du den Browser-Speicher leerst, den privaten Modus nutzt, die App vom Startbildschirm entfernst oder das Gerät zurücksetzt, sind die Einträge <b>unwiderruflich weg</b>.</p>
+<div class="kasten">
+  <p><b>Deshalb wichtig:</b> Nutze regelmäßig die Sicherungsfunktion in der App. Sie legt eine Datei <span style="font-family:var(--mono);font-size:13px">meine-noten-kvf26.json</span> in deinen Downloads ab, mit der du deine Einträge jederzeit wiederherstellen oder auf ein anderes Gerät übertragen kannst.</p>
+</div>
+
+<h2>Mehrere Zugänge, getrennte Daten</h2>
+<p>Die App über das Symbol auf dem Startbildschirm und die App im Teams-Tab nutzen <b>getrennte Speicher</b>. Einträge erscheinen nicht automatisch auf der jeweils anderen Seite. Entscheide dich für einen Weg – oder nutze die Sicherungsdatei zum Übertragen.</p>
+
+<h2>Verantwortlich</h2>
+<p>Diese Seite wird als statische Datei über GitHub Pages ausgeliefert. Betreiber der App ist die Schule; Ansprechpartner ist die betreuende Lehrkraft der KVF 26.</p>
+
+<footer>
+  <a href="./">← Zurück zur App</a>
+</footer>
+</div>
+</body>
+</html>

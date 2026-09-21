@@ -1,0 +1,36 @@
+{
+  "$schema": "https://developer.microsoft.com/en-us/json-schemas/teams/v1.16/MicrosoftTeams.schema.json",
+  "manifestVersion": "1.16",
+  "version": "1.0.0",
+  "id": "70968bb1-06ce-431d-b9c0-c8b1065399b5",
+  "packageName": "de.friedrichlist.meinjahrkvf26",
+  "developer": {
+    "name": "Friedrich-List-Schule",
+    "websiteUrl": "https://friedrichlist.github.io/Mein_1.AJ_KVF26/",
+    "privacyUrl": "https://friedrichlist.github.io/Mein_1.AJ_KVF26/datenschutz.html",
+    "termsOfUseUrl": "https://friedrichlist.github.io/Mein_1.AJ_KVF26/datenschutz.html"
+  },
+  "name": {
+    "short": "Mein Jahr",
+    "full": "Mein Jahr · KVF 26"
+  },
+  "description": {
+    "short": "Persönliches Jahresprotokoll für das 1. Ausbildungsjahr",
+    "full": "Begleiter durch das erste Ausbildungsjahr der KVF 26: Lernfelder, Noten und Wochenrückblicke an einem Ort. Alle Einträge werden ausschließlich lokal im Browser des Geräts gespeichert und über eine Sicherungsdatei selbst verwaltet. Es gibt kein Backend, keine Anmeldung und keine Datenübertragung an Dritte."
+  },
+  "icons": {
+    "color": "icon-color.png",
+    "outline": "icon-outline.png"
+  },
+  "accentColor": "#1F6670",
+  "staticTabs": [
+    {
+      "entityId": "meinJahrKvf26",
+      "name": "Mein Jahr",
+      "contentUrl": "https://friedrichlist.github.io/Mein_1.AJ_KVF26/",
+      "websiteUrl": "https://friedrichlist.github.io/Mein_1.AJ_KVF26/",
+      "scopes": ["personal"]
+    }
+  ],
+  "validDomains": ["friedrichlist.github.io"]
+}
