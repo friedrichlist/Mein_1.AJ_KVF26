@@ -1,4 +1,4 @@
-# Mein Jahr · KVF 26
+# Mein 1. AJ · KVF 26
 
 Persönliches Jahresprotokoll für das erste Ausbildungsjahr — als Web-App, die sich auf dem Handy wie eine App verhält und auch als Tab in Microsoft Teams läuft.
 
@@ -12,7 +12,8 @@ Alle Einträge bleiben im Browser des jeweiligen Geräts. Es gibt kein Backend, 
 
 | Datei | Zweck |
 |---|---|
-| `index.html` | Die App. Inhaltlich unverändert gegenüber `Mein_Jahr_KVF26_V20.html`, ergänzt um PWA-Kopfdaten und ein Bootstrap-Skript am Ende. |
+| `index.html` | Die App, erzeugt aus `Mein_1_AJ_KVF26.html` durch `app-bauen.py`. Nicht von Hand bearbeiten. |
+| `app-bauen.py` | Baut aus der reinen App-HTML diese installierbare Fassung. |
 | `manifest.webmanifest` | Macht die Seite installierbar (Name, Icon, Startbildschirm). |
 | `service-worker.js` | Offline-Cache. Lädt die App beim zweiten Besuch auch ohne Netz. |
 | `datenschutz.html` | Datenschutzhinweis, wird vom Teams-Manifest verlinkt. |
@@ -51,11 +52,22 @@ cd teams && cp ../icon-color.png ../icon-outline.png . && zip -j ../mein-jahr-kv
 
 **Updates.** Nach einem Push auf `main` dauert es ein bis zwei Minuten, bis GitHub Pages ausliefert. Der Service Worker holt bei jedem Seitenaufruf zuerst die Netz-Version, geänderte Inhalte sind also beim nächsten Öffnen da.
 
-## Änderungen an der App
+## Neue Version der App einspielen
 
-`index.html` direkt bearbeiten. Zwei Stellen stammen nicht aus der Originaldatei und sollten erhalten bleiben:
+Die eigentliche App wird an anderer Stelle gepflegt (im OneDrive unter `Turnusplan BGT/1. AJ/Mein_1_AJ_KVF26.html`). Aus dieser Quelldatei entsteht `index.html` durch ein Skript — von Hand nachpatchen ist nicht nötig:
 
-- im `<head>`: der Block mit `manifest.webmanifest`, `apple-touch-icon` und den `theme-color`-Angaben
-- vor `</body>`: das Bootstrap-Skript (Service-Worker-Registrierung und Teams-Anbindung)
+```bash
+python3 app-bauen.py "/Pfad/zu/Mein_1_AJ_KVF26.html"
+```
 
-Die Dark-Mode-Regel wurde um `:root[data-theme="dark"]` ergänzt, damit Teams sein eigenes Design durchreichen kann. Beim Bearbeiten der Farbvariablen beide Blöcke gleich halten.
+Das Skript legt `index.html` neben der Quelldatei ab und lässt die Quelle unverändert. Es ergänzt:
+
+- die Kopfdaten für die Installation auf dem Startbildschirm
+- das dunkle Farbschema zusätzlich über `data-theme`, damit Teams sein Design durchreichen kann
+- die Breitenangabe (linksbündig, bis 1080 px)
+- den Link zur ausführlichen Datenschutzseite im Fußbereich
+- die Registrierung von Offline-Speicher und Teams-Anbindung vor `</body>`
+
+Findet das Skript einen Ansatzpunkt nicht oder mehrfach, bricht es ab und sagt welchen — dann hat sich die Quelldatei an dieser Stelle geändert und das Skript muss angepasst werden.
+
+Anschließend die erzeugte `index.html` ins Repo hochladen.

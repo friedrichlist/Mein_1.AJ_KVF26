@@ -8,11 +8,11 @@
 <meta name="theme-color" content="#12181A" media="(prefers-color-scheme:dark)">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
-<meta name="apple-mobile-web-app-title" content="Mein Jahr">
+<meta name="apple-mobile-web-app-title" content="Mein 1. AJ">
 <link rel="manifest" href="manifest.webmanifest">
 <link rel="icon" href="icon-192.png" sizes="192x192" type="image/png">
 <link rel="apple-touch-icon" href="icon-192.png">
-<title>Mein Jahr · KVF 26</title>
+<title>Mein 1. AJ · KVF 26</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Serif:wght@500;600&display=swap">
 <style>
 :root{
@@ -48,9 +48,9 @@ body{margin:0;background:var(--ground);color:var(--ink);font-family:var(--sans);
   font-size:15px;line-height:1.55;-webkit-font-smoothing:antialiased}
 :focus-visible{outline:2px solid var(--focus);outline-offset:2px}
 @media (prefers-reduced-motion:reduce){*{transition:none!important}}
-.wrap{max-width:1080px;margin:0 auto;padding:26px 18px 70px}
-/* Fliesstext bleibt auf lesbarer Zeilenlaenge, auch wenn der Kasten breiter wird */
-.privat p{max-width:80ch}
+.wrap{max-width:1080px;margin:0;padding:26px 18px 70px}
+/* Ab Tabletbreite etwas Luft zum linken Fensterrand */
+@media (min-width:760px){.wrap{padding-left:32px;padding-right:32px}}
 
 h1{font-family:var(--serif);font-size:28px;font-weight:600;line-height:1.15;
   margin:0 0 6px;letter-spacing:-.012em;text-wrap:balance}
@@ -61,6 +61,7 @@ h1{font-family:var(--serif);font-size:28px;font-weight:600;line-height:1.15;
 /* Datenschutzkasten — der wichtigste Text der Seite */
 .privat{border:2px solid var(--ink);background:var(--surface);padding:15px 17px;margin-bottom:24px}
 .privat p{margin:0;font-size:13.5px;line-height:1.55;color:var(--ink2)}
+.privat p{max-width:80ch}
 .privat p+p{margin-top:8px}
 .privat b{color:var(--ink)}
 .privat .zeile{display:flex;flex-wrap:wrap;gap:9px;margin-top:13px}
@@ -107,12 +108,40 @@ button.knopf.warn:hover{border-color:var(--de);color:var(--de)}
 .fkopf{display:flex;align-items:baseline;gap:9px;margin-bottom:6px}
 .fkopf .fn{font-weight:600;font-size:13.5px}
 .fkopf .fl{font-family:var(--mono);font-size:11px;color:var(--muted);margin-left:auto}
+.fblock .wsum{font-size:13px;color:var(--ink2);line-height:1.5;margin-top:5px}
+.fblock .fstd{font-family:var(--mono);font-size:11px;font-weight:600;color:var(--muted);
+  border:1px solid var(--line2);border-radius:5px;padding:1px 6px}
+/* Die Wo?- und Bis-wann-Zeile. EINE Regel fuer alle drei Orte — am Baustein,
+   an der Leistung und an der Selbstlernstrecke —, damit dieselbe Angabe nicht
+   an einer Stelle gross und an der anderen klein steht. Beschluss C. K. vom
+   19.09.2026; vorher hatte die Zeile am Baustein gar keine Regel und erbte die
+   Grundschrift. VORFASSUNG: sus.tpl.html.vor_wogroesse_19092026 */
+.wo{margin:6px 0 0;padding:0;display:grid;grid-template-columns:max-content 1fr;
+  gap:2px 10px;font-size:12px;line-height:1.45}
+.wo dt{font-family:var(--mono);font-size:10.5px;color:var(--muted);
+  text-transform:none;padding-top:1px}
+.wo dd{margin:0;color:var(--ink2)}
+.fblock > .wo{margin-top:6px}
 .fblock ul{list-style:none;margin:0;padding:0}
 .fblock li{font-size:13px;color:var(--ink2);line-height:1.45;padding-left:50px;
   text-indent:-50px;margin-bottom:4px}
 .fblock li b{font-family:var(--mono);font-size:11px;font-weight:600;color:var(--muted);
   display:inline-block;width:44px;text-indent:0;white-space:nowrap;
   font-variant-numeric:tabular-nums}
+
+/* Ordnungsdienst · eigener Block, weil er zur ganzen Woche gehört und
+   keinem Fach — deshalb --ink statt --f und ohne linken Fachbalken. */
+.dienst{border-top:1px solid var(--line);border-bottom:1px solid var(--line);
+  background:var(--sunk);padding:10px 16px 11px}
+.dienst .dkopf{display:flex;align-items:baseline;gap:8px;flex-wrap:wrap;margin-bottom:6px}
+.dienst .deyebrow{font-family:var(--mono);font-size:10.5px;letter-spacing:.06em;
+  text-transform:uppercase;color:var(--muted)}
+.dienst .dn{font-weight:600;font-size:13.5px}
+.dienst .dfirmen{font-family:var(--mono);font-size:11px;color:var(--muted)}
+.dienst ul{list-style:none;margin:0;padding:0}
+.dienst li{font-size:12.5px;color:var(--ink2);line-height:1.5;padding-left:13px;
+  position:relative}
+.dienst li::before{content:"–";position:absolute;left:0;color:var(--muted)}
 
 .leist{margin-top:10px;border:1.5px solid var(--f);border-radius:0 10px 10px 0;
   background:color-mix(in oklab,var(--f) var(--tint-a),var(--surface));padding:9px 11px}
@@ -123,6 +152,15 @@ button.knopf.warn:hover{border-color:var(--de);color:var(--de)}
 .leist .lform{font-family:var(--mono);font-size:10.5px;color:var(--muted)}
 .leist .lt{font-size:12.5px;color:var(--ink2);margin-top:4px;line-height:1.4}
 .leist .lort{font-size:12px;color:var(--muted);margin-top:3px;font-style:italic}
+.strecke{margin-top:10px;border:1.5px dashed var(--f);border-radius:0 10px 10px 0;
+  background:color-mix(in oklab,var(--f) calc(var(--tint-a) / 2),var(--surface));padding:9px 11px}
+.strecke+.strecke{margin-top:7px}
+.strecke .sk{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.strecke .sart{font-family:var(--mono);font-size:11px;font-weight:600;
+  border:1px dashed var(--f);background:var(--surface);padding:1px 5px}
+.strecke .sblatt{font-family:var(--mono);font-size:10.5px;color:var(--muted)}
+.strecke .smin{font-family:var(--mono);font-size:10.5px;color:var(--muted);margin-left:auto}
+.strecke .st{font-size:12.5px;color:var(--ink2);margin-top:4px;line-height:1.4}
 .note{margin-left:auto;display:flex;align-items:center;gap:7px}
 .note label{font-family:var(--mono);font-size:10.5px;color:var(--muted)}
 .note select{font-family:var(--mono);font-size:15px;font-weight:600;color:var(--ink);
@@ -134,6 +172,8 @@ button.knopf.warn:hover{border-color:var(--de);color:var(--de)}
 .fuss{margin-top:34px;padding-top:16px;border-top:1px solid var(--line);
   font-size:12.5px;color:var(--muted);line-height:1.6}
 .fuss b{color:var(--ink2)}
+.ds-link{color:var(--muted);text-decoration:underline;text-underline-offset:2px}
+.ds-link:hover{color:var(--ink2)}
 dialog{border:2px solid var(--ink);background:var(--surface);color:var(--ink);
   padding:20px 22px;max-width:min(540px,92vw);font-family:var(--sans)}
 dialog::backdrop{background:rgba(10,16,18,.5)}
@@ -155,7 +195,7 @@ dialog p{font-size:13px;color:var(--ink2);line-height:1.5}
 <body>
 <div class="wrap">
 
-  <h1>Mein Jahr · KVF 26</h1>
+  <h1>Mein 1. AJ · KVF 26</h1>
   <p class="unter">Vierzehn Blockwochen, 31.08.2026 bis 09.07.2027. Was in welcher Woche
   drankommt, wann geschrieben wird — und Platz für deine eigenen Noten.</p>
 
@@ -180,15 +220,17 @@ dialog p{font-size:13px;color:var(--ink2);line-height:1.5}
   <div id="wochen"></div>
 
   <p class="fuss">
-    <b>Grundlage:</b> Turnusplan des Bildungsgangs, Variante 20, Datenstand 08.09.2026.
+    <b>Grundlage:</b> Turnusplan des Bildungsgangs, Variante 96, Datenstand 21.09.2026.
     Termine und Themen können sich ändern; es gilt, was die Lehrkraft sagt.
     <b>UB</b> heißt unterrichtsbegleitende Bewertung, <b>KA</b> Klassenarbeit — beide zählen
-    für die Zeugnisnote. <b>T</b> sind Tests, Trainingsfassungen und Übungen; sie werden
-    nicht benotet, bereiten aber genau auf die bewerteten Leistungen vor.
+    für die Zeugnisnote. <b>PUB</b> und <b>PKA</b> sind ihre Probefassungen; sie werden
+    nicht benotet, bereiten aber genau auf die bewertete Leistung vor, die denselben
+    Namen ohne P trägt.
     <br>Der Notenschnitt hier ist dein eigener Überschlag über die Leistungen, die du
     eingetragen hast — <b>nicht</b> die Zeugnisnote. Wie gewichtet wird, entscheidet die
     Fachlehrkraft.
-  </p>
+      <br><a href="datenschutz.html" class="ds-link">Wo deine Eintragungen liegen – die lange Fassung</a>
+    </p>
 </div>
 
 <dialog id="dlg">
@@ -204,8 +246,82 @@ dialog p{font-size:13px;color:var(--ink2);line-height:1.5}
 
 <script>
 const DATEN = {
- "stand": "08.09.2026",
- "variante": "V20",
+ "stand": "21.09.2026",
+ "variante": "V96",
+ "quelle": {
+  "datei": "/sessions/rcw-01hbthcj3sucvmwr7ayul3ws/v96/daten.js",
+  "variante": "V96",
+  "stand": "21.09.2026",
+  "abdruck": "a342a1ba92a878ef"
+ },
+ "skripte": {
+  "LF01": [
+   "B01",
+   "B02",
+   "B03",
+   "B04",
+   "B05"
+  ],
+  "LF02": [
+   "B01",
+   "B02",
+   "B03",
+   "B04",
+   "B05"
+  ],
+  "LF03": [
+   "B01",
+   "B02",
+   "B03",
+   "B04",
+   "B05"
+  ],
+  "LF04": [
+   "B01",
+   "B02",
+   "B03",
+   "B04",
+   "B05",
+   "B06",
+   "B07",
+   "B08",
+   "B09",
+   "B10",
+   "B11",
+   "B12",
+   "B13",
+   "B14",
+   "B15",
+   "B16",
+   "B17",
+   "B18",
+   "B19"
+  ],
+  "LF05": [
+   "B01",
+   "B02",
+   "B03",
+   "B04",
+   "B05",
+   "B06",
+   "B07",
+   "B08",
+   "B09",
+   "B10",
+   "B11",
+   "B12"
+  ],
+  "SK": [
+   "B02",
+   "B03",
+   "B04"
+  ],
+  "DE": [
+   "B01",
+   "B02",
+   "B03"
+  ]
+ },
  "faecher": [
   {
    "id": "lf1",
@@ -366,89 +482,105 @@ const DATEN = {
     },
     {
      "std": 2,
-     "was": "Ziele und Struktur der Berufsausbildung: Berufsbild, Kern- und Wahlqualifikationen, integrative Positionen"
+     "was": "B01 · Ziele und Struktur der Berufsausbildung: Berufsbild, Kern- und Wahlqualifikationen, integrative Positionen (Phase I)"
     }
    ],
    "2": [
     {
      "std": 3,
-     "was": "Duales System und BBiG: Lernorte, Eignung, Ausbildungsordnung, Ausbildungsdauer, Ausbildungsplan"
+     "was": "B02 · Duales System und BBiG: Lernorte, Eignung, Ausbildungsordnung, Ausbildungsdauer, Ausbildungsplan (Phase I)"
     }
    ],
    "3": [
     {
      "std": 3,
-     "was": "Der Berufsausbildungsvertrag: Mindestinhalte, Probezeit, Rechte und Pflichten, Beendigung, Prüfung"
+     "was": "B03 · Der Berufsausbildungsvertrag: Mindestinhalte, Probezeit, Rechte und Pflichten, Beendigung, Prüfung (Phase I)"
     }
    ],
    "4": [
     {
      "std": 3,
-     "was": "Jugendarbeitsschutz und Arbeitszeit Jugendlicher: JArbSchG, Beschäftigungsverbote, Berufsschulzeit"
+     "was": "B04 · Jugendarbeitsschutz und Arbeitszeit Jugendlicher: JArbSchG, Beschäftigungsverbote, Berufsschulzeit (Phase I)"
     }
    ],
    "5": [
     {
      "std": 3,
-     "was": "Beendigung des Ausbildungsverhältnisses, Abschlussprüfung, Übernahme, lebenslanges Lernen"
+     "was": "B05 · Beendigung des Ausbildungsverhältnisses, Abschlussprüfung, Übernahme, lebenslanges Lernen (Phase I)"
     }
    ],
    "6": [
     {
-     "std": 3,
-     "was": "Rechtsquellen des Arbeitsrechts: Rangordnung, Günstigkeits- und Ordnungsprinzip"
+     "std": 2,
+     "was": "B06 · Rechtsquellen des Arbeitsrechts: Rangordnung, Günstigkeits- und Ordnungsprinzip (Phase I)"
+    },
+    {
+     "std": 1,
+     "was": "B06 · Anwendung am Fall und Übergang zur Vertiefung (Phase II)"
     }
    ],
    "7": [
     {
      "std": 3,
-     "was": "Der Arbeitsvertrag: Zustandekommen, Nachweisgesetz, Rechte und Pflichten, Wettbewerbsabrede"
+     "was": "B07 · Der Arbeitsvertrag: Zustandekommen, Nachweisgesetz, Rechte und Pflichten, Wettbewerbsabrede (Phase I)"
     }
    ],
    "8": [
     {
-     "std": 3,
-     "was": "Beendigung von Arbeitsverhältnissen: Kündigungsarten, Fristen nach § 622 BGB, Kündigungsschutz, Abmahnung, Zeugnis"
+     "std": 2,
+     "was": "B08 · Beendigung von Arbeitsverhältnissen: Kündigungsarten, Fristen nach § 622 BGB, Kündigungsschutz, Abmahnung, Zeugnis (Phase I)"
+    },
+    {
+     "std": 1,
+     "was": "B08 · Anwendung am Fall und Übergang zur Vertiefung (Phase II)"
     }
    ],
    "9": [
     {
-     "std": 3,
-     "was": "Arbeitsschutz und Arbeitszeit: ArbSchG, Gefährdungsbeurteilung, ArbZG, Pausen und Ruhezeiten, Urlaub nach BUrlG"
+     "std": 2,
+     "was": "B09 · Arbeitsschutz und Arbeitszeit: ArbSchG, Gefährdungsbeurteilung, ArbZG, Pausen und Ruhezeiten, Urlaub nach BUrlG (Phase I)"
+    },
+    {
+     "std": 1,
+     "was": "B09 · Anwendung am Fall und Übergang zur Vertiefung (Phase II)"
     }
    ],
    "10": [
     {
      "std": 2,
-     "was": "Tarifvertragsrecht I: Tarifautonomie nach Art. 9 Abs. 3 GG, Tarifvertragsarten, Tarifbindung"
+     "was": "B10 · Tarifvertragsrecht I: Tarifautonomie nach Art. 9 Abs. 3 GG, Tarifvertragsarten, Tarifbindung (Phase II)"
     }
    ],
    "11": [
     {
      "std": 3,
-     "was": "Tarifvertragsrecht II: Günstigkeits- und Rangprinzip am Fall · Betriebsverfassung: Betriebsrat, Betriebsratswahl, JAV"
+     "was": "B11 · Tarifvertragsrecht II: Günstigkeits- und Rangprinzip am Fall · Betriebsverfassung: Betriebsrat, Betriebsratswahl, JAV (Phase II)"
     }
    ],
    "12": [
     {
-     "std": 3,
-     "was": "Mitbestimmung: Beteiligungsrechte in vier Stufen, Betriebsvereinbarung gegen Tarifvertrag, Auswertung im Prüfungsformat"
+     "std": 2,
+     "was": "B12 · Mitbestimmung: Beteiligungsrechte in vier Stufen, Betriebsvereinbarung gegen Tarifvertrag, Auswertung im Prüfungsformat (Phase II)"
+    },
+    {
+     "std": 1,
+     "was": "Klassenarbeit Lernfeld 1 (Phase III)"
     }
    ],
    "13": [
     {
-     "std": 2,
-     "was": "Arbeitskampf und Sozialpartner: Schlichtung, Streik, Aussperrung, Verhältnismäßigkeit"
+     "std": 1,
+     "was": "B13 · Arbeitskampf und Sozialpartner: Schlichtung, Streik, Aussperrung, Verhältnismäßigkeit (Phase II)"
+    },
+    {
+     "std": 1,
+     "was": "Rückgabe der Klassenarbeit, Fehlerkatalog, Reflexion"
     }
    ],
    "14": [
     {
-     "std": 2,
-     "was": "Entgeltfortzahlung, Mutterschutz, Elternzeit und AGG aus dem Gesetzestext"
-    },
-    {
-     "std": 1,
-     "was": "Entgeltabrechnung und Datenschutz als Ausblick · Rückgabe der Klassenarbeit, Fehlerkatalog, Reflexion"
+     "std": 3,
+     "was": "B14 · Entgeltfortzahlung, Mutterschutz, Elternzeit und AGG aus dem Gesetzestext (Phase II)"
     }
    ]
   },
@@ -460,79 +592,91 @@ const DATEN = {
     },
     {
      "std": 1,
-     "was": "Prüfungsmethode: Struktur der WISO-Prüfung und eine Prüfung im Original lesen"
+     "was": "Prüfungsmethode: Struktur der WISO-Prüfung und eine Prüfung im Original lesen (Phase I)"
     },
     {
      "std": 1,
-     "was": "Ausgabe des Quizsockels: QS 1 mit 14 und QS 2 mit 10 Aufgaben, dazu das Infoskript"
+     "was": "Ausgabe des Quizsockels: QS 1 mit 14 und QS 2 mit 10 Aufgaben, dazu das Infoskript (Phase I)"
     }
    ],
    "2": [
     {
      "std": 2,
-     "was": "Vertiefung LF 1 Wo. 1 · Baustein SK 2: Wahlqualifikation und integrative Positionen nach § 4 VersFinKflAusbV · der eigene Platz im Organigramm: Stelle, Instanz, Stabsstelle"
+     "was": "B02 · Vertiefung LF 1 Wo. 1: Wahlqualifikation und integrative Positionen nach § 4 VersFinKflAusbV · der eigene Platz im Organigramm: Stelle, Instanz, Stabsstelle · die drei Führungsstile aus dem Quizsockel QS 1 (Phase II)"
     },
     {
      "std": 1,
-     "was": "Berechnungswerkstatt I: Fristen und Termine der Ausbildung nach §§ 187, 188 BGB"
+     "was": "B02 · Berechnungswerkstatt I: Fristen und Termine der Ausbildung nach §§ 187, 188 BGB (Phase II)"
     }
    ],
    "3": [
     {
      "std": 1,
-     "was": "Vertiefung LF 1 Wo. 2 · Baustein SK 3: die vier Ebenen — Gesetz, Ausbildungsordnung, betrieblicher Plan, Vertrag · Verkürzung § 8 und Teilzeit § 7a BBiG"
+     "was": "B03 · Vertiefung LF 1 Wo. 2: die vier Ebenen — Gesetz, Ausbildungsordnung, betrieblicher Plan, Vertrag · Verkürzung § 8 und Teilzeit § 7a BBiG (Phase II)"
     },
     {
      "std": 1,
-     "was": "Quizsockel: Fehlerkatalog aus der Forms-Auswertung, nicht alle 24 Aufgaben"
+     "was": "Quizsockel: Fehlerkatalog aus der Forms-Auswertung, nicht alle 63 Aufgaben (Phase II)"
     },
     {
      "std": 1,
-     "was": "UB 1: zehn Aufgaben aus dem Quizsockel, danach Auswertungsbogen"
+     "was": "UB 1: fünfzehn Aufgaben aus dem Quizsockel, danach Auswertungsbogen (Phase III)"
     }
    ],
    "4": [
     {
-     "std": 2,
-     "was": "Vertiefung LF 1 Wo. 3: Ausbildungsvertrag — zwölf Mindestinhalte, nichtige Vereinbarungen, Probezeit, Schlichtungsausschuss"
+     "std": 1,
+     "was": "B04 · Vertiefung LF 1 Wo. 3: Ausbildungsvertrag — zwölf Mindestinhalte, nichtige Vereinbarungen, Probezeit, Schlichtungsausschuss (Phase II)"
     },
     {
      "std": 1,
-     "was": "Berechnungswerkstatt II: Fristen am Vertrag — Probezeitende, Kündigungstermin, Zwei-Wochen-Frist"
+     "was": "B04 · Der eigene Ausbildungsvertrag geprüft: Prüfvermerk mit Fundstelle zu jeder Feststellung (Phase III)"
+    },
+    {
+     "std": 1,
+     "was": "B04 · Berechnungswerkstatt II: Fristen am Vertrag — Probezeitende, Kündigungstermin, Zwei-Wochen-Frist (Phase II)"
     }
    ],
    "5": [
     {
      "std": 1,
-     "was": "Vertiefung LF 1 Wo. 4 I: Arbeitszeit — Höchstarbeitszeit, Ruhepausen nach Dauer, Freizeitausgleich"
+     "was": "Vertiefung LF 1 Wo. 4 I: Arbeitszeit — Höchstarbeitszeit, Ruhepausen nach Dauer, Freizeitausgleich (Phase I)"
     },
     {
      "std": 1,
-     "was": "Vertiefung LF 1 Wo. 4 II: Berufsschule und Prüfung — Anrechnung des Berufsschultages, Freistellung"
+     "was": "Vertiefung LF 1 Wo. 4 II: Berufsschule und Prüfung — Anrechnung des Berufsschultages, Freistellung (Phase I)"
     },
     {
      "std": 1,
-     "was": "Vertiefung LF 1 Wo. 4 III: Jugendurlaub rechnen — Staffelung nach Alter am Stichtag, § 19 JArbSchG"
+     "was": "Vertiefung LF 1 Wo. 4 III: Jugendurlaub rechnen — Staffelung nach Alter am Stichtag, § 19 JArbSchG (Phase II)"
     }
    ],
    "6": [
     {
-     "std": 2,
-     "was": "Vertiefung LF 1 Wo. 5: Beendigung des Ausbildungsverhältnisses — Ende kraft Gesetzes, Probezeitkündigung, Zwei-Wochen-Frist, Zeugnis"
+     "std": 1,
+     "was": "Vertiefung LF 1 Wo. 5: Beendigung des Ausbildungsverhältnisses — Ende kraft Gesetzes, Probezeitkündigung (Phase I)"
     },
     {
      "std": 1,
-     "was": "Berechnungswerkstatt III: Brutto zu Netto — Beitragstragung und Beitragssätze am eigenen Beleg"
+     "was": "Vertiefung LF 1 Wo. 5: Zwei-Wochen-Frist und Zeugnis · UB 2 in dieser Stunde (Phase II)"
+    },
+    {
+     "std": 1,
+     "was": "Berechnungswerkstatt III: Brutto zu Netto — Beitragstragung und Beitragssätze am eigenen Beleg · Prüfbogen zur eigenen Abrechnung (Phase III)"
     }
    ],
    "7": [
     {
-     "std": 2,
-     "was": "Vertiefung LF 1 Wo. 6: Rangordnung der Rechtsquellen am Gesetzestext, Günstigkeitsprinzip"
+     "std": 1,
+     "was": "Vertiefung LF 1 Wo. 6: Rangordnung der Rechtsquellen am Gesetzestext, Günstigkeitsprinzip (Phase II)"
     },
     {
      "std": 1,
-     "was": "Sozialversicherung I/1: die fünf Zweige, Träger, Versicherungspflicht"
+     "was": "Klassenarbeit Sozialkunde (Phase III)"
+    },
+    {
+     "std": 1,
+     "was": "Sozialversicherung I/1: die fünf Zweige, Träger, Versicherungspflicht (Phase I)"
     }
    ],
    "8": [
@@ -542,63 +686,71 @@ const DATEN = {
     },
     {
      "std": 2,
-     "was": "Vorlauf für LF 1: Sozialpartner, Tarifautonomie nach Art. 9 Abs. 3 GG, Gewerkschaften und Arbeitgeberverbände"
+     "was": "Vorlauf für LF 1: Sozialpartner, Tarifautonomie nach Art. 9 Abs. 3 GG, Gewerkschaften und Arbeitgeberverbände (Phase I)"
     }
    ],
    "9": [
     {
-     "std": 2,
-     "was": "Vorlauf für LF 1: der Tarifkonflikt · Schlichtung, Streik, Aussperrung, Verhältnismäßigkeit"
+     "std": 1,
+     "was": "Vorlauf für LF 1: der Tarifkonflikt · Schlichtung, Streik, Aussperrung, Verhältnismäßigkeit (Phase I)"
     },
     {
      "std": 1,
-     "was": "Vertiefung LF 1 Wo. 7 und 8: Kündigungsfristen nach § 622 BGB rechnen · Präsenzfälle B8.Z10, B8.Z11 und B8.Z13"
+     "was": "Die Tarifrunde: Rollen Gewerkschaft, Arbeitgeberverband, Schlichter · Einigung mit Verhältnismäßigkeitsprüfung, schriftlich (Phase III)"
+    },
+    {
+     "std": 1,
+     "was": "Vertiefung LF 1 Wo. 7 und 8: Kündigungsfristen nach § 622 BGB rechnen · Präsenzfälle B8.Z10, B8.Z11 und B8.Z13 (Phase II)"
     }
    ],
    "10": [
     {
      "std": 2,
-     "was": "Vorlauf für LF 1: Mitbestimmung im Betrieb und im Unternehmen als Ordnungsprinzip"
+     "was": "Vorlauf für LF 1: Mitbestimmung im Betrieb und im Unternehmen als Ordnungsprinzip (Phase I)"
     }
    ],
    "11": [
     {
      "std": 2,
-     "was": "Vertiefung LF 1 Wo. 9 und 10: Arbeitsschutz, Urlaubsanspruch, Tarifvertragsarten zuordnen"
+     "was": "Vertiefung LF 1 Wo. 9 und 10: Arbeitsschutz, Urlaubsanspruch, Tarifvertragsarten zuordnen (Phase II)"
     },
     {
      "std": 1,
-     "was": "Sozialversicherung I/2: Beitragstragung, Beitragssätze, Beitragsbemessungsgrenzen"
+     "was": "Sozialversicherung I/2: Beitragstragung, Beitragssätze, Beitragsbemessungsgrenzen · die eigene Entgeltabrechnung nachgerechnet, Arbeitgeberanteil geprüft (Phase III)"
     }
    ],
    "12": [
     {
      "std": 2,
-     "was": "Vertiefung LF 1 Wo. 11: Betriebsrat, Betriebsratswahl und JAV im Prüfungsformat"
+     "was": "Vertiefung LF 1 Wo. 11: Betriebsrat, Betriebsratswahl und JAV im Prüfungsformat (Phase II)"
     },
     {
      "std": 1,
-     "was": "Sozialversicherung I/3: Krankenversicherung, Krankmeldung, § 5 EntgFG und elektronische AU"
+     "was": "Sozialversicherung I/3: Krankenversicherung, Krankmeldung, § 5 EntgFG und elektronische AU (Phase I)"
     }
    ],
    "13": [
     {
-     "std": 2,
-     "was": "Vertiefung LF 1 Wo. 12: Beteiligungsrechte und Betriebsvereinbarung gegen Tarifvertrag"
+     "std": 1,
+     "was": "Vertiefung LF 1 Wo. 12: Beteiligungsrechte und Betriebsvereinbarung gegen Tarifvertrag im Prüfungsformat (Phase II)"
+    },
+    {
+     "std": 1,
+     "was": "Der Beteiligungsfall entschieden: Stellungnahme des Betriebsrats mit der richtigen Beteiligungsstufe, Betriebsvereinbarung gegen Tarifvertrag begründet (Phase III)"
     }
    ],
    "14": [
     {
      "std": 1,
-     "was": "Vertiefung LF 1 Wo. 13: Arbeitskampf im Prüfungsformat"
+     "was": "Vertiefung LF 1 Wo. 13: Arbeitskampf im Prüfungsformat (Phase II)"
     },
     {
      "std": 1,
-     "was": "Sozialversicherung I/4: Entgeltfortzahlung, Krankengeld, Aufwendungsausgleich"
+     "was": "Sozialversicherung I/4: Entgeltfortzahlung, Krankengeld, Aufwendungsausgleich (Phase I)"
     },
     {
      "std": 1,
-     "was": "Sozialversicherung I/5: Unfall- und Pflegeversicherung, Sozialversicherungsausweis"
+     "was": "Sozialversicherung I/5: Unfall- und Pflegeversicherung, Sozialversicherungsausweis (Phase I)"
     }
    ]
   },
@@ -606,7 +758,7 @@ const DATEN = {
    "1": [
     {
      "std": 1,
-     "was": "Kennenlernen und Organisatorisches: Ablauf des Lernfelds, Material, Leistungsbewertung"
+     "was": "LS 02.1 · Kennenlernen und Organisatorisches: Ablauf des Lernfelds, Material, Leistungsbewertung"
     },
     {
      "std": 2,
@@ -616,107 +768,131 @@ const DATEN = {
    "2": [
     {
      "std": 2,
-     "was": "B 5.1.1 Willenserklärungen, Antrags- und Invitatiomodell"
+     "was": "LS 02.2 · B04 · A1 Willenserklärungen, Antrags- und Invitatiomodell (Typ A · Phase I)"
     },
     {
      "std": 1,
-     "was": "B 5.1.1.3 Rechtsfähigkeit § 1 BGB, juristische Personen §§ 21 ff. BGB"
+     "was": "B04 · A2 Rechtsfähigkeit § 1 BGB, juristische Personen §§ 21 ff. BGB (Typ A · Phase I)"
     }
    ],
    "3": [
     {
      "std": 1,
-     "was": "B 5.1.1.3 Geschäftsfähigkeit §§ 104–113 BGB am Antragsformular"
+     "was": "B04 · A3 Geschäftsfähigkeit §§ 104–113 BGB am Antragsformular (Typ A · Phase II)"
     },
     {
-     "std": 2,
-     "was": "B 5.1.6 Rechtsquellen des Versicherungsvertrags und ihre Rangfolge, Allgemeine Geschäftsbedingungen"
+     "std": 1,
+     "was": "B05 · A1 Allgemeine Geschäftsbedingungen: Einbeziehung, überraschende Klauseln, Inhaltskontrolle und Unklarheitenregel (Typ A · Phase I)"
+    },
+    {
+     "std": 1,
+     "was": "B05 · A2 Sicherung nach dem Leseauftrag: Beschwerdewege und Ombudsmann, Bedeutung, Nachhaltigkeit und Digitalisierung der Branche (Typ K · Phase II)"
     }
    ],
    "4": [
     {
      "std": 2,
-     "was": "B 5.1.2 Versicherungsantrag: Form, Inhalt, Bindung an den Antrag"
+     "was": "B06 · A1 Versicherungsantrag: Form, Inhalt, Bindung an den Antrag (Typ A · Phase I)"
     },
     {
      "std": 1,
-     "was": "B 5.1.3 Prüfungsphase und Antragsannahme: was der Versicherer mit dem Antrag macht (1 von 3 Std.)"
+     "was": "B07 · A1 Prüfungsphase und Antragsannahme: was der Versicherer mit dem Antrag macht (Typ K · Phase I)"
     }
    ],
    "5": [
     {
      "std": 2,
-     "was": "B 5.1.3 Versicherungsschein und Vertragsspiegel lesen (2 und 3 von 3 Std.)"
+     "was": "B07 · A2 Versicherungsschein und Vertragsspiegel lesen (Typ K · Phase II)"
     },
     {
-     "std": 1,
-     "was": "B 4.1 und B 4.2 Informations- und Beratungspflichten des Versicherers vor Vertragsabschluss"
+     "std": 0.5,
+     "was": "B08 · A1 Informationspflichten des Versicherers vor Vertragsabschluss (Typ A · Phase I)"
+    },
+    {
+     "std": 0.5,
+     "was": "Reserve"
     }
    ],
    "6": [
     {
-     "std": 3,
-     "was": "B 5.1.7 Widerrufsrecht § 8 VVG: Frist, Beginn, Rechtsfolgen und die Fristenkette am Fall"
+     "std": 2,
+     "was": "B08 · A2 Widerrufsrecht § 8 VVG: Rechtsfolgen und die Fristenkette am Fall (Typ K · Phase II)"
+    },
+    {
+     "std": 1,
+     "was": "B09 · A1 Versicherungsbeginn: formeller, materieller und technischer Beginn an der Zeitachse (1 von 4 Std.) (Typ A · Phase I)"
     }
    ],
    "7": [
     {
      "std": 3,
-     "was": "B 5.1.5 Versicherungsbeginn: formeller, materieller und technischer Beginn an der Zeitachse (1 bis 3 von 5 Std.)"
+     "was": "B09 · A1 Versicherungsbeginn: formeller, materieller und technischer Beginn an der Zeitachse (2 bis 4 von 4 Std.) (Typ K · Phase II)"
     }
    ],
    "8": [
     {
-     "std": 2,
-     "was": "B 5.1.5 Vorläufige Deckung und Rückwärtsversicherung (4 und 5 von 5 Std.)"
+     "std": 1,
+     "was": "B09 · A2 Vorläufige Deckung und Rückwärtsversicherung (Typ K · Phase II)"
     },
     {
-     "std": 1,
-     "was": "B 5.2.3 Vorvertragliche Anzeigepflicht §§ 19–22 VVG: die vier Verschuldensstufen und ihre Rechtsfolgen"
+     "std": 2,
+     "was": "LS 02.3 · B10 · A1 Rechte, Pflichten und Obliegenheiten: vorvertragliche Anzeigepflicht §§ 19–22 VVG, Obliegenheiten während der Laufzeit und nach dem Versicherungsfall, Rechtsfolgen ihrer Verletzung (Typ K · Phase I)"
     }
    ],
    "9": [
     {
-     "std": 3,
-     "was": "B 5.2.2 Prämienarten, Versicherungsteuer und das vollständige Prämienschema (1 bis 3 von 8,5 Std.)"
+     "std": 2,
+     "was": "B11 · A1 Prämienarten, Versicherungsteuer und das vollständige Prämienschema (Typ A · Phase I)"
+    },
+    {
+     "std": 1,
+     "was": "B11 · A2 Erstprämie: Fälligkeit § 33 Abs. 1 VVG, Zahlungsverzug und Leistungsfreiheit § 37 VVG (Typ A · Phase I)"
     }
    ],
    "10": [
     {
-     "std": 2,
-     "was": "B 5.2.2 Erstprämie § 33 Abs. 1 mit Leistungsfreiheit § 37 VVG · Folgeprämie und qualifizierte Mahnung § 38 VVG (4 und 5 von 8,5 Std.)"
+     "std": 1,
+     "was": "B11 · A3 Rechenwerkstatt im GAP-Format: Prämienrechnung am Fall, Zuschläge und Ratenzahlung (Typ W · Phase II)"
+    },
+    {
+     "std": 1,
+     "was": "B11 · A4 Folgeprämie und qualifizierte Mahnung § 38 VVG: Frist, Form, Rechtsfolgen (Typ A · Phase I)"
     }
    ],
    "11": [
     {
-     "std": 2,
-     "was": "B 5.2.2 Rechenwerkstatt im GAP-Format: Prämienschema, Zuschläge, Nachlässe, Ratenzahlung (6 und 7 von 8,5 Std.)"
+     "std": 1,
+     "was": "B11 · A5 Rechenwerkstatt: Nachlässe, unterjährige Zahlung, Rückrechnung bei Beendigung (Typ W · Phase II)"
     },
     {
      "std": 1,
-     "was": "B 5.2.2 Der Satz „Die Beiträge sind laufend bezahlt“ im Vertragsspiegel und die Gegenprobe (8 von 8,5 Std.)"
+     "was": "B11 · A6 Der Satz „Die Beiträge sind laufend bezahlt“ im Vertragsspiegel und die Gegenprobe (Typ W · Phase II)"
+    },
+    {
+     "std": 1,
+     "was": "Klassenarbeit Lernfeld 2, 45 Minuten (Phase III)"
     }
    ],
    "12": [
     {
      "std": 1,
-     "was": "Auswertung der Klassenarbeit als Fehlerkatalog für die Vertragsakte (30 Min.) · Abschluss der Prämienakte (30 Min., die halbe neunte Stunde von B 5.2.2)"
+     "was": "Auswertung der Klassenarbeit als Fehlerkatalog für die Vertragsakte (30 Min.) · Abschluss der Prämienakte (30 Min., die halbe achte Stunde von B11)"
     },
     {
      "std": 2,
-     "was": "B 5.5 Beendigung des Vertrages: Zeitablauf, Kündigung, Prämienschicksal (1 und 2 von 4 Std.)"
+     "was": "B12 · A1 Beendigung des Vertrages: Zeitablauf, Kündigung, Prämienschicksal (Typ K · Phase I)"
     }
    ],
    "13": [
     {
      "std": 2,
-     "was": "B 5.5 Beendigung: Sonderkündigungsrechte und außerordentliche Kündigung (3 und 4 von 4 Std.)"
+     "was": "B12 · A2 Beendigung: Sonderkündigungsrechte und außerordentliche Kündigung (Typ K · Phase II)"
     }
    ],
    "14": [
     {
      "std": 3,
-     "was": "B12 · Phase III · Die Vertragsakte Grabowski: Antrag, Vertragsspiegel, Prämienrechnung, Mahnung und Kündigung zusammenführen, kreuzweise Abnahme"
+     "was": "B13 · A1 Phase III · Die Vertragsakte Grabowski: Antrag, Vertragsspiegel, Prämienrechnung, Mahnung und Kündigung zusammenführen, kreuzweise Abnahme"
     }
    ]
   },
@@ -734,91 +910,91 @@ const DATEN = {
    "2": [
     {
      "std": 2,
-     "was": "C 1.1 · Vertriebswege im Überblick; Versicherungsvertreter: Rechtsstellung nach §§ 84 ff., 92 HGB, Istkaufmann"
+     "was": "LS 03.1 · B01 · A1 Vertriebswege im Überblick: Absatzwege und Querverkauf, Vertriebswegestatistik des GDV 2024, Vermittlerregister; der Versicherungsvertreter: Rechtsstellung §§ 84 ff., 92 HGB, Istkaufmann § 1 HGB (Typ A · Phase I)"
     },
     {
      "std": 1,
-     "was": "C 1.1 · Einfirmen- und Mehrfachvertreter: Ausschließlichkeitsklausel, Ventillösung, Anscheinsmakler § 1a Abs. 2 VVG (1 von 3 Std.)"
+     "was": "B01 · A2 Der Einfirmenvertreter: Ausschließlichkeitsklausel, Ventillösung, Haftungsfreistellung und Regress des VU (Typ A · Phase I)"
     }
    ],
    "3": [
     {
      "std": 2,
-     "was": "C 1.1 · Einfirmen- und Mehrfachvertreter: Ausschließlichkeitsklausel, Ventillösung, Anscheinsmakler § 1a Abs. 2 VVG (2–3 von 3 Std.)"
+     "was": "LS 03.2 · B02 · A1 Der Mehrfachvertreter: echter und unechter Mehrfirmenvertreter im Vergleich; der Anscheinsmakler § 59 Abs. 3 S. 2 VVG, § 34d Abs. 1 S. 3 GewO (Typ A · Phase I)"
     },
     {
      "std": 1,
-     "was": "C 1.2 · Angestellte des Versicherers im Außendienst § 59 HGB; Versicherungsmakler: Rechtsstellung § 93 HGB, Maklervertrag (1 von 3 Std.)"
+     "was": "B02 · A2 Angestellte des Versicherers im Außendienst: Handlungsgehilfe § 59 HGB, Werbeaußendienst, führende Angestellte § 34d Abs. 10 GewO, Haftung §§ 278, 831 BGB (Typ A · Phase I)"
     }
    ],
    "4": [
     {
      "std": 2,
-     "was": "C 1.2 · Angestellte des Versicherers im Außendienst § 59 HGB; Versicherungsmakler: Rechtsstellung § 93 HGB, Maklervertrag (2–3 von 3 Std.)"
+     "was": "LS 03.3 · B03 · A1 Der Versicherungsmakler: Rechtsstellung § 93 HGB, Sachwalter des Kunden, Doppelrechtsverhältnis; Maklervertrag §§ 652 f. BGB, Beratungs- und Dokumentationspflichten (Typ K · Phase II)"
     },
     {
      "std": 1,
-     "was": "C 1.3 · Makler im besonderen Rechtsverhältnis, Maklerklausel, Vergleichsportale § 60 Abs. 2 VVG; Direkt- und Strukturvertrieb (1 von 3 Std.)"
+     "was": "B03 · A2 Maklertätigkeit im besonderen Rechtsverhältnis: technischer Makler, Maklerklausel, Recht am Kunden (Maklerpraxis, kein Gesetzesbegriff); Rechtsberatungsbefugnis des Maklers § 34d Abs. 1 S. 8 GewO (Typ K · Phase II)"
     }
    ],
    "5": [
     {
      "std": 2,
-     "was": "C 1.3 · Makler im besonderen Rechtsverhältnis, Maklerklausel, Vergleichsportale § 60 Abs. 2 VVG; Direkt- und Strukturvertrieb (2–3 von 3 Std.)"
+     "was": "LS 03.4 · B04 · A1 Bedeutung des Maklers und Vergleichsportale § 1a Abs. 2 VVG, Beratungsgrundlage § 60 Abs. 2 VVG, OLG Karlsruhe 22.09.2021 Az. 6 U 82/20; Direkt- und Strukturvertrieb, Gegenüberstellung Angestellter, Vertreter, Makler (Typ K · Phase II)"
     },
     {
      "std": 1,
-     "was": "C 1.4 · Produktakzessorische und Annexvermittler, Nebentätigkeit, Tippgeber, Versicherungsberater; Gesamtvergleich im GAP-1-Format (1 von 3 Std.)"
+     "was": "B04 · A2 Produktakzessorische Vermittler § 34d Abs. 6 GewO; Querverkauf § 7a VVG (Typ K · Phase II)"
     }
    ],
    "6": [
     {
      "std": 2,
-     "was": "C 1.4 · Produktakzessorische und Annexvermittler, Nebentätigkeit, Tippgeber, Versicherungsberater; Gesamtvergleich im GAP-1-Format (2–3 von 3 Std.)"
+     "was": "LS 03.5 · B05 · A1 Nebentätigkeit § 34d Abs. 8 GewO und § 66 VVG, Tippgeber, Versicherungsberater § 34d Abs. 2 GewO, Nettopolice und Auskehrung § 48c VAG; Gesamtvergleich der Vertriebswege im GAP-1-Format (Typ K · Phase II)"
     },
     {
      "std": 1,
-     "was": "C 2.1 · Erlaubnis und Registrierungspflicht § 34d GewO: Vermittlerregister, Sachkunde, Vermögensschadenhaftpflicht (1 von 2 Std.)"
+     "was": "B05 · A2 Erlaubnispflicht § 34d GewO: Gewerbebegriff, persönliche Zuverlässigkeit § 34d Abs. 5 S. 2 GewO, geordnete Vermögensverhältnisse § 34d Abs. 5 S. 3 GewO mit dem Schuldnerverzeichnis § 882b ZPO, Vermögensschaden-Haftpflichtversicherung § 34d Abs. 5 S. 1 Nr. 3 GewO mit den Mindestsummen § 12 VersVermV, Angaben im Erlaubnisantrag § 1 VersVermV (Typ K · Phase II)"
     }
    ],
    "7": [
     {
      "std": 1,
-     "was": "C 2.1 · Erlaubnis und Registrierungspflicht § 34d GewO: Vermittlerregister, Sachkunde, Vermögensschadenhaftpflicht (2 von 2 Std.)"
+     "was": "LS 03.6 · B06 · A1 Sachkundeprüfung §§ 2 ff. VersVermV; Registrierung und Befreiungen: Vermittlerregister der IHK, der Ausschließlichkeitsvertreter braucht keine eigene Erlaubnis unter dem Haftungsdach § 34d Abs. 7 S. 1 Nr. 1 GewO, Zuverlässigkeit und angemessene Qualifikation stellt der VR sicher § 48 Abs. 2 VAG, Registrierung § 34d Abs. 10 S. 1 GewO und § 48 Abs. 4 VAG, Befreiung produktakzessorischer Vermittler (Typ A · Phase I)"
     },
     {
      "std": 1,
-     "was": "C 2.1 · Kommunikationskanäle, branchenspezifischer Rest: Kommunikationsmix in den Lebensphasen, Erfolg messen"
+     "was": "B06 · A2 Merkmale der Vertriebstätigkeit § 1a VVG, Zusammenarbeit von Vermittlern und Versicherern § 48 Abs. 1 und 2 VAG (Typ A · Phase I)"
     },
     {
      "std": 1,
-     "was": "C 3.1 · Besonderheiten der Vermittlung: Provisionsabgabeverbot, Nettopolicen, Robo-advice, Weiterbildungspflicht, Wohlverhaltensregeln § 1a VVG (1 von 3 Std.)"
+     "was": "B06 · A3 Kommunikationsmix in den Lebensphasen, angewandt auf Versicherungsprodukte: Kanalwahl je Produkt begründen, Erfolg messen · Auf einen Blick zu C 4 (Typ K · Phase II)"
     }
    ],
    "8": [
     {
      "std": 2,
-     "was": "C 3.1 · Besonderheiten der Vermittlung: Provisionsabgabeverbot, Nettopolicen, Robo-advice, Weiterbildungspflicht, Wohlverhaltensregeln § 1a VVG (2–3 von 3 Std.)"
+     "was": "LS 03.7 · B07 · A1 Provisionsabgabeverbot § 48b VAG und Nettopolicen; Robo-advice § 59 Abs. 1 VVG, § 15 Abs. 3 VAG; Weiterbildungspflicht § 34d Abs. 9 GewO, § 7 VersVermV; Wohlverhaltensregeln § 1a VVG und der Verhaltenskodex des GDV (Typ K · Phase II)"
     },
     {
      "std": 1,
-     "was": "C 4.1 · Datenschutz und Datensicherheit in der Versicherungswirtschaft: Verbot mit Erlaubnisvorbehalt, Einwilligung, Code of Conduct des GDV (1 von 3 Std.)"
+     "was": "B07 · A2 Datenschutz und Datensicherheit im Überblick, Grundsätze Art. 5 Abs. 1 DSGVO: Rechtmäßigkeit, Zweckbindung, Datenminimierung, Transparenz, Speicherbegrenzung; Datensicherheit Art. 32 DSGVO (Typ K · Phase II)"
     }
    ],
    "9": [
     {
      "std": 2,
-     "was": "C 4.1 · Datenschutz und Datensicherheit in der Versicherungswirtschaft: Verbot mit Erlaubnisvorbehalt, Einwilligung, Code of Conduct des GDV (2–3 von 3 Std.)"
+     "was": "LS 03.8 · B08 · A1 Datenschutz in der Versicherungswirtschaft: Verbot mit Erlaubnisvorbehalt, Einwilligung, sensible Daten, Datenaustausch im HIS; Code of Conduct des GDV (Typ K · Phase II)"
     },
     {
      "std": 1,
-     "was": "C 5.1 · Umsetzung im Kundenberatungsgespräch: die Kästen aus Kapitel C 5"
+     "was": "B08 · A2 Umsetzung im Kundenberatungsgespräch: die Kästen aus Kapitel C 5 auf die Beratung übertragen (Typ K · Phase II)"
     }
    ],
    "10": [
     {
      "std": 2,
-     "was": "C 5.1 · Einbettung der Beratung in die Ausbildung, Übersicht der Beratungsphasen"
+     "was": "LS 03.9 · B09 · A1 Einbettung der Beratung in die Ausbildung § 12 VersFinKfl-AusbV; Übersicht der Beratungsphasen, Fall Stefan Klein: Erstinformation § 15 VersVermV, Vergütung nach der VomVO, Vermittlerstatus §§ 59 f. VVG, Dokumentation § 61 Abs. 1 VVG, Informationen des Vermittlers §§ 60 bis 62 VVG, Schadenersatz § 63 VVG, Kundenbetreuung § 6 Abs. 4 VVG (Typ K · Phase II)"
     }
    ],
    "11": [
@@ -828,37 +1004,37 @@ const DATEN = {
     },
     {
      "std": 1,
-     "was": "C 5.2 · Gesprächsvorbereitung und Gesprächseröffnung: Gesprächsanlass, Leitfragen, Small Talk"
+     "was": "LS 03.10 · B10 · A1 Erstinformation § 15 VersVermV, Vermittlerstatus §§ 59 f. VVG, Informationsverzicht § 60 Abs. 3 VVG, Schlichtungsstelle (Typ A · Phase I)"
     },
     {
      "std": 1,
-     "was": "C 6.1 · Erstinformation § 15 VersVermV, Vermittlerstatus §§ 59 f. VVG, Informationsverzicht § 60 Abs. 3 VVG, Schlichtungsstelle"
+     "was": "B10 · A2 Werkstatt: Erstinformation und Statusunterlagen für den eigenen Beratungsfall erstellen und kreuzweise abnehmen (Typ W · Phase III)"
     }
    ],
    "12": [
     {
      "std": 2,
-     "was": "Klassenarbeit Lernfeld 3, 60 Minuten"
+     "was": "LS 03.13 · B13 · Werkstatt Bestandspflege: Anlässe im Bestand erkennen, Kundenkontakt herstellen, einen weiteren Bedarf begründen und die Serviceleistung dazu auswählen · Bewertung aus Sicht des Kunden und des Vermittlers (Typ W · Phase III)"
     },
     {
      "std": 1,
-     "was": "Rückgabe der Klassenarbeit und Fehlerkatalog"
+     "was": "Klassenarbeit Lernfeld 3, 45 Minuten (Phase III)"
     }
    ],
    "13": [
     {
      "std": 2,
-     "was": "C 6.2 · Einwilligungs- und Kommunikationserklärung; Analysephase und bedarfsbezogene Beratung, Beratungsablauf § 61 Abs. 1 VVG"
+     "was": "LS 03.11 · B11 · Rückgabe der Klassenarbeit mit Fehlerkatalog (20 Min.) · Einwilligungs- und Kommunikationserklärung Art. 6 Abs. 1 lit. a, Art. 7 und Art. 21 DSGVO; Dokumentation des Beratungsgesprächs §§ 61, 62 Abs. 1 VVG; Analysephase und bedarfsbezogene Beratung § 61 Abs. 1 VVG (Typ K · Phase II)"
     }
    ],
    "14": [
     {
      "std": 2,
-     "was": "C 7.1 · Angebotsphase: produktbezogene Beratung und Begründung der Produktempfehlung"
+     "was": "LS 03.12 · B12 · Angebotsphase: produktbezogene Beratung und Begründung der Produktempfehlung § 61 Abs. 1 VVG (Typ W · Phase III)"
     },
     {
      "std": 1,
-     "was": "C 7.2 · Prüfungsphase und Antragserklärung; Beratungsdokumentation §§ 61 Abs. 2, 62 Abs. 1, 6a VVG, Schadenersatzpflicht § 63 VVG · Kundenbetreuung § 6 Abs. 4 VVG und „Auf einen Blick zu C 7“ als Leseauftrag mit Quiz"
+     "was": "B12 · Prüfungsphase und Antragserklärung; Beratungsdokumentation §§ 61 Abs. 2, 62 Abs. 1, 6a VVG, Schadenersatzpflicht § 63 VVG · Kundenbetreuung § 6 Abs. 4 VVG und „Auf einen Blick zu C 7“ als Leseauftrag mit Quiz (Typ W · Phase III)"
     }
    ]
   },
@@ -872,91 +1048,83 @@ const DATEN = {
    "2": [
     {
      "std": 2,
-     "was": "Lerntechniken II: einen Fachtext erschließen · markieren, strukturieren, Fachwortkartei, exzerpieren (Phase I)"
+     "was": "B01 · Lerntechniken II: einen Fachtext erschließen · markieren, strukturieren, Fachwortkartei, exzerpieren (Phase I)"
     }
    ],
    "3": [
     {
      "std": 2,
-     "was": "Kommunikationskanäle traditionell und digital, Kommunikationsmix in den fünf Lebensphasen, Erfolgsfaktoren (Phase I)"
+     "was": "B02 · Kommunikationskanäle traditionell und digital, Kommunikationsmix in den fünf Lebensphasen, Erfolgsfaktoren (Phase I)"
     }
    ],
    "4": [
     {
      "std": 2,
-     "was": "Das Kommunikationsquadrat: Sender, Empfänger und die vier Seiten einer Nachricht · die sieben Gesprächsregeln (Phase II)"
+     "was": "B03 · Das Kommunikationsquadrat: Sender, Empfänger und die vier Seiten einer Nachricht · die sieben Gesprächsregeln (Phase II)"
     }
    ],
    "5": [
     {
      "std": 2,
-     "was": "Offene Fragen: W-Fragen, Informationsgewinnung, Produktauswahl, sensible Fragen (Phase II)"
+     "was": "B04 · Offene Fragen: W-Fragen, Informationsgewinnung, Produktauswahl, sensible Fragen (Phase II)"
     }
    ],
    "6": [
     {
      "std": 2,
-     "was": "Einordnungs-, Gegen- und hypothetische Fragen · geschlossene Fragen: Kontroll- und Alternativfrage (Phase II)"
+     "was": "B04 · Einordnungs-, Gegen- und hypothetische Fragen · geschlossene Fragen: Kontroll- und Alternativfrage (Phase II)"
     }
    ],
    "7": [
     {
      "std": 2,
-     "was": "Einwände als Chance · Vorwand und Einwand unterscheiden · die Methoden 5.3.3.1 bis 5.3.3.4 (Phase II)"
+     "was": "B05 · Einwände als Chance · Vorwand und Einwand unterscheiden · die Methoden 5.3.3.1 bis 5.3.3.4 (Phase II)"
     }
    ],
    "8": [
     {
      "std": 2,
-     "was": "Die Methoden 5.3.3.5 bis 5.3.3.11 · Übersicht „Auf einen Blick zu C 5“ · Ende der Einwandbehandlung (Phase II)"
+     "was": "B05 · Die Methoden 5.3.3.5 bis 5.3.3.11 · Übersicht „Auf einen Blick zu C 5“ · Ende der Einwandbehandlung (Phase II)"
     }
    ],
    "9": [
     {
      "std": 2,
-     "was": "AIDA und KIV-Modell, Evaluationsbogen · Gesprächsvorbereitung und Gesprächseröffnung, Small Talk (Phase I)"
+     "was": "B06 · AIDA und KIV-Modell, Evaluationsbogen · Gesprächsvorbereitung und Gesprächseröffnung, Small Talk (Phase I)"
     }
    ],
    "10": [
     {
      "std": 1,
-     "was": "Eine Kundenbeschwerde beantworten: Sachverhalt, Ton, Aufbau des Antwortschreibens (Phase II)"
+     "was": "Pufferstunde: Rückstand aufholen — sonst eine Kundenbeschwerde beantworten: Sachverhalt, Ton, Aufbau des Antwortschreibens (Phase II)"
     }
    ],
    "11": [
     {
-     "std": 1,
-     "was": "Klassenarbeit (Phase III)"
-    },
-    {
-     "std": 1,
-     "was": "Das Beratungsgespräch führen: persönlich, telefonisch, als Videoberatung · Beobachtungsbogen (1 von 2 Std.) (Phase III)"
+     "std": 2,
+     "was": "B07 · Das Beratungsgespräch führen: persönlich, telefonisch, als Videoberatung · Beobachtungsbogen (1 und 2 von 3 Std.) (Phase III)"
     }
    ],
    "12": [
     {
      "std": 1,
-     "was": "Das Beratungsgespräch führen: persönlich, telefonisch, als Videoberatung · Beobachtungsbogen (2 von 2 Std.) (Phase III)"
+     "was": "B07 · Das Beratungsgespräch führen: persönlich, telefonisch, als Videoberatung · Beobachtungsbogen (3 von 3 Std.) (Phase III)"
     },
     {
      "std": 1,
-     "was": "Auswertung mit dem Feedbackbogen · die Beratungsdokumentation als Textsorte: klar und verständlich, in Textform übermittelt (1 von 2 Std.) (Phase III)"
+     "was": "B07 · Auswertung mit dem Feedbackbogen · die Beratungsdokumentation als Textsorte: klar und verständlich, in Textform übermittelt (1 von 2 Std.) (Phase III)"
     }
    ],
    "13": [
     {
      "std": 1,
-     "was": "Auswertung mit dem Feedbackbogen · die Beratungsdokumentation als Textsorte: klar und verständlich, in Textform übermittelt (2 von 2 Std.) (Phase III)"
+     "was": "B07 · Auswertung mit dem Feedbackbogen · die Beratungsdokumentation als Textsorte: klar und verständlich, in Textform übermittelt (2 von 2 Std.) (Phase III)"
     }
    ],
    "14": [
     {
-     "std": 1,
-     "was": "Lerntechniken III: Mindmap, Lernplakat, Präsentieren (Phase II)"
-    },
-    {
-     "std": 1,
-     "was": "Rückgabe der Klassenarbeit und Fehlerkatalog"
+     "std": 2,
+     "was": "B08 · Lerntechniken III: Mindmap, Lernplakat, Präsentieren (Phase II)"
     }
    ]
   },
@@ -978,231 +1146,239 @@ const DATEN = {
    "2": [
     {
      "std": 2,
-     "was": "LS 4.1 · U1 Risikodeckung für den privaten Haushalt: Bedarfsfeld Wohnen bei Familie Nowak, Aufbau des Bedingungswerks VHB 2021"
-    },
-    {
-     "std": 3,
-     "was": "U2 Sachinbegriff „gesamter Hausrat“, Wertsachen und Bargeld mit Entschädigungsgrenzen, nicht versicherte Sachen"
+     "was": "LS 4.1 · B01 · A1 Risikodeckung für den privaten Haushalt: Bedarfsfeld Wohnen bei Familie Nowak, Aufbau des Bedingungswerks VHB 2021 (Phase I)"
     },
     {
      "std": 2,
-     "was": "U3 Gefahren I: Brandbegriff mit seinen drei Merkmalen · Blitzschlag, Überspannung, Explosion und Luftfahrzeuge in einer Stunde"
+     "was": "B01 · A2 Sachinbegriff „gesamter Hausrat“, Wertsachen und Bargeld mit Entschädigungsgrenzen, nicht versicherte Sachen (Phase I)"
     },
     {
-     "std": 2,
-     "was": "U4 Gefahren II: Katalog der Einbruchhandlungen mit Vandalismus · Raub gegen einfachen Diebstahl"
+     "std": 1,
+     "was": "B02 · A1 Gefahren I: Brandbegriff mit seinen drei Merkmalen · Blitzschlag, Überspannung, Explosion und Luftfahrzeuge in einer Stunde (Phase I)"
+    },
+    {
+     "std": 1,
+     "was": "B02 · A2 Gefahren II: Katalog der Einbruchhandlungen mit Vandalismus · Raub gegen einfachen Diebstahl (Phase I)"
+    },
+    {
+     "std": 1,
+     "was": "B02 · A3 Gefahren III: Leitungswasser, bestimmungswidriger Austritt · Rohrbruch- und Frostschäden (Phase I)"
+    },
+    {
+     "std": 1,
+     "was": "B02 · A4 Gefahren IV: Sturm ab Windstärke 8 und Hagel in einer Stunde · weitere Naturgefahren als Zusatzbaustein (Phase I) · Ende LS 4.1"
+    },
+    {
+     "std": 1,
+     "was": "B02 · A5 Generelle Ausschlüsse nach Nr. 8 VHB 2021 · Aufbau des Prüfschemas (Phase I)"
     }
    ],
    "3": [
     {
      "std": 2,
-     "was": "U5 Gefahren III: Leitungswasser, bestimmungswidriger Austritt · Rohrbruch- und Frostschäden"
-    },
-    {
-     "std": 2,
-     "was": "U6 Gefahren IV: Sturm ab Windstärke 8 und Hagel in einer Stunde · weitere Naturgefahren als Zusatzbaustein"
-    },
-    {
-     "std": 2,
-     "was": "U7 Generelle Ausschlüsse nach Nr. 8 VHB 2021 · Aufbau des Prüfschemas · Ende LS 4.1"
+     "was": "LS 4.2 · B03 · A1 Versicherungsort und räumlicher Geltungsbereich, Außenversicherung mit 3 Monaten und 10 Prozent, Wohnungswechsel (Phase I)"
     },
     {
      "std": 3,
-     "was": "LS 4.2 · U8 Versicherungsort und räumlicher Geltungsbereich, Außenversicherung mit 3 Monaten und 10 Prozent, Wohnungswechsel"
+     "was": "B03 · A2 Klauseln PK 7110 und Erhöhung der Wertsachengrenze · Unterversicherungsverzicht nach PK 7712 (Phase I)"
+    },
+    {
+     "std": 3,
+     "was": "B04 · A1 Glasversicherung nach AGlB 2021, Ersatzleistung und Anpassung (Phase I) · Ende LS 4.2"
+    },
+    {
+     "std": 1,
+     "was": "LS 4.3 · B04 · A2 Neuwert, gemeiner Wert und Versicherungssumme · Vorsorgebetrag und obligatorische Summenanpassung (1 von 2 Std.) (Phase I)"
     }
    ],
    "4": [
     {
-     "std": 2,
-     "was": "U9 Versicherte Kosten von Aufräumung bis Schlossänderung · Aufwendungsersatz nach §§ 82, 83 VVG"
-    },
-    {
-     "std": 2,
-     "was": "U10 Klauseln PK 7110 und Erhöhung der Wertsachengrenze · Unterversicherungsverzicht nach PK 7712"
-    },
-    {
-     "std": 2,
-     "was": "U11 Glasversicherung nach AGlB 2021, Ersatzleistung und Anpassung · Ende LS 4.2"
-    },
-    {
-     "std": 2,
-     "was": "LS 4.3 · U12 Neuwert, gemeiner Wert und Versicherungssumme · Vorsorgebetrag und obligatorische Summenanpassung"
-    },
-    {
      "std": 1,
-     "was": "U13 Tarifaufbau, Tarifzonen, Grundprämie · Zuschläge, Nachlässe, Ratenzahlung · Versicherungsteuer und vollständiges Prämienschema · Berechnungswerkstatt im GAP-Format (1 von 4 Std.)"
+     "was": "B05 · A1 Neuwert, gemeiner Wert und Versicherungssumme · Vorsorgebetrag und obligatorische Summenanpassung (2 von 2 Std.) (Phase I)"
+    },
+    {
+     "std": 4,
+     "was": "B05 · A2 Tarifaufbau, Tarifzonen, Grundprämie · Zuschläge, Nachlässe, Ratenzahlung · Versicherungsteuer und vollständiges Prämienschema · Berechnungswerkstatt im GAP-Format (Phase I)"
+    },
+    {
+     "std": 2,
+     "was": "B06 · A1 Versicherungsperiode und tagegenaue Abrechnung · Neuordnung, Nach- und Rückbeitrag (Phase I) · Ende LS 4.3"
+    },
+    {
+     "std": 2,
+     "was": "LS 4.4 · B06 · A2 Gefahrstandspflicht und Anzeigepflicht, Erheblichkeit und Rechtsfolgen der Gefahrerhöhung nach VVG (Phase I)"
     }
    ],
    "5": [
     {
      "std": 3,
-     "was": "U13 Tarifaufbau, Tarifzonen, Grundprämie · Zuschläge, Nachlässe, Ratenzahlung · Versicherungsteuer und vollständiges Prämienschema · Berechnungswerkstatt im GAP-Format (2 bis 4 von 4 Std.)"
+     "was": "B07 · A1 Formelle und materielle Deckungsprüfung, Schadenarten und Entschädigung, Entschädigungsgrenzen und Mehrwertsteuer (Phase I)"
     },
     {
      "std": 2,
-     "was": "U14 Versicherungsperiode und tagegenaue Abrechnung · Neuordnung, Nach- und Rückbeitrag · Ende LS 4.3"
+     "was": "B07 · A2 Unterversicherung mit Formel und Vorsorgebetrag · Leistungsfortfall, Mehrfachversicherung, Versicherungsbetrug (Phase I) · Ende Phase I"
     },
     {
      "std": 3,
-     "was": "LS 4.4 · U15 Gefahrstandspflicht und Anzeigepflicht, Erheblichkeit und Rechtsfolgen der Gefahrerhöhung, Sicherheitsvorschriften"
+     "was": "B08 · A1 Phase II · Ko-Konstruktion: Fallkonferenz Bedarfsanalyse Nowak · Gefahren im Tandem mit Kreuzabnahme am Selbstprüfschlüssel"
     },
     {
      "std": 1,
-     "was": "U16 Abwendung, Minderung und Anzeige des Schadens · Auskunftspflicht und Rechtsfolgen der Verletzung (1 von 2 Std.)"
+     "was": "B08 · A2 Ko-Konstruktion: Streitgespräch einfacher Diebstahl oder Einbruchdiebstahl, Rechenkonferenz, Schadenkonferenz, Meilenstein I (1 von 4 Std.) (Phase II)"
     }
    ],
    "6": [
     {
-     "std": 1,
-     "was": "U16 Abwendung, Minderung und Anzeige des Schadens · Auskunftspflicht und Rechtsfolgen der Verletzung (2 von 2 Std.)"
+     "std": 3,
+     "was": "B09 · A1 Ko-Konstruktion: Streitgespräch einfacher Diebstahl oder Einbruchdiebstahl, Rechenkonferenz, Schadenkonferenz, Meilenstein I (2 bis 4 von 4 Std.) (Phase II)"
     },
     {
      "std": 3,
-     "was": "U17 Formelle und materielle Deckungsprüfung, Schadenarten und Entschädigung, Entschädigungsgrenzen und Mehrwertsteuer"
+     "was": "B10 · A1 Ko-Kreation: Prüfschema „Zahlt der Versicherer?“ aufbauen und erproben · Rechenblatt Prämie Hausrat und Glas (Phase II)"
     },
     {
      "std": 2,
-     "was": "U18 Unterversicherung mit Formel und Vorsorgebetrag · Leistungsfortfall, Mehrfachversicherung, Versicherungsbetrug · Ende Phase I"
+     "was": "B11 · A1 Ko-Kreation: Rechenblatt Entschädigung · Kundenmerkblatt „Was ist versichert?“ (Phase II)"
     },
     {
-     "std": 3,
-     "was": "Phase II · Ko-Konstruktion: Fallkonferenz Bedarfsanalyse Nowak · Gefahren im Tandem mit Kreuzabnahme am Selbstprüfschlüssel"
+     "std": 1,
+     "was": "B11 · A2 Ko-Kreation: Beratungsleitfaden Hausrat, Einwandbehandlung, Beratungsprotokoll und Dokumentationspflicht (1 von 3 Std.) (Phase II)"
     }
    ],
    "7": [
     {
-     "std": 4,
-     "was": "Ko-Konstruktion: Streitgespräch einfacher Diebstahl oder Einbruchdiebstahl, Rechenkonferenz, Schadenkonferenz, Meilenstein I"
-    },
-    {
-     "std": 3,
-     "was": "Ko-Kreation: Prüfschema „Zahlt der Versicherer?“ aufbauen und erproben · Rechenblatt Prämie Hausrat und Glas"
+     "std": 2,
+     "was": "B12 · A1 Ko-Kreation: Beratungsleitfaden Hausrat, Einwandbehandlung, Beratungsprotokoll und Dokumentationspflicht (2 und 3 von 3 Std.) (Phase II)"
     },
     {
      "std": 2,
-     "was": "Ko-Kreation: Rechenblatt Entschädigung · Kundenmerkblatt „Was ist versichert?“"
+     "was": "B12 · A2 Ko-Kreation: Angebot und Nachtragsangebot formulieren, Kundenschreiben zur Schadenregulierung (Phase II)"
+    },
+    {
+     "std": 4,
+     "was": "B13 · A1 Meilenstein II mit Peer-Review zwischen den Tandems, Überarbeitung, Probelauf am bekannten Fall, Punktvorhersage (Phase II)"
+    },
+    {
+     "std": 1,
+     "was": "B13 · A2 Prüfungsformat: Aufgabe 3 der GAP 1 lesen und gliedern, eine vollständige Aufgabe 3 bearbeiten (1 von 2 Std.) (Phase II)"
     }
    ],
    "8": [
     {
-     "std": 3,
-     "was": "Ko-Kreation: Beratungsleitfaden Hausrat, Einwandbehandlung, Beratungsprotokoll und Dokumentationspflicht"
+     "std": 1,
+     "was": "B14 · A1 Prüfungsformat: Aufgabe 3 der GAP 1 lesen und gliedern, eine vollständige Aufgabe 3 bearbeiten (2 von 2 Std.) (Phase II) · Ende Phase II"
     },
     {
      "std": 2,
-     "was": "Ko-Kreation: Angebot und Nachtragsangebot formulieren, Kundenschreiben zur Schadenregulierung"
+     "was": "Klassenarbeit Teil 1 im Format der 3. Aufgabe (Phase III)"
     },
     {
-     "std": 4,
-     "was": "Meilenstein II mit Peer-Review zwischen den Tandems, Überarbeitung, Probelauf am bekannten Fall, Punktvorhersage"
+     "std": 1,
+     "was": "B14 · A3 Phase III · Auftragsklärung: der Fehlerkatalog der Klassenarbeit ist der erste Auftrag der Agentur; danach übernimmt sie drei Kundenvorgänge, die zwei Rollen"
+    },
+    {
+     "std": 3,
+     "was": "B15 · A1 Drei unbekannte Hausratvorgänge bearbeiten: Bedarf und Angebot, Vertragsänderung, Schadenregulierung (Phase III)"
+    },
+    {
+     "std": 2,
+     "was": "B15 · A2 Dossier fertigstellen und einreichen · Abnahme durch die Prüfstelle am Rasterbogen (1 und 2 von 3 Std.) (Phase III)"
     }
    ],
    "9": [
     {
-     "std": 2,
-     "was": "Prüfungsformat: Aufgabe 3 der GAP 1 lesen und gliedern, eine vollständige Aufgabe 3 bearbeiten · Ende Phase II"
+     "std": 1,
+     "was": "B16 · A1 Dossier fertigstellen und einreichen · Abnahme durch die Prüfstelle am Rasterbogen (3 von 3 Std.) (Phase III)"
     },
     {
      "std": 2,
-     "was": "Klassenarbeit Teil 1 im Format der 3. Aufgabe"
+     "was": "B16 · A2 Rückweisungen sichten, Nachbesserung planen und durchführen (Phase III)"
     },
     {
      "std": 1,
-     "was": "Phase III · Auftragsklärung: der Fehlerkatalog der Klassenarbeit ist der erste Auftrag der Agentur; danach übernimmt sie drei Kundenvorgänge, die zwei Rollen"
+     "was": "B17 · A1 Kolloquium: Fallvorstellung vor dem Fachpublikum (Phase III)"
     },
     {
      "std": 3,
-     "was": "Drei unbekannte Hausratvorgänge bearbeiten: Bedarf und Angebot, Vertragsänderung, Schadenregulierung"
+     "was": "B17 · A2 Auswertung der Abnahmeprotokolle · Reflexion und Ausblick auf die Wohngebäudeversicherung (Phase III) · Ende Teil 1"
     },
     {
      "std": 1,
-     "was": "Dossier fertigstellen und einreichen · Abnahme durch die Prüfstelle am Rasterbogen (1 von 3 Std.)"
+     "was": "B18 · A1 Versicherte Sachen am Gebäude: Bestandteile und Zubehör abgrenzen (Phase I) · Ende LS 4.5"
+    },
+    {
+     "std": 1,
+     "was": "B18 · A2 Versicherte Gefahren und Schäden nach VGB 2021, Katalog im Vergleich, weitere Naturgefahren am Gebäude (1 von 2 Std.) (Phase I)"
     }
    ],
    "10": [
     {
-     "std": 2,
-     "was": "Dossier fertigstellen und einreichen · Abnahme durch die Prüfstelle am Rasterbogen (2 und 3 von 3 Std.)"
+     "std": 1,
+     "was": "B19 · A1 Versicherte Gefahren und Schäden nach VGB 2021, die neunzehn Fälle der Lernkontrollen am Gebäude (2 von 2 Std.) (Phase I)"
     },
     {
-     "std": 2,
-     "was": "Rückweisungen sichten, Nachbesserung planen und durchführen"
+     "std": 3,
+     "was": "LS 4.6 · B19 · A2 Versicherungswert „Wert 1914“ und Gleitende Neuwertversicherung · die Versicherungssumme 1914 ermitteln · dazu die ergänzenden Versicherungsverträge am Gebäude (Phase I)"
     },
     {
      "std": 1,
-     "was": "Kolloquium: Fallvorstellung vor dem Fachpublikum"
+     "was": "B19 · A3 Tarifierung und Prämienberechnung mit dem Anpassungsfaktor, der Beitrag in sechs Schritten (1 von 3 Std.) (Phase I)"
     }
    ],
    "11": [
     {
-     "std": 3,
-     "was": "Auswertung der Abnahmeprotokolle · Reflexion und Ausblick auf die Wohngebäudeversicherung · Ende Teil 1"
-    },
-    {
-     "std": 1,
-     "was": "LS 4.5 · W1 Risikodeckung für ein Wohngebäude, vor und nach der Bezugsfertigkeit"
-    },
-    {
-     "std": 1,
-     "was": "W2 Versicherte Sachen am Gebäude: Bestandteile und Zubehör abgrenzen"
+     "std": 2,
+     "was": "B20 · A1 Tarifierung und Prämienberechnung mit dem Anpassungsfaktor, der Beitrag in sechs Schritten (2 und 3 von 3 Std.) (Phase I)"
     },
     {
      "std": 2,
-     "was": "W3 Versicherte Gefahren und Schäden nach VGB 2021, Katalog im Vergleich, weitere Naturgefahren am Gebäude"
+     "was": "B20 · A2 Gleitender Zeitwert und gemeiner Wert · Neuordnung und vorzeitige Beendigung · Sicherheitsvorschriften am Gebäude · Veräußerung und Vererbung (Phase I) · Ende LS 4.6"
     },
     {
-     "std": 1,
-     "was": "W4 Nicht versicherte Schäden · versicherte Kosten und Mietausfall als Infoteil · Ende LS 4.5"
+     "std": 3,
+     "was": "B21 · A1 Rechen- und Fallwerkstatt über beide Sparten: Deckungsprüfung, Versicherungswert, Prämie und Entschädigung (Phase I)"
     },
     {
-     "std": 1,
-     "was": "LS 4.6 · W7 Versicherungswert „Wert 1914“ und Gleitende Neuwertversicherung · die Versicherungssumme 1914 ermitteln (1 von 3 Std.)"
+     "std": 2,
+     "was": "Klassenarbeit Teil 2 im Format der 3. Aufgabe, über beide Sparten (Phase III)"
     }
    ],
    "12": [
     {
-     "std": 2,
-     "was": "W7 Versicherungswert „Wert 1914“ und Gleitende Neuwertversicherung · die Versicherungssumme 1914 ermitteln (2 und 3 von 3 Std.)"
+     "std": 1,
+     "was": "B22 · A1 Auswertung und Fehlerkatalog der Klassenarbeit"
     },
     {
-     "std": 3,
-     "was": "W8 Tarifierung und Prämienberechnung mit dem Anpassungsfaktor, der Beitrag in sechs Schritten"
+     "std": 4,
+     "was": "B22 · A2 Phase II Gebäude · Ko-Konstruktion Fallkonferenz Neubau und Bestand · Ko-Kreation Rechenblatt Wert 1914, Beratungsleitfaden, Merkblatt Eigentumswechsel"
     },
     {
-     "std": 2,
-     "was": "W11 Schadenregulierung am Gebäude, Unterversicherung"
-    },
-    {
-     "std": 2,
-     "was": "W9 Neuordnung, Veräußerung und Vererbung"
+     "std": 4,
+     "was": "B23 · A1 Ko-Kreation: Rechenblatt Wert 1914 und gleitende Neuwertversicherung, Tandems am selben Objekt, Kreuzabnahme am Selbstprüfschlüssel (Phase II)"
     }
    ],
    "13": [
     {
-     "std": 2,
-     "was": "W10 Summenmodell und Wohnflächenmodell im Vergleich · Regress · Ende LS 4.6"
+     "std": 4,
+     "was": "B24 · A1 Ko-Kreation: Tarifierung und Beitragsrechnung am Fall, Anpassungsfaktor und Selbstbehalt begründen (Phase II)"
     },
     {
      "std": 3,
-     "was": "Rechen- und Fallwerkstatt über beide Sparten: Deckungsprüfung, Versicherungswert, Prämie und Entschädigung"
-    },
-    {
-     "std": 2,
-     "was": "Klassenarbeit Teil 2 im Format der 3. Aufgabe, über beide Sparten"
+     "was": "B25 · A1 Ko-Konstruktion: Deckungsprüfung über beide Sparten — Prüfschema Gebäude gegen Prüfschema Hausrat, Streitgespräch am Grenzfall (1 bis 3 von 4 Std.) (Phase II)"
     }
    ],
    "14": [
     {
      "std": 1,
-     "was": "Auswertung und Fehlerkatalog der Klassenarbeit"
+     "was": "B26 · A1 Ko-Konstruktion: Deckungsprüfung über beide Sparten — Prüfschema Gebäude gegen Prüfschema Hausrat, Streitgespräch am Grenzfall (4 von 4 Std.) (Phase II)"
     },
     {
      "std": 4,
-     "was": "Phase II Gebäude · Ko-Konstruktion Fallkonferenz Neubau und Bestand · Ko-Kreation Rechenblatt Wert 1914, Beratungsleitfaden, Merkblatt Eigentumswechsel"
+     "was": "B26 · A2 Ko-Kreation: Beratungsleitfaden Wohngebäude und Schadenregulierung am Fall, Kundenschreiben zur Entschädigung (Phase II)"
     },
     {
      "std": 4,
-     "was": "Phase III Gebäude, gestrafft · Auftragsklärung, zwei Gebäudevorgänge, Abnahme und Rückblick · Ende Teil 2"
+     "was": "B27 · A1 Phase III Gebäude, gestrafft · Auftragsklärung, zwei Gebäudevorgänge, Abnahme und Rückblick · Ende Teil 2"
     }
    ]
   },
@@ -1220,135 +1396,139 @@ const DATEN = {
    "2": [
     {
      "std": 3,
-     "was": "LS 05.1 · B 01 · Rechtsquellen und Haftungsarten; Tatbestand des § 823 Abs. 1 BGB; Deliktsfähigkeit; Gefährdungshaftung (Typ A · Phase I)"
+     "was": "LS 05.1 · B01 · Rechtsquellen und Haftungsarten; Tatbestand des § 823 Abs. 1 BGB; Deliktsfähigkeit; Gefährdungshaftung (Typ A · Phase I)"
     },
     {
      "std": 3,
-     "was": "B 02 · Prüfschema § 823 BGB, Tandems am selben Fall, Kreuzabnahme am Selbstprüfschlüssel (Typ K · Phase II)"
+     "was": "B02 · Prüfschema § 823 BGB, Tandems am selben Fall, Kreuzabnahme am Selbstprüfschlüssel (Typ K · Phase II)"
     }
    ],
    "3": [
     {
      "std": 3,
-     "was": "B 03 · Haftung aus vermutetem Verschulden; Amts-, gemeinsame und Vertragshaftung; Umfang des zu ersetzenden Schadens (Typ A · Phase I)"
+     "was": "B03 · Haftung aus vermutetem Verschulden; Amts-, gemeinsame und Vertragshaftung; Umfang des zu ersetzenden Schadens (Typ A · Phase I)"
     },
     {
      "std": 3,
-     "was": "B 04 · Haftungsart bestimmen und begründen, Kreuzabnahme zwischen Nachbartandems (Typ K · Phase II)"
+     "was": "B04 · Haftungsart bestimmen und begründen, Kreuzabnahme zwischen Nachbartandems (Typ K · Phase II)"
     }
    ],
    "4": [
     {
      "std": 2,
-     "was": "B 05 · Anspruch dem Grunde nach und der Höhe nach in einem Gang (Typ K · Phase II)"
+     "was": "B05 · Anspruch dem Grunde nach und der Höhe nach in einem Gang (Typ K · Phase II)"
     },
     {
      "std": 4,
-     "was": "B 06 · Werkstatt: Leitfaden „Haftung — wer zahlt wann?“ für den Kundenservice (Typ W · Phase III)"
+     "was": "B06 · Werkstatt: Leitfaden „Haftung: wer zahlt wann?“ für den Kundenservice (Typ W · Phase III)"
     }
    ],
    "5": [
     {
      "std": 3,
-     "was": "LS 05.2 · B 07 · Haftpflichtrisiko und Aufgaben der Haftpflichtversicherung; versichertes Risiko und versicherte Personen; Gegenstand der Versicherung (Typ A · Phase I)"
+     "was": "LS 05.2 · B07 · Haftpflichtrisiko und Aufgaben der Haftpflichtversicherung; versichertes Risiko und versicherte Personen; Gegenstand der Versicherung (Typ A · Phase I)"
     },
     {
      "std": 3,
-     "was": "B 08 · Versicherte Personen und zeitliche Festlegung des Versicherungsfalls am Fall (Typ K · Phase II)"
+     "was": "B08 · Versicherte Personen und zeitliche Festlegung des Versicherungsfalls am Fall (Typ K · Phase II)"
     }
    ],
    "6": [
     {
      "std": 3,
-     "was": "B 09 · Leistungspflichten des Versicherers; besondere Regelungen einzelner privater Risiken; allgemeine Ausschlüsse (Typ A · Phase I)"
+     "was": "B09 · Leistungspflichten des Versicherers; besondere Regelungen einzelner privater Risiken; allgemeine Ausschlüsse (Typ A · Phase I)"
     },
     {
      "std": 3,
-     "was": "B 10 · Einschluss oder Ausschluss: der Entscheidungsgang am Fall (Typ K · Phase II)"
+     "was": "B10 · Einschluss oder Ausschluss: der Entscheidungsgang am Fall (Typ K · Phase II)"
     }
    ],
    "7": [
     {
      "std": 2,
-     "was": "B 11 · Deckungsprüfung als geschlossener Gang: Haftung, Deckung, Ausschluss (Typ K · Phase II)"
+     "was": "B11 · Deckungsprüfung als geschlossener Gang: Haftung, Deckung, Ausschluss (Typ K · Phase II)"
     },
     {
      "std": 4,
-     "was": "B 12 · Werkstatt: Beratungsfall Privat-Haftpflicht mit schriftlicher Deckungsauskunft (Typ W · Phase III)"
+     "was": "B12 · Werkstatt: Beratungsfall Privat-Haftpflicht mit schriftlicher Deckungsauskunft (Typ W · Phase III)"
     }
    ],
    "8": [
     {
-     "std": 4,
-     "was": "LS 05.3 · B 13 · Risikoveränderung und Vorsorgeversicherung; Beginn, Tarifmerkmale und Prämienberechnung; Obliegenheiten, Dauer und Ende; Beispielfall (Typ A · Phase I)"
+     "std": 3,
+     "was": "LS 05.3 · B13 · Risikoveränderung und Vorsorgeversicherung; Beginn, Tarifmerkmale und Prämienberechnung; Obliegenheiten, Dauer und Ende; Beispielfall (Typ A · Phase I)"
     },
     {
      "std": 2,
-     "was": "B 14 · Prämie berechnen und die Berechnung begründen (Typ K · Phase II)"
+     "was": "B14 · Prämie berechnen und die Berechnung begründen (Typ K · Phase II)"
+    },
+    {
+     "std": 1,
+     "was": "Wiederholung: Haftung und Deckung im Überblick — Vorbereitung auf die Klassenarbeit"
     }
    ],
    "9": [
     {
      "std": 3,
-     "was": "B 15 · Obliegenheiten und Vertragsende am Fall (Typ K · Phase II)"
+     "was": "B15 · Obliegenheiten und Vertragsende am Fall (Typ K · Phase II)"
     },
     {
-     "std": 3,
-     "was": "B 16 · Werkstatt: Leistungsfall regulieren, Beispielfall Krüger (Typ W · Phase III)"
+     "std": 2,
+     "was": "B16 · Werkstatt: Leistungsfall regulieren, Beispielfall Krüger (Typ W · Phase III)"
+    },
+    {
+     "std": 1,
+     "was": "Klassenarbeit Lernfeld 5 (Phase III) · Rückgabe und Berichtigung in Woche 10"
     }
    ],
    "10": [
     {
      "std": 3,
-     "was": "LS 05.4 · B 17 · Gründe und Geltungsbereich der Rechtsschutzversicherung; versicherbare Lebensbereiche P, B, VK, D, W; mitversicherte Personen (Typ A · Phase I)"
-    },
-    {
-     "std": 1,
-     "was": "Klassenarbeit Lernfeld 5 · Rückgabe und Berichtigung in Woche 11"
-    }
-   ],
-   "11": [
-    {
-     "std": 2,
-     "was": "B 18 · Leistungsarten der Rechtsschutzversicherung einschließlich Opfer- und Cyber-Rechtsschutz; Leistungsumfang (Typ A · Phase I)"
-    },
-    {
-     "std": 3,
-     "was": "B 19 · Lebensbereich und Leistungsart zusammenführen: der Leistungsspiegel am Fall (Typ K · Phase II)"
+     "was": "LS 05.4 · B17 · Gründe und Geltungsbereich der Rechtsschutzversicherung; versicherbare Lebensbereiche P, B, VK, D, W; mitversicherte Personen (Typ A · Phase I)"
     },
     {
      "std": 1,
      "was": "Rückgabe und Berichtigung der Klassenarbeit Lernfeld 5 · Fehlerkatalog für die Leistungsfallprüfung"
     }
    ],
+   "11": [
+    {
+     "std": 2,
+     "was": "B18 · Leistungsarten der Rechtsschutzversicherung einschließlich Opfer- und Cyber-Rechtsschutz; Leistungsumfang (Typ A · Phase I)"
+    },
+    {
+     "std": 4,
+     "was": "B19 · Lebensbereich und Leistungsart zusammenführen: der Leistungsspiegel am Fall (Typ K · Phase II)"
+    }
+   ],
    "12": [
     {
      "std": 3,
-     "was": "B 20 · Leistungsumfang berechnen, Abgrenzung zur Haftpflichtversicherung (Typ K · Phase II)"
+     "was": "B20 · Leistungsumfang berechnen, Abgrenzung zur Haftpflichtversicherung (Typ K · Phase II)"
     },
     {
      "std": 3,
-     "was": "B 21 · Werkstatt: Bedarf ermitteln und Angebot erstellen (Typ W · Phase III)"
+     "was": "B21 · Werkstatt: Bedarf ermitteln und Angebot erstellen (Typ W · Phase III)"
     }
    ],
    "13": [
     {
      "std": 2,
-     "was": "LS 05.5 · B 22 · Ausgeschlossene Rechtsangelegenheiten: Wartezeiten, inhaltliche Ausschlüsse, Einschränkung der Leistungspflicht; Versicherungsfall (Typ A · Phase I)"
+     "was": "LS 05.5 · B22 · Ausgeschlossene Rechtsangelegenheiten: Wartezeiten, inhaltliche Ausschlüsse, Einschränkung der Leistungspflicht; Versicherungsfall (Typ A · Phase I)"
     },
     {
      "std": 2,
-     "was": "B 23 · Wartezeit und Ausschluss prüfen · Rückgabe und Berichtigung von UB 3 (Typ K · Phase II)"
+     "was": "B23 · Wartezeit und Ausschluss prüfen · Rückgabe und Berichtigung von UB 3 (Typ K · Phase II)"
     }
    ],
    "14": [
     {
      "std": 3,
-     "was": "B 24 · Rechtsschutzfall: Voraussetzungen, Ablehnung wegen Erfolgsaussicht oder Mutwilligkeit, Obliegenheiten (Typ K · Phase II)"
+     "was": "B24 · Rechtsschutzfall: Voraussetzungen, Ablehnung wegen Erfolgsaussicht oder Mutwilligkeit, Obliegenheiten (Typ K · Phase II)"
     },
     {
      "std": 2,
-     "was": "B 25 · Werkstatt: Deckungszusage oder Ablehnung schreiben (Typ W · Phase III)"
+     "was": "B25 · Werkstatt: Deckungszusage oder Ablehnung schreiben (Typ W · Phase III)"
     },
     {
      "std": 1,
@@ -1357,17 +1537,136 @@ const DATEN = {
    ]
   }
  },
+ "strecken": [
+  {
+   "fach": "sk",
+   "woche": 1,
+   "blatt": "S-QS12",
+   "strecke": "Quizsockel",
+   "titel": "Aufbauorganisation, Ablauforganisation, Führung und Personal — Infoskript und die Quizze QS 1 und QS 2",
+   "seiten": "Infoskript S. 1–4",
+   "minuten": 60,
+   "ausgabe": "Freitag, 04.09.2026, dritte Stunde der Blockwoche 1 · Infoskript und die Zugänge QS 1 und QS 2",
+   "zeitraum": "04.09.2026 bis 12.10.2026 · veranschlagt sind 60 Minuten außerhalb der Unterrichtszeit",
+   "pruefung": "Forms-Nachweis KVF_SK_QS1 und KVF_SK_QS2 bis zum Beginn der Blockwoche 3 am 12.10.2026, unbenotet und beliebig wiederholbar · bewertet in UB 1 der Woche 3",
+   "datei": "KVF_SK_QS_SuS.docx"
+  },
+  {
+   "fach": "sk",
+   "woche": 2,
+   "blatt": "S-QS34",
+   "strecke": "Quizsockel",
+   "titel": "Aufbau- und Ablauforganisation und der Berufsausbildungsvertrag — die Quizze QS 3 und QS 4",
+   "seiten": "Infoskript S. 1–4",
+   "minuten": 50,
+   "ausgabe": "Montag, 21.09.2026, zum Beginn der Blockwoche 2 · die Zugänge QS 3 und QS 4",
+   "zeitraum": "21.09.2026 bis 12.10.2026 · veranschlagt sind 50 Minuten außerhalb der Unterrichtszeit",
+   "pruefung": "Forms-Nachweis KVF_SK_QS3 und KVF_SK_QS4 bis zum Beginn der Blockwoche 3 am 12.10.2026, unbenotet und beliebig wiederholbar · bewertet in UB 1 der Woche 3",
+   "datei": "KVF_SK_QS_SuS.docx"
+  },
+  {
+   "fach": "lf4",
+   "woche": 2,
+   "blatt": "SLS01",
+   "strecke": "Paket",
+   "titel": "Entschädigungsgrenzen für Wertsachen und mitversicherte Sachen · Blitzschlag, Überspannung, Explosion und Luftfahrzeuge · Der Katalog der Einbruchhandlungen — und der Vandalismus · Was kein Leitungswasserschaden ist — und was ein Bruchschaden ist · Weitere Naturgefahren — acht Gefahren, ein Paket · Generelle und partielle Ausschlüsse — was die Bedingungen wieder herausnehmen",
+   "seiten": "S. 289–293, S. 300–305, S. 305–310, S. 315–316, S. 321–326, S. 327–331",
+   "minuten": 230,
+   "ausgabe": "in der Blockwoche 2 (21.–25.09.2026), in den letzten sechs Minuten der Std. 9",
+   "zeitraum": "21.09.2026 bis 11.10.2026 · veranschlagt sind 230 Minuten außerhalb der Unterrichtszeit",
+   "pruefung": "Forms-Nachweis QLF04_SLS01 bis zum Beginn der Blockwoche 3 am 12.10.2026, unbenotet · bewertet in UB 2 der Woche 3",
+   "datei": "KVF_LF04_SLS01_SuS.docx"
+  },
+  {
+   "fach": "lf4",
+   "woche": 3,
+   "blatt": "SLS02",
+   "strecke": "Paket",
+   "titel": "Die Außenversicherung — weltweit, aber drei Monate und zehn Prozent · Versicherte Kosten und Aufwendungsersatz — welcher Topf zahlt, und bis wohin",
+   "seiten": "S. 342–344, S. 351–357",
+   "minuten": 76,
+   "ausgabe": "Montag, 12.10.2026, zum Beginn der Blockwoche 3 · das Heft tritt an die Stelle der zwei Präsenzstunden, die U9 mit Variante 38 verloren hat",
+   "zeitraum": "12.10.2026 bis 15.11.2026 · veranschlagt sind 76 Minuten außerhalb der Unterrichtszeit",
+   "pruefung": "Forms-Nachweis QLF04_SLS02 bis zum Beginn der Blockwoche 4 am 16.11.2026, unbenotet · bewertet in UB 3 der Woche 5",
+   "datei": "KVF_LF04_SLS02_SuS.docx"
+  },
+  {
+   "fach": "lf4",
+   "woche": 4,
+   "blatt": "SLS03",
+   "strecke": "Paket",
+   "titel": "Was Sie dem Versicherer melden müssen — die anzeigepflichtigen Gefahrerhöhungen und die Sicherheitsvorschrift",
+   "seiten": "S. 387–389",
+   "minuten": 40,
+   "ausgabe": "Montag, 16.11.2026, zum Beginn der Blockwoche 4 · S. 387–389 verlassen den Block der Std. 26 und 27, S. 382–386 und 390–392 bleiben in der Präsenz",
+   "zeitraum": "16.11.2026 bis 06.12.2026 · veranschlagt sind 40 Minuten außerhalb der Unterrichtszeit",
+   "pruefung": "Forms-Nachweis QLF04_SLS03 bis zum Beginn der Blockwoche 5 am 07.12.2026, unbenotet · bewertet in UB 4 der Woche 7",
+   "datei": "KVF_LF04_SLS03_SuS.docx"
+  },
+  {
+   "fach": "lf4",
+   "woche": 8,
+   "blatt": "SLS04",
+   "strecke": "Paket",
+   "titel": "Risikodeckung für ein Wohngebäude: was vor der Bezugsfertigkeit trägt und was danach",
+   "seiten": "S. 419–422",
+   "minuten": 35,
+   "ausgabe": "Freitag, 12.03.2027, am Ende der Blockwoche 8 · das Heft eröffnet den Gebäudeteil vor der ersten Präsenzstunde des Gebäudes (Woche 9, Std. 1) · S. 418 davor trägt den Projektauftrag „Project Charter“ zu LS 4.1 und wird in Lernfeld 4 nicht unterrichtet",
+   "zeitraum": "12.03.2027 bis 11.04.2027 · veranschlagt sind 35 Minuten außerhalb der Unterrichtszeit",
+   "pruefung": "Forms-Nachweis QLF04_SLS04 bis zum Beginn der Blockwoche 9 am 12.04.2027, unbenotet · bewertet in der Klassenarbeit Teil 2 der Woche 11",
+   "datei": "KVF_LF04_SLS04_SuS.docx"
+  },
+  {
+   "fach": "lf4",
+   "woche": 9,
+   "blatt": "SLS05",
+   "strecke": "Paket",
+   "titel": "Abgrenzungsliste: was am Gebäude versichert ist — eine Sache in das richtige Fach einordnen und die Grenze zum Hausrat begründen · Den Gefahrenkatalog der VGB 2021 lesen und ihn vom Katalog der VHB 2021 unterscheiden · Nicht versicherte Schäden am Gebäude — und die Frage, die danach kommt: gesondert versicherbar? · Versicherte Kosten, Mietausfall und Aufwendungsersatz: welche Rechnung nach einem Gebäudeschaden in welchen Topf gehört · Klauseln am Gebäude: welche Klausel welche Lücke schließt — und bis zu welchem Betrag",
+   "seiten": "S. 423–432, S. 433–441, S. 441–443, S. 448–454, S. 455–456",
+   "minuten": 186,
+   "ausgabe": "Montag, 12.04.2027, zum Beginn der Blockwoche 9 · die Lernkontrollen zu D 7.2 und D 7.3 (S. 444–447) bleiben im Block",
+   "zeitraum": "12.04.2027 bis 02.05.2027 · veranschlagt sind 186 Minuten außerhalb der Unterrichtszeit",
+   "pruefung": "Forms-Nachweis QLF04_SLS05 bis zum Beginn der Blockwoche 10 am 03.05.2027, unbenotet · bewertet in der Klassenarbeit Teil 2 der Woche 11",
+   "datei": "KVF_LF04_SLS05_SuS.docx"
+  },
+  {
+   "fach": "lf4",
+   "woche": 10,
+   "blatt": "SLS06",
+   "strecke": "Paket",
+   "titel": "Summenmodell gegen Wohnflächenmodell — zwei Wege, ein Gebäude",
+   "seiten": "S. 489–491",
+   "minuten": 35,
+   "ausgabe": "Mittwoch, 05.05.2027, am Ende der verkürzten Blockwoche 10 · nach W7, dessen Wert 1914 das Heft voraussetzt · die Übersicht „Auf einen Blick zu D 7“ auf S. 491 steht im Leseauftrag",
+   "zeitraum": "05.05.2027 bis 23.05.2027 · veranschlagt sind 35 Minuten außerhalb der Unterrichtszeit",
+   "pruefung": "Forms-Nachweis QLF04_SLS06 bis zum Beginn der Blockwoche 11 am 24.05.2027, unbenotet · bewertet in UB 5 der Woche 12",
+   "datei": "KVF_LF04_SLS06_SuS.docx"
+  },
+  {
+   "fach": "lf4",
+   "woche": 11,
+   "blatt": "SLS07",
+   "strecke": "Paket",
+   "titel": "Schadenregulierung am Gebäude I: vom Versicherungsfall zur Entschädigung · Schadenregulierung am Gebäude II: Unterversicherung, Sachverständige, Fälligkeit und der Realgläubiger · Regress: wer am Ende zahlt — und warum fast nie der Mieter",
+   "seiten": "S. 492–497, S. 497–501, S. 505–509",
+   "minuten": 125,
+   "ausgabe": "Freitag, 28.05.2027, am Ende der Blockwoche 11 · nach W9 und nach der Klassenarbeit Teil 2 · die Lernkontrollen zu D 8.1 (S. 502–504) bleiben im Block",
+   "zeitraum": "28.05.2027 bis 06.06.2027 · veranschlagt sind 125 Minuten außerhalb der Unterrichtszeit",
+   "pruefung": "Forms-Nachweis QLF04_SLS07 bis zum Beginn der Blockwoche 12 am 07.06.2027, unbenotet · bewertet in UB 5 der Woche 12",
+   "datei": "KVF_LF04_SLS07_SuS.docx"
+  }
+ ],
  "leistungen": [
   {
-   "lid": "lf1_W2_T",
+   "lid": "lf1_W2_PUB",
    "fach": "lf1",
    "woche": 2,
-   "art": "T",
+   "art": "PUB",
    "form": "MC",
-   "titel": "Struktur der Ausbildung, duales System, Ausbildungsordnung · 20 MC-Aufgaben, Selbstkontrolle über Forms",
-   "ort": "zu Hause, unbenotet, keine Unterrichtszeit",
+   "titel": "Struktur der Ausbildung, duales System, Ausbildungsordnung, Selbstkontrolle über Forms",
    "nr": "1",
-   "benotet": false
+   "benotet": false,
+   "datei": "KVF_LF01_PUB1_Forms.docx"
   },
   {
    "lid": "lf1_W3_UB",
@@ -1376,20 +1675,20 @@ const DATEN = {
    "art": "UB",
    "form": "MC · 25 Min.",
    "titel": "Berufsbild, duales System, BBiG und Ausbildungsordnung",
-   "ort": "",
    "nr": "1",
-   "benotet": true
+   "benotet": true,
+   "datei": "KVF_LF01_B02_UB1_SuS.docx"
   },
   {
-   "lid": "lf1_W4_T",
+   "lid": "lf1_W4_PUB",
    "fach": "lf1",
    "woche": 4,
-   "art": "T",
+   "art": "PUB",
    "form": "MC",
-   "titel": "Ausbildungsvertrag, Probezeit, Jugendarbeitsschutz, Beendigung · 20 MC-Aufgaben",
-   "ort": "zu Hause, unbenotet, keine Unterrichtszeit",
+   "titel": "Ausbildungsvertrag, Probezeit und Jugendarbeitsschutz",
    "nr": "2",
-   "benotet": false
+   "benotet": false,
+   "datei": "Forms WISO 1.1 und WISO 1.3"
   },
   {
    "lid": "lf1_W5_UB",
@@ -1397,21 +1696,21 @@ const DATEN = {
    "woche": 5,
    "art": "UB",
    "form": "MC · 25 Min.",
-   "titel": "Ausbildungsvertrag, Jugendarbeitsschutz und Beendigung des Ausbildungsverhältnisses",
-   "ort": "",
+   "titel": "Ausbildungsvertrag und Jugendarbeitsschutz",
    "nr": "2",
-   "benotet": true
+   "benotet": true,
+   "datei": "KVF_LF01_B03_UB2_SuS.docx"
   },
   {
-   "lid": "lf1_W8_T",
+   "lid": "lf1_W8_PUB",
    "fach": "lf1",
    "woche": 8,
-   "art": "T",
+   "art": "PUB",
    "form": "MC",
-   "titel": "Rechtsquellen, Arbeitsvertrag, Kündigungsfristen nach § 622 BGB · 20 MC-Aufgaben",
-   "ort": "zu Hause, unbenotet, keine Unterrichtszeit",
+   "titel": "Rechtsquellen, Arbeitsvertrag, Kündigungsfristen nach § 622 BGB",
    "nr": "3",
-   "benotet": false
+   "benotet": false,
+   "datei": "Forms WISO 1.1 und WISO 2"
   },
   {
    "lid": "lf1_W9_UB",
@@ -1420,64 +1719,64 @@ const DATEN = {
    "art": "UB",
    "form": "MC · 25 Min.",
    "titel": "Rechtsquellen, Arbeitsvertrag und Beendigung von Arbeitsverhältnissen",
-   "ort": "",
    "nr": "3",
-   "benotet": true
+   "benotet": true,
+   "datei": ""
   },
   {
-   "lid": "lf1_W11_T",
+   "lid": "lf1_W11_PUB",
    "fach": "lf1",
    "woche": 11,
-   "art": "T",
+   "art": "PUB",
    "form": "MC",
-   "titel": "30 prüfungsnahe MC-Aufgaben aus Altprüfungen und WISO-Quizzen, Schwerpunkt Tarifrecht",
-   "ort": "zu Hause, unbenotet, keine Unterrichtszeit",
+   "titel": "Prüfungsnahe MC-Sätze aus Altprüfungen und WISO-Quizzen, Schwerpunkt Tarifvertragsrecht und Betriebsverfassung",
    "nr": "KA",
-   "benotet": false
+   "benotet": false,
+   "datei": "Forms WISO 1.2a, WISO 1.2b und WISO_SIM_A"
   },
   {
    "lid": "lf1_W12_KA",
    "fach": "lf1",
    "woche": 12,
    "art": "KA",
-   "form": "MC · 60 Min.",
-   "titel": "Klassenarbeit Lernfeld 1: 30 prüfungsnahe Aufgaben, Schwerpunkt Tarifvertragsrecht und Mitbestimmung",
-   "ort": "",
+   "form": "MC · 45 Min.",
+   "titel": "Klassenarbeit Lernfeld 1: 30 prüfungsnahe Aufgaben, Schwerpunkt Tarifvertragsrecht und Betriebsverfassung",
    "nr": "",
-   "benotet": true
+   "benotet": true,
+   "datei": ""
   },
   {
-   "lid": "sk_W2_T",
+   "lid": "sk_W2_PUB",
    "fach": "sk",
    "woche": 2,
-   "art": "T",
+   "art": "PUB",
    "form": "MC",
-   "titel": "Aufbauorganisation, Führungsstile, Struktur der Ausbildung · 20 MC-Aufgaben",
-   "ort": "zu Hause, unbenotet, keine Unterrichtszeit",
+   "titel": "Aufbauorganisation, Führungsstile, Struktur der Ausbildung",
    "nr": "1",
-   "benotet": false
+   "benotet": false,
+   "datei": "Forms KVF_SK_QS3 und KVF_SK_QS4"
   },
   {
    "lid": "sk_W3_UB",
    "fach": "sk",
    "woche": 3,
    "art": "UB",
-   "form": "MC · 14 Punkte · 20 Min.",
-   "titel": "Aufbauorganisation und Führung · zehn Aufgaben aus dem Quizsockel",
-   "ort": "",
+   "form": "MC · 21 Punkte · 23 Min.",
+   "titel": "Aufbau- und Ablauforganisation und Führung · fünfzehn Aufgaben aus dem Quizsockel",
    "nr": "1",
-   "benotet": true
+   "benotet": true,
+   "datei": ""
   },
   {
-   "lid": "sk_W5_T",
+   "lid": "sk_W5_PUB",
    "fach": "sk",
    "woche": 5,
-   "art": "T",
+   "art": "PUB",
    "form": "MC",
-   "titel": "Arbeitszeit und Urlaub rechnen, Ausbildungsvertrag · 20 MC-Aufgaben",
-   "ort": "zu Hause, unbenotet, keine Unterrichtszeit",
+   "titel": "Arbeitszeit und Urlaub rechnen, Ausbildungsvertrag",
    "nr": "2",
-   "benotet": false
+   "benotet": false,
+   "datei": "Forms WISO 1.1 und WISO 1.3"
   },
   {
    "lid": "sk_W6_UB",
@@ -1486,42 +1785,42 @@ const DATEN = {
    "art": "UB",
    "form": "MC · 25 Min.",
    "titel": "Ausbildungsvertrag, Arbeitszeit und Urlaub rechnen, Beendigung",
-   "ort": "",
    "nr": "2",
-   "benotet": true
+   "benotet": true,
+   "datei": ""
   },
   {
-   "lid": "sk_W6_T",
+   "lid": "sk_W6_PUB",
    "fach": "sk",
    "woche": 6,
-   "art": "T",
+   "art": "PUB",
    "form": "MC",
-   "titel": "30 prüfungsnahe MC-Aufgaben zur Berufsausbildung und zum Ausbildungsverhältnis",
-   "ort": "zu Hause, unbenotet, keine Unterrichtszeit",
+   "titel": "ProbeKA: alle 110 Prüfungsaufgaben aus B2 bis B5 und Kapitel 1.2 zur Berufsausbildung und zum Ausbildungsverhältnis · die Arbeit stellt daraus dreißig",
    "nr": "KA",
-   "benotet": false
+   "benotet": false,
+   "datei": "Forms WISO 1.2a und WISO 1.2b"
   },
   {
    "lid": "sk_W7_KA",
    "fach": "sk",
    "woche": 7,
    "art": "KA",
-   "form": "MC · 60 Min.",
-   "titel": "Klassenarbeit Sozialkunde: Berufsausbildung und Ausbildungsverhältnis · 110 Prüfungsaufgaben aus B2 bis B5 und Kapitel 1.2",
-   "ort": "",
+   "form": "MC · 45 Min.",
+   "titel": "Klassenarbeit Sozialkunde: Berufsausbildung und Ausbildungsverhältnis · 30 prüfungsnahe Aufgaben",
    "nr": "",
-   "benotet": true
+   "benotet": true,
+   "datei": ""
   },
   {
-   "lid": "sk_W9_T",
+   "lid": "sk_W9_PUB",
    "fach": "sk",
    "woche": 9,
-   "art": "T",
+   "art": "PUB",
    "form": "MC",
-   "titel": "Sozialpartner, Tarifautonomie, Arbeitskampf, Mitbestimmung · 20 MC-Aufgaben",
-   "ort": "zu Hause, unbenotet, keine Unterrichtszeit",
+   "titel": "Sozialpartner, Tarifautonomie, Arbeitskampf, Mitbestimmung",
    "nr": "3",
-   "benotet": false
+   "benotet": false,
+   "datei": "Forms WISO 1.2a und WISO 1.2b"
   },
   {
    "lid": "sk_W10_UB",
@@ -1530,53 +1829,64 @@ const DATEN = {
    "art": "UB",
    "form": "MC · 25 Min.",
    "titel": "Sozialpartner, Tarifautonomie und Mitbestimmung im Prüfungsformat",
-   "ort": "",
    "nr": "3",
-   "benotet": true
+   "benotet": true,
+   "datei": ""
+  },
+  {
+   "lid": "lf2_W3_PUB",
+   "fach": "lf2",
+   "woche": 3,
+   "art": "PUB",
+   "form": "Beratungsfall + MC",
+   "titel": "ProbeUB 1: Vertragsschluss, Geschäftsfähigkeit, Allgemeine Versicherungsbedingungen und Beschwerdewege · Format der UB 1, Lösung zum Vergleich zu Hause",
+   "nr": "1",
+   "benotet": false,
+   "datei": "KVF_LF02_B0405_PUB1_SuS.docx"
   },
   {
    "lid": "lf2_W4_UB",
    "fach": "lf2",
    "woche": 4,
    "art": "UB",
-   "form": "MC · 20 Min.",
-   "titel": "Willenserklärungen, Antragsmodell, Rechts- und Geschäftsfähigkeit",
-   "ort": "",
+   "form": "Beratungsfall + MC · 28 Min. · 25 Punkte, davon 17 offen",
+   "titel": "Vertragsschluss, Geschäftsfähigkeit, Allgemeine Versicherungsbedingungen und Beschwerdewege · 15 Aufgaben",
    "nr": "1",
-   "benotet": true
+   "benotet": true,
+   "datei": "KVF_LF02_B0405_UB1_SuS.docx"
   },
   {
-   "lid": "lf2_W4_T",
+   "lid": "lf2_W4_PUB",
    "fach": "lf2",
    "woche": 4,
-   "art": "T",
+   "art": "PUB",
    "form": "Situation",
-   "titel": "Antrag, Rechtsquellen und Geschäftsfähigkeit · Fallaufgabe mit Erwartungshorizont",
-   "ort": "zu Hause, unbenotet, keine Unterrichtszeit",
+   "titel": "ProbeUB 2: Der Versicherungsantrag und die Antragsannahme · Format der UB 2, Lösung zum Vergleich zu Hause",
    "nr": "2",
-   "benotet": false
+   "benotet": false,
+   "datei": "KVF_LF02_B0607_PUB2_SuS.docx"
   },
   {
    "lid": "lf2_W5_UB",
    "fach": "lf2",
    "woche": 5,
    "art": "UB",
-   "form": "Situation · 30 Min.",
-   "titel": "Antragsannahme und Vertragsspiegel: Beginn, Ablauf, Fälligkeit, Zahlungsweise ablesen",
-   "ort": "",
+   "form": "Situation · 30 Min. · 13 Punkte, alle offen",
+   "titel": "Der Versicherungsantrag und die Antragsannahme",
    "nr": "2",
-   "benotet": true
+   "benotet": true,
+   "datei": "KVF_LF02_B0607_UB2_SuS.docx"
   },
   {
-   "lid": "lf2_W7_T",
+   "lid": "lf2_W7_PUB",
    "fach": "lf2",
    "woche": 7,
-   "art": "T",
+   "art": "PUB",
    "form": "Situation",
    "titel": "Widerruf und Versicherungsbeginn · Datumsfälle mit Musterlösung",
-   "ort": "zu Hause, unbenotet, keine Unterrichtszeit",
    "nr": "3",
-   "benotet": false
+   "benotet": false,
+   "datei": ""
   },
   {
    "lid": "lf2_W8_UB",
@@ -1584,65 +1894,65 @@ const DATEN = {
    "woche": 8,
    "art": "UB",
    "form": "Situation · 30 Min.",
-   "titel": "Widerruf und die drei Beginnarten an der Datumskette",
-   "ort": "",
+   "titel": "Widerruf und die drei Beginnarten an der Fristenkette und an der Zeitachse",
    "nr": "3",
-   "benotet": true
+   "benotet": true,
+   "datei": ""
   },
   {
-   "lid": "lf2_W9_T",
+   "lid": "lf2_W9_PUB",
    "fach": "lf2",
    "woche": 9,
-   "art": "T",
+   "art": "PUB",
    "form": "Situation + MC",
-   "titel": "Datumstabelle plus 15 MC-Aufgaben aus GAP 1 und den Prüfungssätzen",
-   "ort": "zu Hause, unbenotet, keine Unterrichtszeit",
+   "titel": "Datumstabelle plus gebundene Sätze aus GAP 1 und den Prüfungssätzen",
    "nr": "KA",
-   "benotet": false
+   "benotet": false,
+   "datei": ""
   },
   {
-   "lid": "lf2_W10_KA",
+   "lid": "lf2_W11_KA",
    "fach": "lf2",
-   "woche": 10,
+   "woche": 11,
    "art": "KA",
-   "form": "Situation + MC · 60 Min.",
-   "titel": "Klassenarbeit Lernfeld 2: prüfungsnahe Situation aus GAP 1, dazu ein MC-Block",
-   "ort": "",
+   "form": "Situation + MC · 45 Min.",
+   "titel": "Klassenarbeit Lernfeld 2: prüfungsnahe Situation aus GAP 1, dazu ein MC-Block über Prämie und Obliegenheiten",
    "nr": "",
-   "benotet": true
+   "benotet": true,
+   "datei": ""
   },
   {
-   "lid": "lf3_W3_T",
+   "lid": "lf3_W3_PUB",
    "fach": "lf3",
    "woche": 3,
-   "art": "T",
+   "art": "PUB",
    "form": "Situation",
    "titel": "Vertriebswege unterscheiden · Fallaufgabe mit Erwartungshorizont",
-   "ort": "zu Hause, unbenotet, keine Unterrichtszeit",
    "nr": "1",
-   "benotet": false
+   "benotet": false,
+   "datei": "KVF_LF03_B0102_PUB1_SuS.docx"
   },
   {
    "lid": "lf3_W4_UB",
    "fach": "lf3",
    "woche": 4,
    "art": "UB",
-   "form": "Situation · 30 Min.",
+   "form": "Situation · 30 Min. · 4 Aufgaben · 25 Punkte, durchgehend offen · bewertet in ganzen Punkten",
    "titel": "Vertriebswege vergleichen und die Wahl für einen Kunden begründen",
-   "ort": "",
    "nr": "1",
-   "benotet": true
+   "benotet": true,
+   "datei": "KVF_LF03_B0103_UB1_SuS.docx"
   },
   {
-   "lid": "lf3_W5_T",
+   "lid": "lf3_W5_PUB",
    "fach": "lf3",
    "woche": 5,
-   "art": "T",
+   "art": "PUB",
    "form": "Situation",
    "titel": "Vermittlertypen und Erlaubnispflicht · Fallaufgabe",
-   "ort": "zu Hause, unbenotet, keine Unterrichtszeit",
    "nr": "2",
-   "benotet": false
+   "benotet": false,
+   "datei": "KVF_LF03_B0105_PUB2_SuS.docx"
   },
   {
    "lid": "lf3_W6_UB",
@@ -1651,20 +1961,20 @@ const DATEN = {
    "art": "UB",
    "form": "Situation · 30 Min.",
    "titel": "Vermittlertypen zuordnen, Erlaubnispflicht nach § 34d GewO",
-   "ort": "",
    "nr": "2",
-   "benotet": true
+   "benotet": true,
+   "datei": "KVF_LF03_B0105_UB2_SuS.docx"
   },
   {
-   "lid": "lf3_W9_T",
+   "lid": "lf3_W9_PUB",
    "fach": "lf3",
    "woche": 9,
-   "art": "T",
+   "art": "PUB",
    "form": "Situation",
    "titel": "Wohlverhaltensregeln und Datenschutz · Fallaufgabe",
-   "ort": "zu Hause, unbenotet, keine Unterrichtszeit",
    "nr": "3",
-   "benotet": false
+   "benotet": false,
+   "datei": "KVF_LF03_B0608_PUB3_SuS.docx"
   },
   {
    "lid": "lf3_W10_UB",
@@ -1673,284 +1983,262 @@ const DATEN = {
    "art": "UB",
    "form": "Situation · 30 Min.",
    "titel": "Wohlverhalten, Provisionsabgabeverbot und Datenschutz im Fall",
-   "ort": "",
    "nr": "3",
-   "benotet": true
+   "benotet": true,
+   "datei": "KVF_LF03_B0608_UB3_SuS.docx"
   },
   {
-   "lid": "lf3_W11_T",
+   "lid": "lf3_W11_PUB",
    "fach": "lf3",
    "woche": 11,
-   "art": "T",
+   "art": "PUB",
    "form": "Situation",
    "titel": "Beratungsfall im GAP-1-Format über den Stoff der Wochen 2 bis 11, mit Erwartungshorizont",
-   "ort": "zu Hause, unbenotet, keine Unterrichtszeit",
    "nr": "KA",
-   "benotet": false
+   "benotet": false,
+   "datei": "KVF_LF03_B0110_PKA_SuS.docx"
   },
   {
    "lid": "lf3_W12_KA",
    "fach": "lf3",
    "woche": 12,
    "art": "KA",
-   "form": "Situation · 60 Min.",
+   "form": "Situation · 45 Min. · 37 Punkte, durchgehend offen · bewertet in halben Punkten",
    "titel": "Prüfungsnaher Beratungsfall aus GAP 1 über den Stoff der Wochen 2 bis 11: Vertriebswege C 1, Erlaubnis und Registrierung C 2, Wohlverhalten C 3, Kommunikationskanäle aus C 4, Datenschutz aus C 6.4, Erstinformationen C 7.3 bis C 7.4.3",
-   "ort": "",
    "nr": "",
-   "benotet": true
+   "benotet": true,
+   "datei": ""
   },
   {
-   "lid": "de_W1_T",
+   "lid": "de_W1_PUB",
    "fach": "de",
    "woche": 1,
-   "art": "T",
+   "art": "PUB",
    "form": "Text",
    "titel": "Der erste eigene Versuch: ein Exzerpt ohne vorherige Anleitung, geprüft in Woche 2 am Raster",
-   "ort": "zu Hause, unbenotet, keine Unterrichtszeit",
    "nr": "1",
-   "benotet": false
+   "benotet": false,
+   "datei": ""
   },
   {
    "lid": "de_W3_UB",
    "fach": "de",
    "woche": 3,
    "art": "UB",
-   "form": "Text · 30 Min.",
+   "form": "Text · 30 Min. · 20 Punkte",
    "titel": "Exzerpt zu einem Fachtext",
-   "ort": "",
    "nr": "1",
-   "benotet": true
+   "benotet": true,
+   "datei": "KVF_DE_B01_UB1_SuS.docx"
   },
   {
-   "lid": "de_W5_T",
+   "lid": "de_W5_PUB",
    "fach": "de",
    "woche": 5,
-   "art": "T",
+   "art": "PUB",
    "form": "Gespräch",
    "titel": "Fragetechnik im Rollenspiel · Beobachtungsbogen",
-   "ort": "zu Hause, unbenotet, keine Unterrichtszeit",
    "nr": "2",
-   "benotet": false
+   "benotet": false,
+   "datei": ""
   },
   {
    "lid": "de_W6_UB",
    "fach": "de",
    "woche": 6,
    "art": "UB",
-   "form": "Gespräch · 20 Min.",
+   "form": "Gespräch · 20 Min. · 16 Punkte",
    "titel": "Fragetechnik im kurzen Rollenspiel",
-   "ort": "",
    "nr": "2",
-   "benotet": true
+   "benotet": true,
+   "datei": "KVF_DE_B04_UB2_SuS.docx"
   },
   {
-   "lid": "de_W8_T",
+   "lid": "de_W8_PUB",
    "fach": "de",
    "woche": 8,
-   "art": "T",
+   "art": "PUB",
    "form": "Text",
    "titel": "Einwandbehandlung schriftlich: Methodenwahl begründen · Erwartungshorizont",
-   "ort": "zu Hause, unbenotet, keine Unterrichtszeit",
    "nr": "3",
-   "benotet": false
+   "benotet": false,
+   "datei": ""
   },
   {
    "lid": "de_W9_UB",
    "fach": "de",
    "woche": 9,
    "art": "UB",
-   "form": "Text · 30 Min.",
+   "form": "Text · 30 Min. · 20 Punkte",
    "titel": "Einwandbehandlung: Methodenwahl begründen und ausformulieren",
-   "ort": "",
    "nr": "3",
-   "benotet": true
+   "benotet": true,
+   "datei": ""
   },
   {
-   "lid": "de_W10_T",
-   "fach": "de",
-   "woche": 10,
-   "art": "T",
-   "form": "Text",
-   "titel": "Übungsarbeit nach der Bauform der Prüfungssituationen 2.13 bis 2.17 des GAP-1-Vorbereitungsbandes",
-   "ort": "zu Hause, unbenotet, keine Unterrichtszeit",
-   "nr": "KA",
-   "benotet": false
-  },
-  {
-   "lid": "de_W11_KA",
-   "fach": "de",
-   "woche": 11,
-   "art": "KA",
-   "form": "Text · 45 Min. · vier Aufgaben nach der Bauform der Prüfungssituationen 2.13 bis 2.17",
-   "titel": "Klassenarbeit Deutsch: Gesprächsprotokoll analysieren, Fragearten bestimmen, Einwand behandeln, Gesprächseinstieg formulieren",
-   "ort": "",
-   "nr": "",
-   "benotet": true
+   "lid": "lf4_W2_PUB",
+   "fach": "lf4",
+   "woche": 2,
+   "art": "PUB",
+   "form": "MC",
+   "titel": "Quizze und Ticketsätze des Vorbausteins · Selbstkontrolle über Forms vor UB 1",
+   "nr": "1",
+   "benotet": false,
+   "datei": ""
   },
   {
    "lid": "lf4_W2_UB",
    "fach": "lf4",
    "woche": 2,
    "art": "UB",
-   "form": "MC · 20 Min. · 20 Punkte · in der 2. Stunde der Woche",
+   "form": "MC · 27 Min. · 15 Aufgaben · 27 Punkte · 12 % der Note · in der 2. Stunde der Woche",
    "titel": "Leistung zum Vorbaustein: Grundlagen der Versicherungswirtschaft",
-   "ort": "",
    "nr": "1",
-   "benotet": true
+   "benotet": true,
+   "datei": "KVF_LF04_B00_UB1_SuS.docx"
   },
   {
-   "lid": "lf4_W2_T",
+   "lid": "lf4_W2_PUB2",
    "fach": "lf4",
    "woche": 2,
-   "art": "T",
-   "form": "MC",
+   "art": "PUB",
+   "form": "Beratungsfall + MC",
    "titel": "Überprüfungsübung 1: versicherte Sachen und die vier Gefahrengruppen · Forms, Selbstkontrolle",
-   "ort": "zu Hause, unbenotet, keine Unterrichtszeit",
    "nr": "2",
-   "benotet": false
-  },
-  {
-   "lid": "lf4_W2_T2",
-   "fach": "lf4",
-   "woche": 2,
-   "art": "T",
-   "form": "MC",
-   "titel": "Quizze und Ticketsätze des Vorbausteins · Selbstkontrolle über Forms vor UB 1",
-   "ort": "zu Hause, unbenotet, keine Unterrichtszeit",
-   "nr": "1",
-   "benotet": false
+   "benotet": false,
+   "datei": "KVF_LF04_B0102_PUB2_SuS.docx"
   },
   {
    "lid": "lf4_W3_UB",
    "fach": "lf4",
    "woche": 3,
    "art": "UB",
-   "form": "MC · 30 Min. · 20 % der Note",
+   "form": "Beratungsfall + MC · 30 Min. · 6 Aufgaben · 14 Punkte, davon 10 offen · 12 % der Note",
    "titel": "Test 1: Sachen und Gefahren · Ende LS 4.1",
-   "ort": "",
    "nr": "2",
-   "benotet": true
+   "benotet": true,
+   "datei": ""
   },
   {
-   "lid": "lf4_W4_T",
+   "lid": "lf4_W4_PUB",
    "fach": "lf4",
    "woche": 4,
-   "art": "T",
-   "form": "MC",
+   "art": "PUB",
+   "form": "Beratungsfall + MC",
    "titel": "Überprüfungsübung 2 und 3: Geltungsbereich, versicherte Kosten, Klauseln, Versicherungswert · Forms, Selbstkontrolle",
-   "ort": "zu Hause, unbenotet, keine Unterrichtszeit",
    "nr": "3",
-   "benotet": false
+   "benotet": false,
+   "datei": "KVF_LF04_B0306_PUB3_SuS.docx"
   },
   {
    "lid": "lf4_W5_UB",
    "fach": "lf4",
    "woche": 5,
    "art": "UB",
-   "form": "MC · 30 Min. · 20 % der Note",
+   "form": "Beratungsfall + MC · 30 Min. · 14 Punkte, davon 10 offen · 12 % der Note",
    "titel": "Test 2: Geltungsbereich, Kosten, Summe, Tarif · Ende LS 4.3",
-   "ort": "",
    "nr": "3",
-   "benotet": true
+   "benotet": true,
+   "datei": "KVF_LF04_B0306_UB3_SuS.docx"
   },
   {
-   "lid": "lf4_W5_T",
+   "lid": "lf4_W5_PUB",
    "fach": "lf4",
    "woche": 5,
-   "art": "T",
-   "form": "MC",
-   "titel": "Überprüfungsübung 4: Obliegenheiten und Schadenfall · Forms, Selbstkontrolle",
-   "ort": "zu Hause, unbenotet, keine Unterrichtszeit",
+   "art": "PUB",
+   "form": "Beratungsfall + MC",
+   "titel": "Überprüfungsübung 4: Gefahrerhöhung, Deckungsprüfung und Entschädigung · Forms, Selbstkontrolle",
    "nr": "4",
-   "benotet": false
+   "benotet": false,
+   "datei": "KVF_LF04_B0607_PUB4_SuS.docx"
   },
   {
    "lid": "lf4_W7_UB",
    "fach": "lf4",
    "woche": 7,
    "art": "UB",
-   "form": "MC · 30 Min. · 20 % der Note",
-   "titel": "Test 3: Obliegenheiten und Schadenfall · Ende LS 4.4 und Ende Phase I",
-   "ort": "",
+   "form": "Beratungsfall + MC · 30 Min. · 14 Punkte, davon 10 offen · 12 % der Note",
+   "titel": "Test 3: Gefahrerhöhung, Deckungsprüfung und Entschädigung · Stoff der LS 4.4 aus den Wochen 4 und 5, nach dem Ende der Phase I in Woche 5",
    "nr": "4",
-   "benotet": true
+   "benotet": true,
+   "datei": "KVF_LF04_B0607_UB4_SuS.docx"
   },
   {
-   "lid": "lf4_W8_T",
+   "lid": "lf4_W7_PUB",
    "fach": "lf4",
-   "woche": 8,
-   "art": "T",
+   "woche": 7,
+   "art": "PUB",
    "form": "Situation + MC",
    "titel": "Hausratfall im Format der 3. Aufgabe der GAP 1 · Punktvorhersage",
-   "ort": "zu Hause, unbenotet, keine Unterrichtszeit",
    "nr": "KA 1",
-   "benotet": false
+   "benotet": false,
+   "datei": ""
   },
   {
-   "lid": "lf4_W9_KA",
+   "lid": "lf4_W8_KA",
    "fach": "lf4",
-   "woche": 9,
+   "woche": 8,
    "art": "KA",
-   "form": "Situation + MC · 45 Min.",
-   "titel": "Klassenarbeit Lernfeld 4 · Teil 1: Hausratfall im Prüfungsformat mit Hausrat- und Glasprämie",
-   "ort": "",
+   "form": "Situation + MC · 45 Min. · 30 Punkte, davon 20 offen · 20 % der Note",
+   "titel": "Klassenarbeit Lernfeld 4 · Teil 1: Hausratfall im Prüfungsformat mit Prämienrechnung für Hausrat und Glasversicherung",
    "nr": "",
-   "benotet": true
+   "benotet": true,
+   "datei": ""
   },
   {
-   "lid": "lf4_W11_T",
+   "lid": "lf4_W10_PUB",
+   "fach": "lf4",
+   "woche": 10,
+   "art": "PUB",
+   "form": "Situation + MC",
+   "titel": "Fall über beide Sparten: Deckungsprüfung, Versicherungswert, Prämie und Nachbeitrag · Punktvorhersage",
+   "nr": "KA 2",
+   "benotet": false,
+   "datei": ""
+  },
+  {
+   "lid": "lf4_W11_PUB",
    "fach": "lf4",
    "woche": 11,
-   "art": "T",
-   "form": "MC",
+   "art": "PUB",
+   "form": "Situation",
    "titel": "Versicherte Sachen und Gefahren am Wohngebäude nach VGB 2021 · Forms, Selbstkontrolle",
-   "ort": "zu Hause, unbenotet, keine Unterrichtszeit",
    "nr": "5",
-   "benotet": false
+   "benotet": false,
+   "datei": ""
   },
   {
-   "lid": "lf4_W12_T",
+   "lid": "lf4_W11_KA",
    "fach": "lf4",
-   "woche": 12,
-   "art": "T",
-   "form": "Situation + MC",
-   "titel": "Fall über beide Sparten: Deckungsprüfung, Versicherungswert, Prämie und Entschädigung · Punktvorhersage",
-   "ort": "zu Hause, unbenotet, keine Unterrichtszeit",
-   "nr": "KA 2",
-   "benotet": false
+   "woche": 11,
+   "art": "KA",
+   "form": "Situation + MC · 45 Min. · 30 Punkte, davon 20 offen · 20 % der Note",
+   "titel": "Klassenarbeit Lernfeld 4 · Teil 2: Fall über beide Sparten mit Rechnung zum Wert 1914, zur Prämie und zum Nachbeitrag",
+   "nr": "",
+   "benotet": true,
+   "datei": ""
   },
   {
    "lid": "lf4_W12_UB",
    "fach": "lf4",
    "woche": 12,
    "art": "UB",
-   "form": "Situation · 30 Min.",
-   "titel": "Wohngebäude: versicherte Sachen, Bestandteile und Zubehör, Gefahren und Schäden nach VGB 2021",
-   "ort": "",
+   "form": "Situation · 30 Min. · 13 Punkte · 12 % der Note",
+   "titel": "Wohngebäude: Neuordnung, Veräußerung und Vererbung aus dem Unterricht der Woche 11 · Summen- und Wohnflächenmodell und Schadenregulierung am Gebäude aus der Selbstlernstrecke",
    "nr": "5",
-   "benotet": true
+   "benotet": true,
+   "datei": ""
   },
   {
-   "lid": "lf4_W13_KA",
-   "fach": "lf4",
-   "woche": 13,
-   "art": "KA",
-   "form": "Situation + MC · 45 Min.",
-   "titel": "Klassenarbeit Lernfeld 4 · Teil 2: Fall über beide Sparten mit Wert-1914-, Prämien- und Nachbeitragsrechnung",
-   "ort": "",
-   "nr": "",
-   "benotet": true
-  },
-  {
-   "lid": "lf5_W3_T",
+   "lid": "lf5_W3_PUB",
    "fach": "lf5",
    "woche": 3,
-   "art": "T",
+   "art": "PUB",
    "form": "Situation",
    "titel": "Haftung aus Gesetz · Fallaufgabe mit Musterlösung",
-   "ort": "zu Hause, unbenotet, keine Unterrichtszeit",
    "nr": "1",
-   "benotet": false
+   "benotet": false,
+   "datei": "KVF_LF05_B0105_PUB1_SuS.docx"
   },
   {
    "lid": "lf5_W4_UB",
@@ -1958,65 +2246,65 @@ const DATEN = {
    "woche": 4,
    "art": "UB",
    "form": "Situation · 30 Min.",
-   "titel": "Haftung aus Gesetz und Vertrag · Verschulden, Deliktsfähigkeit, Gefährdungshaftung, vermutetes Verschulden",
-   "ort": "",
+   "titel": "Haftung aus Gesetz und Vertrag · Verschulden, Deliktsfähigkeit, Gefährdungshaftung, vermutetes Verschulden, Umfang des Schadenersatzes und der Anspruch dem Grunde und der Höhe nach (B 01 bis B 05)",
    "nr": "1",
-   "benotet": true
+   "benotet": true,
+   "datei": "KVF_LF05_B0105_UB1_SuS.docx"
   },
   {
-   "lid": "lf5_W5_T",
+   "lid": "lf5_W5_PUB",
    "fach": "lf5",
    "woche": 5,
-   "art": "T",
-   "form": "MC",
+   "art": "PUB",
+   "form": "Beratungsfall + MC",
    "titel": "Schadenersatzumfang und Grundlagen der Privat-Haftpflichtversicherung",
-   "ort": "zu Hause, unbenotet, keine Unterrichtszeit",
    "nr": "2",
-   "benotet": false
+   "benotet": false,
+   "datei": "KVF_LF05_B0608_PUB2_SuS.docx"
   },
   {
    "lid": "lf5_W6_UB",
    "fach": "lf5",
    "woche": 6,
    "art": "UB",
-   "form": "MC · 25 Min.",
+   "form": "Beratungsfall + MC · 25 Min. · 11 Punkte, davon 8 offen",
    "titel": "Schadenersatzumfang, versichertes Risiko, versicherte Personen, Versicherungsfall",
-   "ort": "",
    "nr": "2",
-   "benotet": true
+   "benotet": true,
+   "datei": "KVF_LF05_B0608_UB2_SuS.docx"
   },
   {
-   "lid": "lf5_W9_T",
+   "lid": "lf5_W8_PUB",
    "fach": "lf5",
-   "woche": 9,
-   "art": "T",
+   "woche": 8,
+   "art": "PUB",
    "form": "Situation",
    "titel": "Haftungs- und Deckungsfall im Format der Abschlussprüfung",
-   "ort": "zu Hause, unbenotet, keine Unterrichtszeit",
-   "nr": "3",
-   "benotet": false
+   "nr": "KA",
+   "benotet": false,
+   "datei": ""
   },
   {
-   "lid": "lf5_W10_KA",
+   "lid": "lf5_W9_KA",
    "fach": "lf5",
-   "woche": 10,
+   "woche": 9,
    "art": "KA",
-   "form": "Situation · 60 Min.",
+   "form": "Situation · 45 Min.",
    "titel": "Klassenarbeit Lernfeld 5: Haftungsfall und Deckungsprüfung Privat-Haftpflicht (LS 05.1 bis 05.3)",
-   "ort": "",
    "nr": "",
-   "benotet": true
+   "benotet": true,
+   "datei": ""
   },
   {
-   "lid": "lf5_W11_T",
+   "lid": "lf5_W11_PUB",
    "fach": "lf5",
    "woche": 11,
-   "art": "T",
+   "art": "PUB",
    "form": "Situation",
    "titel": "Rechtsschutzdeckung nach Lebensbereich und Leistungsart",
-   "ort": "zu Hause, unbenotet, keine Unterrichtszeit",
-   "nr": "4",
-   "benotet": false
+   "nr": "3",
+   "benotet": false,
+   "datei": ""
   },
   {
    "lid": "lf5_W12_UB",
@@ -2025,22 +2313,70 @@ const DATEN = {
    "art": "UB",
    "form": "Situation · 30 Min.",
    "titel": "Rechtsschutz: Lebensbereiche, Leistungsarten, Leistungsumfang, Deckungsprüfung",
-   "ort": "",
    "nr": "3",
-   "benotet": true
+   "benotet": true,
+   "datei": ""
   }
  ]
 };
 const SPEICHER = "kvf26-meine-noten";
-const NOTEN = ["1","1-","2+","2","2-","3+","3","3-","4+","4","4-","5+","5","5-","6"];
-const WERT = {"1":1,"1-":1.3,"2+":1.7,"2":2,"2-":2.3,"3+":2.7,"3":3,"3-":3.3,
-  "4+":3.7,"4":4,"4-":4.3,"5+":4.7,"5":5,"5-":5.3,"6":6};
+/* Beschluss 18.09.2026: Die Lernenden tragen nur GANZE Noten ein. Die
+   Tendenzen sind aus der Auswahl genommen — ein Ueberschlag, der aus
+fremden Gewichtungen entsteht, wird durch ein Drittel Notenpunkt nicht
+   genauer, und die Eingabe wird kuerzer. */
+const NOTEN = ["1","2","3","4","5","6"];
+const WERT = {"1":1,"2":2,"3":3,"4":4,"5":5,"6":6};
 const esc = s => String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
 
+/* ---------- Ordnungsdienst · Klassenführung, nicht Lehrplan ----------
+   Vier Gruppen aus den Ausbildungsunternehmen der Klasse, wöchentlich im
+   Wechsel für die Aufgaben unten zuständig, ab Woche 2. Das gehört zur
+   Klassenführung und nicht zum Stoff, den daten.js trägt — eine neue
+   Turnusplan-Variante ändert an dieser Zuordnung nichts, darum steht sie
+   fest in dieser Vorlage statt in der Datenquelle. Beschluss C. K. vom
+   20.09.2026. Ändert sich die Gruppeneinteilung, wird hier von Hand
+   nachgezogen und mit `node tafeln.js` neu gebaut — dieselbe Regel wie für
+   jeden anderen Stand dieser Seite. */
+const ORDNUNGSDIENST_GRUPPEN = [
+  { name: "Gruppe 1", firmen: "Debeka Versicherungen · FINAS" },
+  { name: "Gruppe 2", firmen: "ÖSA · Signal Iduna" },
+  { name: "Gruppe 3", firmen: "HUK-Coburg VVaG · Fuchs & Leuchtenberger OHG" },
+  { name: "Gruppe 4", firmen: "Allianz · AXA · Barmenia Gothaer AG" },
+];
+const ORDNUNGSDIENST_AUFGABEN = [
+  "Tafeldienst vor und nach jeder Stunde",
+  "Fenster schließen am Ende des Tages",
+  "Mitschüler:innen auf Unsauberkeiten aufmerksam machen",
+  "Pfandflaschen wegbringen und das Pfandgeld per PayPal übermitteln",
+];
+function ordnungsdienst(wnr){
+  if(wnr < 2) return null;
+  return ORDNUNGSDIENST_GRUPPEN[(wnr - 2) % ORDNUNGSDIENST_GRUPPEN.length];
+}
+function dienstHtml(wnr){
+  const g = ordnungsdienst(wnr);
+  if(!g) return "";
+  return '<div class="dienst"><div class="dkopf"><span class="deyebrow">Ordnungsdienst diese Woche</span>'
+    + '<span class="dn">'+esc(g.name)+'</span><span class="dfirmen">'+esc(g.firmen)+'</span></div>'
+    + '<ul>' + ORDNUNGSDIENST_AUFGABEN.map(a=>'<li>'+esc(a)+'</li>').join('') + '</ul>'
+    + '</div>';
+}
+
 let meine = {};
+/* Eine Eintragung mit Tendenz aus der Zeit davor geht nicht verloren: Sie
+   wird auf ihre ganze Note gelegt — 2+ und 2- sind eine Zwei. Ohne diese
+   Zeile stuende sie nach dem Umstieg auf "-" und waere still weg. */
+function ganzeNote(n){ const m = /^([1-6])[+-]?$/.exec(String(n == null ? "" : n)); return m ? m[1] : null; }
 function lesen(){
   try { meine = JSON.parse(localStorage.getItem(SPEICHER) || "{}") || {}; }
   catch(e){ meine = {}; }
+  let geaendert = false;
+  Object.keys(meine).forEach(k => {
+    const g = ganzeNote(meine[k]);
+    if(g === null){ delete meine[k]; geaendert = true; }
+    else if(g !== meine[k]){ meine[k] = g; geaendert = true; }
+  });
+  if(geaendert) schreiben();
 }
 function schreiben(){
   try { localStorage.setItem(SPEICHER, JSON.stringify(meine)); } catch(e){}
@@ -2051,6 +2387,142 @@ const heute = new Date();
 const tag = d => new Date(d+"T00:00:00");
 const laufend = DATEN.wochen.find(w => tag(w.von) <= heute && heute <= tag(w.bis));
 const naechste = DATEN.wochen.find(w => tag(w.bis) >= heute) || DATEN.wochen[13];
+
+/* ---------- Was die Klasse lesen soll · Beschluss 19.09.2026 -------------
+   Drei Regeln, alle aus dem Unterricht heraus begruendet:
+
+   1. WOCHE STATT STUNDE. Die Tafel sagt, was in der Blockwoche dran ist, und
+      nicht, was in Stunde 7 dran ist. Der Stundenplan der Woche steht ohnehin
+      an der Tafel im Raum; hier hilft der Ueberblick.
+   2. KEINE PHASEN. „Phase I", „Typ K · Phase II" sind Arbeitsangaben der
+      Lehrkraefte fuer die didaktische Bauform. Fuer die Klasse sind sie
+      Fachchinesisch und stehen deshalb nur im Turnusplan.
+   3. WO LIEGT DIE DATEI. Jedes Material, das die Klasse braucht, nennt Kanal,
+      Ordner und Dateinamen — alles auf Teams im Kurs KVF26. Eine Datei, die
+      niemand findet, ist keine Datei.                                      */
+const TEAMS = {
+  lf1: ['KVF01', 'Skripte'],
+  lf2: ['KVF02', 'Skripte'],
+  lf3: ['KVF03', 'Skripte'],
+  lf4: ['KVF04', 'Kursmaterial'],
+  lf5: ['KVF05', 'Skripte'],
+  sk:  ['KVF_SOZ', 'Skripte'],
+  de:  null,            /* noch offen */
+};
+/* Der Fachvorsatz vor der Bausteinkennung. „B03" allein ist in einer Woche
+   mit sechs Faechern nicht eindeutig — in jedem Fach gibt es ein B03. Auf der
+   Tafel heisst der Baustein deshalb „LF01_B03", „SK_B03". Beschluss C. K. vom
+   19.09.2026.
+   DER VORSATZ IST DIE SPALTE DES DATEINAMENS — festgelegt am 19.09.2026,
+   Variante 83. Die Sozialkunde heisst „SK": im Dateinamen, im Plan und hier.
+   Zuerst stand „SOZ_B03" auf der Karte und „KVF_SK_B03_Skript_SuS.docx"
+   darunter, also zwei Schreibweisen fuer dieselbe Sache. „SOZ" ist der Name
+   des Teams-Kanals (KVF_SOZ) und keine Kennung von uns. Eine Karte, eine
+   Schreibweise. */
+const SPALTE  = { lf1:'LF01', lf2:'LF02', lf3:'LF03', lf4:'LF04', lf5:'LF05', sk:'SK', de:'DE' };
+const VORSATZ = SPALTE;
+/* Der Buchstabenzusatz im Muster bleibt stehen, obwohl ihn seit Variante 86
+   keine Spalte mehr fuehrt: Lernfeld 2 hatte als letzte zwei Teilbausteine
+   (B05a, B09a); B05a ist in B05 aufgegangen, B09a ist der Baustein B10
+   geworden. Das Muster deckt den Fall weiter ab, damit ein aelterer Stand
+   ohne Aenderung baut — eine Kennung ohne Fachvorsatz mitten in der Zeile
+   waere sonst der erste sichtbare Fehler. */
+const mitFach = (t, fach) => String(t || '')
+  .replace(/(^|·\s)B(\d{2}[a-z]?)(?![\w])/g, (m, v, n) => v + (VORSATZ[fach] || '') + '_B' + n);
+
+const ohnePhase = t => String(t || '')
+  .replace(/\s*\([^()]*\bPhase\s+[IVX]+\s*\)/g, '')
+  .replace(/\s*\(\s*Typ\s+[A-Z]\s*\)/g, '')
+  .replace(/\s{2,}/g, ' ')
+  .trim();
+
+/* Die Zusammenfassung der Woche. Erst werden die vollen Titel versucht; erst
+   wenn sie ueber zwei Zeilen hinausgehen, faellt die Aufzaehlung hinter dem
+   Doppelpunkt weg und es bleibt das Thema. Damit behaelt eine ruhige Woche
+   ihre Einzelheiten und eine volle wird lesbar. */
+const GRENZE = 190;
+function themen(liste, fach){
+  /* Die Lernsituation steht einmal vorn, nicht vor jedem Thema: „LS 03.1 ·
+     Vertriebswege · LS 03.1 · Der Einfirmenvertreter" liest sich wie zwei
+     verschiedene Dinge und ist eines. */
+  let kenn = '', letzt = '';
+  const voll = liste.map(x => {
+    let t = ohnePhase(x.was);
+    const m = /^(LS \d+\.\d+)\s*·\s*/.exec(t);
+    if(m){ if(!kenn) kenn = m[1]; if(m[1] === kenn) t = t.slice(m[0].length); }
+    t = mitFach(t, fach);
+    /* Und dasselbe eine Ebene tiefer: Zwei Bloecke desselben Bausteins nennen
+       ihn einmal. „SK_B02 · Vertiefung · SK_B02 · Berechnungswerkstatt" sieht
+       nach zwei Bausteinen aus und ist einer. Ein Wechsel — B04 auf B05 —
+       bleibt stehen, denn dort ist es wirklich ein zweiter. */
+    const c = /^([A-Z0-9]+_B\d{2}[a-z]?)\s*·\s*/.exec(t);
+    if(c){ if(c[1] === letzt) t = t.slice(c[0].length); else letzt = c[1]; }
+    return t;
+  }).filter(Boolean);
+  const vorn = kenn ? kenn + ' · ' : '';
+  let text = voll.join(' · ');
+  if((vorn + text).length <= GRENZE) return vorn + text;
+  const kurz = voll.map(t => { const i = t.indexOf(':'); return i > 12 ? t.slice(0, i) : t; });
+  text = kurz.join(' · ');
+  if((vorn + text).length <= GRENZE) return vorn + text;
+  let aus = '';
+  for(const t of kurz){ if((aus + ' · ' + t).length > GRENZE) break; aus = aus ? aus + ' · ' + t : t; }
+  return vorn + aus + ' …';
+}
+
+/* Wo liegt das Skript zu den Bausteinen dieser Woche? Aus den Kennungen der
+   Woche gebaut — aber nur fuer Bausteine, deren Skript wirklich im Ordner
+   liegt (DATEN.skripte, am Bestand erhoben). Ein Baustein ohne gebautes
+   Skript bekommt „Dateiname folgt"; wer nach einer Datei sucht, die es nicht
+   gibt, sucht umsonst. Lernfeld 4 fuehrt in den Zelltexten noch die U- und
+   W-Kennungen; dort steht deshalb vorerst nichts. */
+function bausteinWo(fach, liste){
+  const t = TEAMS[fach];
+  const codes = [];
+  liste.forEach(x => {
+    const m = String(x.was || '').match(/(^|·\s)B(\d{2})(?![\w])/g) || [];
+    m.forEach(k => { const c = 'B' + k.match(/\d{2}/)[0]; if(!codes.includes(c)) codes.push(c); });
+  });
+  if(!codes.length) return '';
+  if(!t) return '<dl class="wo"><dt>Wo?</dt><dd>Teams · Kanal noch offen</dd></dl>';
+  const da = ((DATEN.skripte || {})[SPALTE[fach]] || []);
+  const namen = codes.filter(c => da.includes(c))
+                     .map(c => 'KVF_' + SPALTE[fach] + '_' + c + '_Skript_SuS.docx');
+  const wo = 'Teams · Kanal ' + t[0] + ' · Ordner ' + t[1] + ' · '
+           + (namen.length ? namen.join(' · ') : 'Dateiname folgt');
+  return '<dl class="wo"><dt>Wo?</dt><dd>' + esc(wo) + '</dd></dl>';
+}
+
+function woZeile(fach, datei){
+  const t = TEAMS[fach];
+  if(!t) return 'Teams · Kanal noch offen';
+  /* Ein Forms-Quiz liegt in keinem Ordner: Die Klasse ruft es ueber den Link
+     oder den QR-Code auf. Der Dateiname der Importdatei ist die Sache der
+     Lehrkraft und hat hier nichts verloren. */
+  if(/Forms/i.test(datei)){
+    const code = String(datei).replace(/^Forms\s+/i, '').replace(/_?Forms\.docx$/i, '');
+    return 'Teams · Kanal ' + t[0] + ' · Forms-Quiz ' + code;
+  }
+  return 'Teams · Kanal ' + t[0] + ' · Ordner ' + t[1] + (datei ? ' · ' + datei : ' · Dateiname folgt');
+}
+
+/* „Bis wann" ist die Woche, in der es fertig sein muss — nicht der Tag der
+   Ausgabe. Sie steht im Pruefsatz des Plans; das Datum daneben ist der erste
+   Tag dieser Blockwoche. */
+function bisWann(x){
+  const bw = /Blockwoche (\d+)(?:[^.]*? am ([\d.]+))?/.exec(x.pruefung || '');
+  if(bw) return 'Blockwoche ' + bw[1] + (bw[2] ? ' · ' + bw[2] : '');
+  const d = /bis (\d{1,2}\.\d{1,2}\.\d{4})/.exec(x.zeitraum || '');
+  return d ? d[1] : '';
+}
+
+/* Der Zweck, und nur er. „zu Hause" steht schon im Abzeichen, „unbenotet" und
+   „keine Unterrichtszeit" sagten dasselbe ein zweites und drittes Mal. */
+function zweck(x){
+  const m = /bewertet in ([^,·]+?) der Woche (\d+)/.exec(x.pruefung || '');
+  if(!m) return '';
+  return 'Grundlage für ' + m[1].trim().replace(/^(der|die|das)\s+/i, '') + ' in Woche ' + m[2];
+}
 
 /* ---------- Notenspiegel ---------- */
 function spiegel(){
@@ -2088,7 +2560,9 @@ function wochen(){
     const ist = laufend && laufend.nr === w.nr;
     const auf = ist || (!laufend && naechste.nr === w.nr);
     const wl = DATEN.leistungen.filter(l => l.woche === w.nr);
-    const tags = DATEN.faecher.map(f=>{
+    const dienstG = ordnungsdienst(w.nr);
+    const dienstTag = dienstG ? '<span style="--f:var(--ink)">Dienst '+esc(dienstG.name)+'</span>' : "";
+    const tags = dienstTag + DATEN.faecher.map(f=>{
       const b = wl.filter(l => l.fach===f.id && l.benotet);
       return b.length
         ? '<span style="--f:var(--'+f.id+')">'+b.map(x=>esc(x.art)).join(" ")+' '+esc(f.name.replace("Lernfeld","LF"))+'</span>'
@@ -2098,12 +2572,17 @@ function wochen(){
     const koerper = DATEN.faecher.map(f=>{
       const st = (DATEN.stoff[f.id]||{})[w.nr] || [];
       const ls = wl.filter(l => l.fach === f.id);
-      if(!st.length && !ls.length) return "";
+      const sr = (DATEN.strecken||[]).filter(x => x.fach===f.id && x.woche===w.nr);
+      if(!st.length && !ls.length && !sr.length) return "";
+      const std = st.reduce((a,x)=>a+(+x.std||0),0);
       return '<div class="fblock" style="--f:var(--'+f.id+')">'
         + '<div class="fkopf"><span class="fn">'+esc(f.name)+'</span>'
+          + (std ? '<span class="fstd">'+String(std).replace(".",",")+' Std</span>' : '')
           + '<span class="fl">'+esc(f.lk)+'</span></div>'
-        + (st.length ? '<ul>'+st.map(x=>'<li><b>'+x.std+' Std</b>'+esc(x.was)+'</li>').join("")+'</ul>' : '')
+        + (st.length ? '<div class="wsum">'+esc(themen(st, f.id))+'</div>'
+                       + bausteinWo(f.id, st) : '')
         + ls.map(l=>leistungHtml(l)).join("")
+        + sr.map(x=>streckeHtml(x)).join("")
         + '</div>';
     }).join("");
 
@@ -2112,7 +2591,7 @@ function wochen(){
         + '<span class="wtermin">'+esc(w.termin)+'</span>'
         + (tags ? '<span class="wtags">'+tags+'</span>' : '')
         + (w.kurz ? '<span class="wkurz">'+esc(w.kurz)+'</span>' : '')
-      + '</summary>' + koerper + '</details>';
+      + '</summary>' + dienstHtml(w.nr) + koerper + '</details>';
   }).join("");
 
   ziel.querySelectorAll("select[data-lid]").forEach(s=>{
@@ -2126,10 +2605,38 @@ function wochen(){
   });
 }
 
+/* Selbstlernstrecken · Regel 12, Variante 60.
+   Was zu Hause zu tun ist, gehoert in diese Fassung und nicht nur in den
+   Lehrerplan: wann das Blatt kommt, bis wann es zu bearbeiten ist und woran
+   es geprueft wird. */
+function streckeHtml(x){
+  const zeile = (t, w) => w ? '<dt>'+t+'</dt><dd>'+esc(w)+'</dd>' : '';
+  return '<div class="strecke">'
+    + '<div class="sk"><span class="sart">zu Hause bearbeiten</span>'
+      + (x.blatt ? '<span class="sblatt">'+esc(x.strecke ? x.strecke+' '+x.blatt : x.blatt)+'</span>' : '')
+      + (x.minuten ? '<span class="smin">rund '+x.minuten+' Min.</span>' : '')
+    + '</div>'
+    + (zweck(x) ? '<div class="st">'+esc(zweck(x))+'</div>' : '')
+    + '<dl class="wo">' + zeile('Bis wann', bisWann(x))
+            + zeile('Wo?', woZeile(x.fach, x.datei)) + '</dl>'
+    + '</div>';
+}
+
+/* Der Kopf einer Leistung. „PUB 1" statt „T 1", „PKA 1" statt „T KA 1" —
+   dieselbe Rolle, die der Dateiname traegt (Variante 85). Das alte Zeichen „T"
+   wird weiter gelesen, damit eine Tafel aus einem aelteren Stand nicht
+   plötzlich „T" zeigt, wo der Plan „PUB" sagt. */
+function leistungKopf(l){
+  const nr = String(l.nr == null ? '' : l.nr).trim();
+  if(l.art === 'PUB' || l.art === 'T')
+    return /^KA/.test(nr) ? ('PKA ' + nr.slice(2).trim()).trim() : ('PUB ' + nr).trim();
+  return (l.art + (nr ? ' ' + nr : '')).trim();
+}
+
 function leistungHtml(l){
   const gesetzt = meine[l.lid] || "";
   return '<div class="leist">'
-    + '<div class="lk"><span class="lart">'+esc(l.art)+(l.nr?" "+esc(l.nr):"")+'</span>'
+    + '<div class="lk"><span class="lart">'+esc(leistungKopf(l))+'</span>'
       + (l.form ? '<span class="lform">'+esc(l.form)+'</span>' : '')
       + (l.benotet
           ? '<span class="note"><label for="n_'+esc(l.lid)+'">meine Note</label>'
@@ -2138,10 +2645,14 @@ function leistungHtml(l){
             + '<option value="">–</option>'
             + NOTEN.map(n=>'<option'+(n===gesetzt?" selected":"")+'>'+n+'</option>').join("")
             + '</select></span>'
-          : '<span class="uebung">nicht benotet</span>')
+          : '<span class="uebung">nicht bewertet</span>')
     + '</div>'
-    + (l.titel ? '<div class="lt">'+esc(l.titel)+'</div>' : '')
-    + (l.ort ? '<div class="lort">'+esc(l.ort)+'</div>' : '')
+    + (l.titel ? '<div class="lt">'+esc(ohnePhase(l.titel))+'</div>' : '')
+    /* Eine bewertete Leistung bekommt KEINE Wo?-Zeile: Sie wird im Unterricht
+       ausgeteilt und geschrieben, nicht zu Hause geholt. Ein Ordnerhinweis
+       daran hat nur so ausgesehen, als koenne man sich vorher bedienen.
+       Beschluss C. K. vom 19.09.2026. */
+    + (l.benotet ? '' : '<dl class="wo"><dt>Wo?</dt><dd>'+esc(woZeile(l.fach, l.datei))+'</dd></dl>')
     + '</div>';
 }
 
@@ -2182,7 +2693,8 @@ dOk.addEventListener("click", ()=>{
     const n = (x && x.noten) ? x.noten : x;
     if(!n || typeof n !== "object") throw new Error();
     meine = {};
-    Object.keys(n).forEach(k => { if(NOTEN.indexOf(n[k]) >= 0) meine[k] = n[k]; });
+    /* Auch eine aeltere Sicherung mit Tendenzen laesst sich einlesen. */
+    Object.keys(n).forEach(k => { const g = ganzeNote(n[k]); if(g) meine[k] = g; });
     schreiben(); spiegel(); wochen(); dlg.close();
   } catch(e){
     dText.textContent = "Das war keine gültige Sicherung. Füge den ganzen Text ein, "

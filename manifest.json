@@ -5,14 +5,14 @@
   "id": "70968bb1-06ce-431d-b9c0-c8b1065399b5",
   "packageName": "de.friedrichlist.meinjahrkvf26",
   "developer": {
-    "name": "Friedrich-List-Schule",
-    "websiteUrl": "https://friedrichlist.github.io/Mein_1.AJ_KVF26/",
-    "privacyUrl": "https://friedrichlist.github.io/Mein_1.AJ_KVF26/datenschutz.html",
-    "termsOfUseUrl": "https://friedrichlist.github.io/Mein_1.AJ_KVF26/datenschutz.html"
+    "name": "BbS IV Friedrich List Halle (Saale)",
+    "websiteUrl": "https://listschule-halle.de/",
+    "privacyUrl": "https://listschule-halle.de/datenschutzerklaerung/",
+    "termsOfUseUrl": "https://listschule-halle.de/impressum/"
   },
   "name": {
-    "short": "Mein Jahr",
-    "full": "Mein Jahr · KVF 26"
+    "short": "Mein 1. AJ",
+    "full": "Mein 1. AJ · KVF 26"
   },
   "description": {
     "short": "Persönliches Jahresprotokoll für das 1. Ausbildungsjahr",
@@ -26,11 +26,15 @@
   "staticTabs": [
     {
       "entityId": "meinJahrKvf26",
-      "name": "Mein Jahr",
+      "name": "Mein 1. AJ",
       "contentUrl": "https://friedrichlist.github.io/Mein_1.AJ_KVF26/",
       "websiteUrl": "https://friedrichlist.github.io/Mein_1.AJ_KVF26/",
-      "scopes": ["personal"]
+      "scopes": [
+        "personal"
+      ]
     }
   ],
-  "validDomains": ["friedrichlist.github.io"]
+  "validDomains": [
+    "friedrichlist.github.io"
+  ]
 }
