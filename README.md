@@ -6,6 +6,15 @@ Persönliches Jahresprotokoll für das erste Ausbildungsjahr — als Web-App, di
 
 Alle Einträge bleiben im Browser des jeweiligen Geräts. Es gibt kein Backend, keine Anmeldung, keine Datenübertragung.
 
+## Gestaltung (seit 10.10.2026)
+
+Die App trägt das Corporate Design der Listschule Halle (Saale): Farben aus dem Design Manual,
+Schrift Montserrat (in die Seite eingebettet, SIL Open Font License 1.1 – es wird nichts von
+Google oder anderen nachgeladen), Logo oben, Icon als App-Symbol. Ausnahme: die sieben
+Fachfarben bleiben zur Orientierung wie im gedruckten Turnusplan (Entscheidung Christian
+vom 10.10.2026). Das CD kommt aus `cd/cd.py` in der Tafeln-Bauumgebung
+(`Turnusplan BGT/1. AJ`); `tafeln.js` setzt es in die Tafel und prüft es.
+
 ---
 
 ## Was liegt hier
@@ -16,8 +25,10 @@ Alle Einträge bleiben im Browser des jeweiligen Geräts. Es gibt kein Backend, 
 | `app-bauen.py` | Baut aus der reinen App-HTML diese installierbare Fassung. |
 | `manifest.webmanifest` | Macht die Seite installierbar (Name, Icon, Startbildschirm). |
 | `service-worker.js` | Offline-Cache. Lädt die App beim zweiten Besuch auch ohne Netz. |
-| `datenschutz.html` | Datenschutzhinweis, wird vom Teams-Manifest verlinkt. |
-| `icon-192.png`, `icon-512.png` | App-Icons. |
+| `datenschutz.html` | Datenschutzhinweis, wird vom Teams-Manifest verlinkt. Erzeugt von `app-bauen.py` aus `datenschutz.tpl.html`. |
+| `datenschutz.tpl.html` | Text des Datenschutzhinweises mit Marken für das CD. Hier wird der Text gepflegt. |
+| `icon-192.png`, `icon-512.png` | App-Icons: Icon der Listschule, weiß auf Dunkelgrün (seit 10.10.2026). |
+| `icon-color.png`, `icon-outline.png` | Icons für Teams (192 px farbig, 32 px weiße Linien auf transparent). |
 | `teams/manifest.json` | Teams-App-Definition. |
 | `mein-jahr-kvf26-teams.zip` | Fertiges Paket für das Teams Admin Center. |
 
@@ -60,14 +71,17 @@ Die eigentliche App wird an anderer Stelle gepflegt (im OneDrive unter `Turnuspl
 python3 app-bauen.py "/Pfad/zu/Mein_1_AJ_KVF26.html"
 ```
 
-Das Skript legt `index.html` neben der Quelldatei ab und lässt die Quelle unverändert. Es ergänzt:
+Das Skript legt `index.html` und `datenschutz.html` neben sich selbst ab (seit 10.10.2026; vorher neben der Quelldatei) und lässt die Quelle unverändert. Es ergänzt:
 
 - die Kopfdaten für die Installation auf dem Startbildschirm
 - das dunkle Farbschema zusätzlich über `data-theme`, damit Teams sein Design durchreichen kann
 - die Breitenangabe (linksbündig, bis 1080 px)
 - den Link zur ausführlichen Datenschutzseite im Fußbereich
 - die Registrierung von Offline-Speicher und Teams-Anbindung vor `</body>`
+- `datenschutz.html` aus `datenschutz.tpl.html`, mit Schrift, Farbwerten, Logo und Favicon aus der Tafel
 
 Findet das Skript einen Ansatzpunkt nicht oder mehrfach, bricht es ab und sagt welchen — dann hat sich die Quelldatei an dieser Stelle geändert und das Skript muss angepasst werden.
 
-Anschließend die erzeugte `index.html` ins Repo hochladen.
+Anschließend die erzeugte `index.html` ins Repo hochladen (bei Änderungen am Text oder am CD auch `datenschutz.html`).
+
+App-Icons neu erzeugen (nur wenn sich das CD ändert): `python3 "<Tafeln-Bauumgebung>/cd/cd.py" --app-icons .` (der Ordner `cd/` liegt in `Tafeln_Bauumgebung_V204-KVF26e_CD_10102026.zip`) – danach das Teams-Paket neu packen und in `teams/manifest.json` die `version` erhöhen.

@@ -1,4 +1,4 @@
-const VERSION = 'v1';
+const VERSION = 'v4-kvf26f'; // 10.10.2026 nachts: Datenstand V204-KVF26f (inhaltsgleich mit 26e, neue Kennung) - neue Version leert die alten Caches
 const APP_CACHE = 'mein-jahr-app-' + VERSION;
 const FONT_CACHE = 'mein-jahr-fonts-' + VERSION;
 

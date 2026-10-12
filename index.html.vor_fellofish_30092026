@@ -1,0 +1,3022 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="description" content="Persönliches Jahresprotokoll KVF 26 – alle Daten bleiben auf dem Gerät.">
+<meta name="theme-color" content="#F4F6F5" media="(prefers-color-scheme:light)">
+<meta name="theme-color" content="#12181A" media="(prefers-color-scheme:dark)">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="Mein 1. AJ">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icon-192.png" sizes="192x192" type="image/png">
+<link rel="apple-touch-icon" href="icon-192.png">
+<title>Mein 1. AJ · KVF 26</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Serif:wght@500;600&display=swap">
+<style>
+:root{
+  --ground:#F4F6F5; --surface:#FFFFFF; --sunk:#EAEEED;
+  --ink:#182124; --ink2:#48585B; --muted:#6E7E81;
+  --line:#D7DFDE; --line2:#C2CDCC; --focus:#1F6670;
+  --lf1:#204A50; --sk:#2F7A5E; --lf2:#33507C; --lf3:#A8861B;
+  --de:#A03A2A; --lf4:#6E3AA8; --lf5:#BC2A6E;
+  --tint-a:11%; --tint-b:21%;
+  --sans:"IBM Plex Sans",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+  --serif:"IBM Plex Serif",Georgia,"Times New Roman",serif;
+  --mono:"IBM Plex Mono",ui-monospace,"SF Mono",Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --ground:#12181A; --surface:#1A2124; --sunk:#0D1214;
+  --ink:#E3EAEA; --ink2:#AFBCBD; --muted:#8B9A9C;
+  --line:#2B3639; --line2:#3C4A4D; --focus:#4FA9B4;
+  --lf1:#3E9CB0; --sk:#6DAC46; --lf2:#6E8ED4; --lf3:#D6AC2E;
+  --de:#C55C58; --lf4:#9A6EDC; --lf5:#DB5690;
+  --tint-a:12%; --tint-b:20%;
+}}
+:root[data-theme="dark"]{
+  --ground:#12181A; --surface:#1A2124; --sunk:#0D1214;
+  --ink:#E3EAEA; --ink2:#AFBCBD; --muted:#8B9A9C;
+  --line:#2B3639; --line2:#3C4A4D; --focus:#4FA9B4;
+  --lf1:#3E9CB0; --sk:#6DAC46; --lf2:#6E8ED4; --lf3:#D6AC2E;
+  --de:#C55C58; --lf4:#9A6EDC; --lf5:#DB5690;
+  --tint-a:12%; --tint-b:20%;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--ground);color:var(--ink);font-family:var(--sans);
+  font-size:15px;line-height:1.55;-webkit-font-smoothing:antialiased}
+:focus-visible{outline:2px solid var(--focus);outline-offset:2px}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+.wrap{max-width:1080px;margin:0;padding:26px 18px 70px}
+/* Ab Tabletbreite etwas Luft zum linken Fensterrand */
+@media (min-width:760px){.wrap{padding-left:32px;padding-right:32px}}
+
+h1{font-family:var(--serif);font-size:28px;font-weight:600;line-height:1.15;
+  margin:0 0 6px;letter-spacing:-.012em;text-wrap:balance}
+.unter{color:var(--ink2);font-size:14px;margin:0 0 20px;max-width:62ch}
+.eyebrow{font-family:var(--mono);font-size:10.5px;letter-spacing:.09em;
+  text-transform:uppercase;color:var(--muted);margin:0 0 7px}
+
+/* Datenschutzkasten — der wichtigste Text der Seite */
+.privat{border:2px solid var(--ink);background:var(--surface);padding:15px 17px;margin-bottom:24px}
+.privat p{margin:0;font-size:13.5px;line-height:1.55;color:var(--ink2)}
+.privat p{max-width:80ch}
+.privat p+p{margin-top:8px}
+.privat b{color:var(--ink)}
+.privat .zeile{display:flex;flex-wrap:wrap;gap:9px;margin-top:13px}
+button.knopf{font:600 13px/1 var(--sans);color:var(--ink);background:var(--surface);
+  border:1.5px solid var(--line2);padding:8px 12px;cursor:pointer}
+button.knopf:hover{border-color:var(--ink);background:var(--sunk)}
+button.knopf.warn:hover{border-color:var(--de);color:var(--de)}
+
+/* Notenspiegel */
+.spiegel{border:1px solid var(--line);background:var(--surface);margin-bottom:26px}
+.spiegel .zeile{display:flex;align-items:center;gap:12px;padding:9px 15px;
+  border-top:1px solid var(--line)}
+.spiegel .zeile:first-of-type{border-top:0}
+.spiegel .kopfz{padding:13px 15px 11px;border-bottom:1.5px solid var(--line2);background:var(--sunk)}
+.spiegel .fchip{width:9px;height:22px;flex:none;background:var(--f)}
+.spiegel .fn{font-weight:600;font-size:14px}
+.spiegel .fl{font-size:12px;color:var(--muted)}
+.spiegel .schnitt{margin-left:auto;text-align:right;white-space:nowrap}
+.spiegel .schnitt b{font-family:var(--serif);font-size:22px;font-weight:600;
+  font-variant-numeric:tabular-nums}
+.spiegel .schnitt span{display:block;font-family:var(--mono);font-size:10.5px;color:var(--muted)}
+
+/* Wochen */
+.woche{border:1px solid var(--line);background:var(--surface);margin-bottom:14px}
+.woche.vorbei{opacity:.72}
+.woche > summary{list-style:none;cursor:pointer;padding:13px 16px;
+  display:flex;align-items:baseline;gap:13px;flex-wrap:wrap}
+.woche > summary::-webkit-details-marker{display:none}
+.woche > summary:hover{background:var(--sunk)}
+.wnr{font-family:var(--serif);font-size:26px;font-weight:600;line-height:1;
+  font-variant-numeric:tabular-nums;min-width:34px}
+.wtermin{font-family:var(--mono);font-size:12.5px;color:var(--ink2)}
+.wtags{margin-left:auto;display:flex;gap:5px;flex-wrap:wrap;font-family:var(--mono);
+  font-size:10.5px;font-weight:600}
+.wtags span{border:1px solid var(--f,var(--line2));padding:1px 5px;
+  background:color-mix(in oklab,var(--f,var(--line2)) var(--tint-a),var(--surface))}
+.wkurz{flex-basis:100%;font-size:12.5px;color:var(--de);font-weight:500}
+.woche[open] > summary{border-bottom:1px solid var(--line);background:var(--sunk)}
+.jetzt{border-width:2px;border-color:var(--ink)}
+.jetzt .wnr::after{content:" ▸";font-size:15px;vertical-align:2px}
+
+.fblock{border-top:1px solid var(--line);padding:11px 16px 13px;border-left:4px solid var(--f)}
+.fblock:first-of-type{border-top:0}
+.fkopf{display:flex;align-items:baseline;gap:9px;margin-bottom:6px}
+.fkopf .fn{font-weight:600;font-size:13.5px}
+.fkopf .fl{font-family:var(--mono);font-size:11px;color:var(--muted);margin-left:auto}
+.fblock .wsum{font-size:13px;color:var(--ink2);line-height:1.5;margin-top:5px}
+.fblock .fstd{font-family:var(--mono);font-size:11px;font-weight:600;color:var(--muted);
+  border:1px solid var(--line2);border-radius:5px;padding:1px 6px}
+/* Die Wo?- und Bis-wann-Zeile. EINE Regel fuer alle drei Orte — am Baustein,
+   an der Leistung und an der Selbstlernstrecke —, damit dieselbe Angabe nicht
+   an einer Stelle gross und an der anderen klein steht. Beschluss C. K. vom
+   19.09.2026; vorher hatte die Zeile am Baustein gar keine Regel und erbte die
+   Grundschrift. VORFASSUNG: sus.tpl.html.vor_wogroesse_19092026 */
+.wo{margin:6px 0 0;padding:0;display:grid;grid-template-columns:max-content 1fr;
+  gap:2px 10px;font-size:12px;line-height:1.45}
+.wo dt{font-family:var(--mono);font-size:10.5px;color:var(--muted);
+  text-transform:none;padding-top:1px}
+.wo dd{margin:0;color:var(--ink2)}
+.fblock > .wo{margin-top:6px}
+.fblock ul{list-style:none;margin:0;padding:0}
+.fblock li{font-size:13px;color:var(--ink2);line-height:1.45;padding-left:50px;
+  text-indent:-50px;margin-bottom:4px}
+.fblock li b{font-family:var(--mono);font-size:11px;font-weight:600;color:var(--muted);
+  display:inline-block;width:44px;text-indent:0;white-space:nowrap;
+  font-variant-numeric:tabular-nums}
+
+/* Ordnungsdienst · eigener Block, weil er zur ganzen Woche gehört und
+   keinem Fach — deshalb --ink statt --f und ohne linken Fachbalken. */
+.dienst{border-top:1px solid var(--line);border-bottom:1px solid var(--line);
+  background:var(--sunk);padding:10px 16px 11px}
+.dienst .dkopf{display:flex;align-items:baseline;gap:8px;flex-wrap:wrap;margin-bottom:6px}
+.dienst .deyebrow{font-family:var(--mono);font-size:10.5px;letter-spacing:.06em;
+  text-transform:uppercase;color:var(--muted)}
+.dienst .dn{font-weight:600;font-size:13.5px}
+.dienst .dfirmen{font-family:var(--mono);font-size:11px;color:var(--muted)}
+.dienst ul{list-style:none;margin:0;padding:0}
+.dienst li{font-size:12.5px;color:var(--ink2);line-height:1.5;padding-left:13px;
+  position:relative}
+.dienst li::before{content:"–";position:absolute;left:0;color:var(--muted)}
+
+.leist{margin-top:10px;border:1.5px solid var(--f);border-radius:0 10px 10px 0;
+  background:color-mix(in oklab,var(--f) var(--tint-a),var(--surface));padding:9px 11px}
+.leist+.leist{margin-top:7px}
+.leist .lk{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.leist .lart{font-family:var(--mono);font-size:11px;font-weight:600;
+  border:1px solid var(--f);background:var(--surface);padding:1px 5px}
+.leist .lform{font-family:var(--mono);font-size:10.5px;color:var(--muted)}
+.leist .lt{font-size:12.5px;color:var(--ink2);margin-top:4px;line-height:1.4}
+.leist .lort{font-size:12px;color:var(--muted);margin-top:3px;font-style:italic}
+.strecke{margin-top:10px;border:1.5px dashed var(--f);border-radius:0 10px 10px 0;
+  background:color-mix(in oklab,var(--f) calc(var(--tint-a) / 2),var(--surface));padding:9px 11px}
+.strecke+.strecke{margin-top:7px}
+.strecke .sk{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.strecke .sart{font-family:var(--mono);font-size:11px;font-weight:600;
+  border:1px dashed var(--f);background:var(--surface);padding:1px 5px}
+.strecke .sblatt{font-family:var(--mono);font-size:10.5px;color:var(--muted)}
+.strecke .smin{font-family:var(--mono);font-size:10.5px;color:var(--muted);margin-left:auto}
+.strecke .st{font-size:12.5px;color:var(--ink2);margin-top:4px;line-height:1.4}
+.note{margin-left:auto;display:flex;align-items:center;gap:7px}
+.note label{font-family:var(--mono);font-size:10.5px;color:var(--muted)}
+.note select{font-family:var(--mono);font-size:15px;font-weight:600;color:var(--ink);
+  background:var(--surface);border:1.5px solid var(--line2);padding:3px 5px;min-width:56px}
+.note select.gesetzt{border-color:var(--f)}
+.uebung{font-family:var(--mono);font-size:10.5px;color:var(--muted);
+  border:1px dashed var(--line2);padding:1px 5px;margin-left:auto}
+
+.fuss{margin-top:34px;padding-top:16px;border-top:1px solid var(--line);
+  font-size:12.5px;color:var(--muted);line-height:1.6}
+.fuss b{color:var(--ink2)}
+.ds-link{color:var(--muted);text-decoration:underline;text-underline-offset:2px}
+.ds-link:hover{color:var(--ink2)}
+dialog{border:2px solid var(--ink);background:var(--surface);color:var(--ink);
+  padding:20px 22px;max-width:min(540px,92vw);font-family:var(--sans)}
+dialog::backdrop{background:rgba(10,16,18,.5)}
+dialog h2{font-family:var(--serif);font-size:19px;margin:0 0 10px}
+dialog textarea{width:100%;min-height:120px;font-family:var(--mono);font-size:11.5px;
+  color:var(--ink);background:var(--sunk);border:1px solid var(--line2);padding:8px}
+dialog p{font-size:13px;color:var(--ink2);line-height:1.5}
+
+@media print{
+  body{background:#fff;color:#000;font-size:11pt}
+  .privat .zeile,.knopf,dialog{display:none!important}
+  .woche{break-inside:avoid;border-color:#999}
+  .woche > summary{background:#f2f2f2!important}
+  details{display:block}
+  details > summary{list-style:none}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <h1>Mein 1. AJ · KVF 26</h1>
+  <p class="unter">Vierzehn Blockwochen, 31.08.2026 bis 09.07.2027. Was in welcher Woche
+  drankommt, wann geschrieben wird — und Platz für deine eigenen Noten.</p>
+
+  <div class="privat">
+    <p class="eyebrow">Wo deine Noten liegen</p>
+    <p><b>Alles, was du hier einträgst, bleibt in diesem Browser auf diesem Gerät.</b>
+    Es wird nirgendwohin gesendet und in keiner Datenbank gespeichert. Niemand sonst
+    kann es sehen — auch deine Lehrkräfte nicht, auch die Schule nicht.</p>
+    <p>Das heißt auch: Löschst du die Browserdaten, benutzt du einen anderen Browser
+    oder ein anderes Gerät, sind deine Eintragungen weg. <b>Wer sie behalten will,
+    sichert sie mit dem Knopf unten</b> — oder trägt sie zusätzlich woanders ein.</p>
+    <div class="zeile">
+      <button class="knopf" type="button" id="b-sichern">Eintragungen sichern</button>
+      <button class="knopf" type="button" id="b-laden">Sicherung einlesen</button>
+      <button class="knopf" type="button" id="b-druck">Drucken</button>
+      <button class="knopf warn" type="button" id="b-leeren">Alles löschen</button>
+    </div>
+  </div>
+
+  <section class="spiegel" id="spiegel"></section>
+
+  <div id="wochen"></div>
+
+  <p class="fuss">
+    <b>Grundlage:</b> Turnusplan des Bildungsgangs, Variante 204-KVF26e, Datenstand 28.09.2026.
+    Termine und Themen können sich ändern; es gilt, was die Lehrkraft sagt.
+    <b>UB</b> heißt unterrichtsbegleitende Bewertung, <b>KA</b> Klassenarbeit — beide zählen
+    für die Zeugnisnote. <b>PUB</b> und <b>PKA</b> sind ihre Probefassungen; sie werden
+    nicht benotet, bereiten aber genau auf die bewertete Leistung vor, die denselben
+    Namen ohne P trägt.
+    <br>Der Notenschnitt hier ist dein eigener Überschlag über die Leistungen, die du
+    eingetragen hast — <b>nicht</b> die Zeugnisnote. Wie gewichtet wird, entscheidet die
+    Fachlehrkraft.
+      <br><a href="datenschutz.html" class="ds-link">Wo deine Eintragungen liegen – die lange Fassung</a>
+    </p>
+</div>
+
+<dialog id="dlg">
+  <h2 id="dlg-titel">Sicherung</h2>
+  <p id="dlg-text"></p>
+  <textarea id="dlg-feld" spellcheck="false"></textarea>
+  <div style="display:flex;gap:9px;margin-top:12px;flex-wrap:wrap">
+    <button class="knopf" type="button" id="dlg-ok">Übernehmen</button>
+    <button class="knopf" type="button" id="dlg-datei">Als Datei speichern</button>
+    <button class="knopf" type="button" id="dlg-zu">Schließen</button>
+  </div>
+</dialog>
+
+<script>
+const DATEN = {
+ "stand": "28.09.2026",
+ "variante": "V204-KVF26e",
+ "quelle": {
+  "datei": "/home/claude/p4/v204k5/daten.js",
+  "variante": "V204-KVF26e",
+  "stand": "28.09.2026",
+  "abdruck": "45846e703cb66554"
+ },
+ "skripte": {
+  "LF01": [
+   "B01",
+   "B02",
+   "B03",
+   "B04",
+   "B05"
+  ],
+  "LF02": [
+   "B01",
+   "B02",
+   "B03",
+   "B04",
+   "B05"
+  ],
+  "LF03": [
+   "B01",
+   "B02",
+   "B03",
+   "B04",
+   "B05"
+  ],
+  "LF04": [
+   "B01",
+   "B02",
+   "B03",
+   "B04",
+   "B05",
+   "B06",
+   "B07",
+   "B08",
+   "B09",
+   "B10",
+   "B11",
+   "B12",
+   "B13",
+   "B14",
+   "B15",
+   "B16",
+   "B17",
+   "B18",
+   "B19"
+  ],
+  "LF05": [
+   "B01",
+   "B02",
+   "B03",
+   "B04",
+   "B05",
+   "B06",
+   "B07",
+   "B08",
+   "B09",
+   "B10",
+   "B11",
+   "B12"
+  ],
+  "SK": [
+   "B02",
+   "B03",
+   "B04"
+  ],
+  "DE": [
+   "B01",
+   "B02",
+   "B03"
+  ]
+ },
+ "faecher": [
+  {
+   "id": "lf1",
+   "name": "Lernfeld 1",
+   "lk": "M. Peréz Peralta",
+   "farbe": "#204A50",
+   "dunkel": "#3E9CB0"
+  },
+  {
+   "id": "sk",
+   "name": "Sozialkunde",
+   "lk": "Dr. A. Häger",
+   "farbe": "#2F7A5E",
+   "dunkel": "#6DAC46"
+  },
+  {
+   "id": "lf2",
+   "name": "Lernfeld 2",
+   "lk": "C. Kümmling",
+   "farbe": "#33507C",
+   "dunkel": "#6E8ED4"
+  },
+  {
+   "id": "lf3",
+   "name": "Lernfeld 3",
+   "lk": "C. Kümmling",
+   "farbe": "#A8861B",
+   "dunkel": "#D6AC2E"
+  },
+  {
+   "id": "de",
+   "name": "Deutsch",
+   "lk": "A. Heckl",
+   "farbe": "#A03A2A",
+   "dunkel": "#C55C58"
+  },
+  {
+   "id": "lf4",
+   "name": "Lernfeld 4",
+   "lk": "F. Leibnitz",
+   "farbe": "#6E3AA8",
+   "dunkel": "#9A6EDC"
+  },
+  {
+   "id": "lf5",
+   "name": "Lernfeld 5",
+   "lk": "C. Kümmling",
+   "farbe": "#BC2A6E",
+   "dunkel": "#DB5690"
+  }
+ ],
+ "wochen": [
+  {
+   "nr": 1,
+   "termin": "31.08.–04.09.2026",
+   "kurz": "",
+   "von": "",
+   "bis": ""
+  },
+  {
+   "nr": 2,
+   "termin": "21.–25.09.2026",
+   "kurz": "",
+   "von": "",
+   "bis": ""
+  },
+  {
+   "nr": 3,
+   "termin": "12.–16.10.2026",
+   "kurz": "",
+   "von": "",
+   "bis": ""
+  },
+  {
+   "nr": 4,
+   "termin": "16.–20.11.2026",
+   "kurz": "",
+   "von": "",
+   "bis": ""
+  },
+  {
+   "nr": 5,
+   "termin": "07.–11.12.2026",
+   "kurz": "",
+   "von": "",
+   "bis": ""
+  },
+  {
+   "nr": 6,
+   "termin": "18.–22.01.2027",
+   "kurz": "",
+   "von": "",
+   "bis": ""
+  },
+  {
+   "nr": 7,
+   "termin": "15.–19.02.2027",
+   "kurz": "",
+   "von": "",
+   "bis": ""
+  },
+  {
+   "nr": 8,
+   "termin": "08.–12.03.2027",
+   "kurz": "",
+   "von": "",
+   "bis": ""
+  },
+  {
+   "nr": 9,
+   "termin": "12.–16.04.2027",
+   "kurz": "",
+   "von": "",
+   "bis": ""
+  },
+  {
+   "nr": 10,
+   "termin": "03.–07.05.2027",
+   "kurz": "nur 3 Tage: 06.05. Feiertag, 07.05. beweglicher Ferientag",
+   "von": "",
+   "bis": ""
+  },
+  {
+   "nr": 11,
+   "termin": "24.–28.05.2027",
+   "kurz": "",
+   "von": "",
+   "bis": ""
+  },
+  {
+   "nr": 12,
+   "termin": "07.–11.06.2027",
+   "kurz": "",
+   "von": "",
+   "bis": ""
+  },
+  {
+   "nr": 13,
+   "termin": "21.–25.06.2027",
+   "kurz": "nur 4 Tage: 21.06. Präventionstag",
+   "von": "",
+   "bis": ""
+  },
+  {
+   "nr": 14,
+   "termin": "05.–09.07.2027",
+   "kurz": "",
+   "von": "",
+   "bis": ""
+  }
+ ],
+ "stoff": {
+  "lf1": {
+   "1": [
+    {
+     "std": 1,
+     "was": "Kennenlernen und Organisatorisches: Ablauf des Faches, Material, Leistungsbewertung"
+    },
+    {
+     "std": 2,
+     "was": "Ist · LS 01.1 · Einstieg in das Fach; B01 Ziele und Struktur der Berufsausbildung (nach V104)"
+    }
+   ],
+   "2": [
+    {
+     "std": 3,
+     "was": "Ist · TE 1 · Rahmen der Berufsausbildung und Berufsausbildungsvertrag"
+    }
+   ],
+   "3": [
+    {
+     "std": 1,
+     "was": "Nachholstoff · der Berufsausbildungsvertrag (Rest von TE 1) (Phase I)"
+    },
+    {
+     "std": 1,
+     "was": "UB 1 schreiben · danach Selbstkorrektur und Nachbesprechung (Phase III)"
+    },
+    {
+     "std": 1,
+     "was": "Phase II · Fallakte Ausbildungsvertrag: Vertrag prüfen, Einsatzplan nach Jugendarbeitsschutz, Rechtsquellen zuordnen"
+    }
+   ],
+   "4": [
+    {
+     "std": 2,
+     "was": "LS 01.1 · TE 2 · Jugendarbeitsschutz und Einstieg ins Arbeitsrecht (Phase I)"
+    },
+    {
+     "std": 1,
+     "was": "Phase II · Fallakte Ausbildungsvertrag: Vertrag prüfen, Einsatzplan nach Jugendarbeitsschutz, Rechtsquellen zuordnen"
+    }
+   ],
+   "5": [
+    {
+     "std": 1,
+     "was": "LS 01.1 · Phase II · Fallakte Ausbildungsvertrag: Vertrag prüfen, Einsatzplan nach Jugendarbeitsschutz, Rechtsquellen zuordnen"
+    },
+    {
+     "std": 2,
+     "was": "Jahresabschluss vor den Weihnachtsferien"
+    }
+   ],
+   "6": [
+    {
+     "std": 2,
+     "was": "LS 01.1 · TE 3 · Rechtsquellen des Arbeitsrechts (Phase I)"
+    },
+    {
+     "std": 1,
+     "was": "UB 2 schreiben · danach Selbstkorrektur und Nachbesprechung (Phase III)"
+    }
+   ],
+   "7": [
+    {
+     "std": 1,
+     "was": "LS 01.1 · Phase III · Dossier: der eigene Ausbildungsvertrag geprüft · Ernstfall im WISO-Format · Retrospektive"
+    },
+    {
+     "std": 2,
+     "was": "LS 01.2 · TE 1 · Arbeitsvertrag: Anbahnung und Inhalt (Phase I)"
+    }
+   ],
+   "8": [
+    {
+     "std": 2,
+     "was": "LS 01.2 · TE 2 · Rechtsstellung des Arbeitnehmers und Beendigung von Arbeitsverhältnissen (Phase I)"
+    },
+    {
+     "std": 1,
+     "was": "Klassenarbeit · LS 01.1 und LS 01.2 bis Woche 7 (R4-3) (Phase III)"
+    }
+   ],
+   "9": [
+    {
+     "std": 2,
+     "was": "LS 01.2 · TE 3 · Arbeitszeit und Arbeitsschutz · mit Rückgabe der Klassenarbeit (Phase I)"
+    },
+    {
+     "std": 1,
+     "was": "TE 4 · Sonstige Schutzgesetze: Kündigungsschutz, Gleichbehandlung, Mutterschutz (Phase I)"
+    }
+   ],
+   "10": [
+    {
+     "std": 1,
+     "was": "LS 01.2 · Phase II · Fallakte Arbeitsverhältnis: Vertrag, Kündigung und Fristen, Arbeitsschutz im Betrieb, Schutzgesetze"
+    },
+    {
+     "std": 1,
+     "was": "UB 3 schreiben · danach Selbstkorrektur und Nachbesprechung (Phase III)"
+    }
+   ],
+   "11": [
+    {
+     "std": 3,
+     "was": "LS 01.2 · Phase II · Fallakte Arbeitsverhältnis: Vertrag, Kündigung und Fristen, Arbeitsschutz im Betrieb, Schutzgesetze"
+    }
+   ],
+   "12": [
+    {
+     "std": 3,
+     "was": "LS 01.2 · Phase II · Fallakte Arbeitsverhältnis: Vertrag, Kündigung und Fristen, Arbeitsschutz im Betrieb, Schutzgesetze"
+    }
+   ],
+   "13": [
+    {
+     "std": 2,
+     "was": "LS 01.2 · Phase III · Dossier und Ernstfall im WISO-Format · Präsentation der Fallakten (Deutsch, Themenbereich 4) · Retrospektive"
+    }
+   ],
+   "14": [
+    {
+     "std": 1,
+     "was": "LS 01.2 · Phase III · Dossier und Ernstfall im WISO-Format · Präsentation der Fallakten (Deutsch, Themenbereich 4) · Retrospektive"
+    },
+    {
+     "std": 2,
+     "was": "Schuljahresabschluss"
+    }
+   ]
+  },
+  "sk": {
+   "1": [
+    {
+     "std": 1,
+     "was": "Kennenlernen und Organisatorisches: Ablauf des Faches, Material, Leistungsbewertung"
+    },
+    {
+     "std": 2,
+     "was": "Ist · Einstieg in das Fach: Prüfungsmethode; Quizsockel QS 1/QS 2 zu SK-B1: Aufbauorganisation, Aufbau- und Ablauforganisation, Führung (nach V104)"
+    }
+   ],
+   "2": [
+    {
+     "std": 3,
+     "was": "Ist · Quizsockel QS 3/QS 4 zu SK-B1: Stelle, Instanz, Stabsstelle, Leitungssysteme und Führungsstile am Organigramm (nach V104)"
+    }
+   ],
+   "3": [
+    {
+     "std": 1,
+     "was": "Nachholstoff · SK-B2 · Digitalisierung in Betrieb und Ausbildung: Kanäle und Lernplattform (Phase I)"
+    },
+    {
+     "std": 1,
+     "was": "SK-B2 · Vor- und Nachteile der Digitalisierung, Datenschutz im Alltag (Phase II)"
+    },
+    {
+     "std": 1,
+     "was": "UB 1 schreiben · danach Besprechung und Reflexion (Phase III)"
+    }
+   ],
+   "4": [
+    {
+     "std": 2,
+     "was": "SK-B3 · Sicherheit am Arbeitsplatz: Verhalten im Brandfall, Brandschutz, Bildschirmarbeitsplatz (Phase I)"
+    },
+    {
+     "std": 1,
+     "was": "SK-B4 · Umwelt und Energie im Betrieb: Maßnahmen im Ausbildungsbetrieb (Phase I)"
+    }
+   ],
+   "5": [
+    {
+     "std": 1,
+     "was": "SK-B4 · Energieeinsparung, Abfall und Recycling (Phase II)"
+    },
+    {
+     "std": 2,
+     "was": "Jahresabschluss vor den Weihnachtsferien"
+    }
+   ],
+   "6": [
+    {
+     "std": 2,
+     "was": "SK-B4 · Umweltschutz im Ausbildungsbetrieb: ein eigener Maßnahmenplan (Phase III)"
+    },
+    {
+     "std": 1,
+     "was": "Klassenarbeit · Sozialkunde (Phase III)"
+    }
+   ],
+   "7": [
+    {
+     "std": 3,
+     "was": "SK-B5 · Tarif und Sozialpartner: Tarifvertragsarten, Tarifautonomie, Tarifverhandlung · mit Rückgabe der Klassenarbeit (Phase I)"
+    }
+   ],
+   "8": [
+    {
+     "std": 2,
+     "was": "SK-B5 · Schlichtung, Streik und Aussperrung (Phase II)"
+    },
+    {
+     "std": 1,
+     "was": "SK-B7 · Sozialversicherung: Zweige, Träger und Beiträge (Phase I)"
+    }
+   ],
+   "9": [
+    {
+     "std": 3,
+     "was": "SK-B7 · Entgeltabrechnung, gesetzliche Unfallversicherung und Wegeunfall (Phase II)"
+    }
+   ],
+   "10": [
+    {
+     "std": 2,
+     "was": "SK-B6 · Mitbestimmung: Betriebsrat und Betriebsratswahl mit Wahlberechnung (Phase I)"
+    }
+   ],
+   "11": [
+    {
+     "std": 2,
+     "was": "SK-B6 · Jugend- und Auszubildendenvertretung und Beteiligungsrechte des Betriebsrats (Phase II)"
+    },
+    {
+     "std": 1,
+     "was": "UB 2 schreiben · danach Besprechung und Reflexion (Phase III)"
+    }
+   ],
+   "12": [
+    {
+     "std": 2,
+     "was": "SK-B6 · Betriebsvereinbarung und Unternehmensmitbestimmung (Phase II)"
+    },
+    {
+     "std": 1,
+     "was": "UB 3 schreiben · danach Besprechung und Reflexion (Phase III)"
+    }
+   ],
+   "13": [
+    {
+     "std": 2,
+     "was": "SK-T · WISO-Gesamttraining im Prüfungsformat über SK-B1 bis SK-B7 (Phase II)"
+    }
+   ],
+   "14": [
+    {
+     "std": 1,
+     "was": "SK-T · WISO-Gesamttraining: Ernstfall und Reflexion (Phase III)"
+    },
+    {
+     "std": 2,
+     "was": "Schuljahresabschluss"
+    }
+   ]
+  },
+  "lf2": {
+   "1": [
+    {
+     "std": 1,
+     "was": "Kennenlernen und Organisatorisches: Ablauf des Faches, Material, Leistungsbewertung"
+    },
+    {
+     "std": 2,
+     "was": "Ist · LS 02.1 · Einstieg in das Fach und Organisatorisches (VVG-Kompass noch nicht behandelt)"
+    }
+   ],
+   "2": [
+    {
+     "std": 1,
+     "was": "Ist · TE 1 · Willenserklärung, Zugang, Antrags- und Invitatiomodell"
+    },
+    {
+     "std": 2,
+     "was": "Ist · LS 02.1 · Willenserklärungen nach V104 (B04 A1); Pilotskript „LS 02.1 neu“ TE 1–2 ausgegeben"
+    }
+   ],
+   "3": [
+    {
+     "std": 1,
+     "was": "LS 02.1 · TE 1 · Willenserklärung, Zugang, Antrags- und Invitatiomodell (Fortsetzung) (Phase I)"
+    },
+    {
+     "std": 2,
+     "was": "TE 2 · Rechts- und Geschäftsfähigkeit (Phase I)"
+    }
+   ],
+   "4": [
+    {
+     "std": 1,
+     "was": "LS 02.1 · Phase II · Fallakte Antrag: Willenserklärung, Annahme, Beginn und Widerruf am VVG-Kompass"
+    },
+    {
+     "std": 1,
+     "was": "UB 1 schreiben · danach Selbstkorrektur und Nachbesprechung (Phase III)"
+    },
+    {
+     "std": 1,
+     "was": "TE 3 · Der VVG-Kompass: Aufbau und Gebrauch (Phase I)"
+    }
+   ],
+   "5": [
+    {
+     "std": 1,
+     "was": "LS 02.1 · TE 4 · Versicherungsantrag und Antragsannahme (Phase I)"
+    },
+    {
+     "std": 2,
+     "was": "Jahresabschluss vor den Weihnachtsferien"
+    }
+   ],
+   "6": [
+    {
+     "std": 2,
+     "was": "LS 02.1 · TE 5 · Informations-, Beratungs- und Dokumentationspflichten des Versicherers (Phase I)"
+    },
+    {
+     "std": 1,
+     "was": "UB 2 schreiben · danach Selbstkorrektur und Nachbesprechung (Phase III)"
+    }
+   ],
+   "7": [
+    {
+     "std": 2,
+     "was": "LS 02.1 · TE 6 · Versicherungsbeginn (Phase I)"
+    },
+    {
+     "std": 1,
+     "was": "Phase III · Ernstfall im GAP-Format · Kundenbrief zum Vertragsschluss · Retrospektive"
+    }
+   ],
+   "8": [
+    {
+     "std": 2,
+     "was": "LS 02.1 · TE 7 · Widerrufsrecht (Phase I)"
+    },
+    {
+     "std": 1,
+     "was": "UB 3 schreiben · danach Selbstkorrektur und Nachbesprechung (Phase III)"
+    },
+    {
+     "std": 2,
+     "was": "LS 02.2 · TE 1 · Rechte und Pflichten der Vertragspartner und Prämienzahlung, Teil 1 (Phase I)"
+    },
+    {
+     "std": 1,
+     "was": "Phase II · Fallakte Vertrag: Prämienverzug, Anzeigepflicht, Beschwerde und Kündigung am VVG-Kompass"
+    }
+   ],
+   "9": [
+    {
+     "std": 2,
+     "was": "LS 02.2 · TE 2 · Pflichten des Versicherungsnehmers: Prämienzahlung, Teil 2 (Phase I)"
+    },
+    {
+     "std": 1,
+     "was": "Phase II · Fallakte Vertrag: Prämienverzug, Anzeigepflicht, Beschwerde und Kündigung am VVG-Kompass"
+    }
+   ],
+   "10": [
+    {
+     "std": 2,
+     "was": "LS 02.2 · TE 3 · Vorvertragliche Anzeigepflicht (Phase I)"
+    }
+   ],
+   "11": [
+    {
+     "std": 2,
+     "was": "LS 02.2 · TE 4 · Beschwerdemöglichkeiten und Beendigung des Versicherungsvertrages (Phase I)"
+    },
+    {
+     "std": 1,
+     "was": "Phase II · Fallakte Vertrag: Prämienverzug, Anzeigepflicht, Beschwerde und Kündigung am VVG-Kompass"
+    }
+   ],
+   "12": [
+    {
+     "std": 1,
+     "was": "LS 02.2 · Phase II · Fallakte Vertrag: Prämienverzug, Anzeigepflicht, Beschwerde und Kündigung am VVG-Kompass"
+    },
+    {
+     "std": 1,
+     "was": "Klassenarbeit · LS 02.2 Den Vertrag führen und beenden (Phase III)"
+    },
+    {
+     "std": 2,
+     "was": "Phase II · Fallakte Vertrag: Prämienverzug, Anzeigepflicht, Beschwerde und Kündigung am VVG-Kompass"
+    },
+    {
+     "std": 2,
+     "was": "Phase III · Beratungsgespräch mit Beobachtungsbogen · Ernstfall im GAP-Format · Retrospektive"
+    }
+   ],
+   "13": [
+    {
+     "std": 2,
+     "was": "LS 02.2 · Phase III · Beratungsgespräch mit Beobachtungsbogen · Ernstfall im GAP-Format · Retrospektive · mit Rückgabe der Klassenarbeit"
+    }
+   ],
+   "14": [
+    {
+     "std": 1,
+     "was": "LS 02.2 · Phase III · Beratungsgespräch mit Beobachtungsbogen · Ernstfall im GAP-Format · Retrospektive"
+    },
+    {
+     "std": 2,
+     "was": "Schuljahresabschluss"
+    }
+   ]
+  },
+  "lf3": {
+   "1": [
+    {
+     "std": 1,
+     "was": "Kennenlernen und Organisatorisches: Ablauf des Faches, Material, Leistungsbewertung"
+    },
+    {
+     "std": 2,
+     "was": "Ist · Organisatorisches, kein Fachinhalt in Lernfeld 3 (Abfrage 45)"
+    }
+   ],
+   "2": [
+    {
+     "std": 3,
+     "was": "Ist · kein Fachinhalt in Lernfeld 3 (Abfrage 45)"
+    }
+   ],
+   "3": [
+    {
+     "std": 1,
+     "was": "LS 03.1 · TE 1 · Vertriebswege im Überblick, mit Einstieg in das Fach und in die Lernsituation (Phase I)"
+    },
+    {
+     "std": 2,
+     "was": "TE 2 · Der Versicherungsvertreter und der Makler (Phase I)"
+    }
+   ],
+   "4": [
+    {
+     "std": 1,
+     "was": "LS 03.1 · TE 3 · Datenschutz und Datensicherheit in der Versicherungswirtschaft (Phase I)"
+    },
+    {
+     "std": 1,
+     "was": "TE 4 · Die Phasen der Versicherungs- und Anlageberatung im Überblick (Phase I)"
+    },
+    {
+     "std": 1,
+     "was": "UB 1 schreiben · danach Selbstkorrektur und Nachbesprechung (Phase III)"
+    }
+   ],
+   "5": [
+    {
+     "std": 1,
+     "was": "LS 03.1 · Phase II · Fallakte Vermittler: Vertriebsweg wählen, Datenschutz prüfen, Erstinformation und Dokumentation erstellen"
+    },
+    {
+     "std": 2,
+     "was": "Jahresabschluss vor den Weihnachtsferien"
+    }
+   ],
+   "6": [
+    {
+     "std": 2,
+     "was": "LS 03.1 · TE 5 · Beratungsansatz, Kontaktaufnahme und Vermittlerpflichten (Phase I)"
+    },
+    {
+     "std": 1,
+     "was": "UB 2 schreiben · danach Selbstkorrektur und Nachbesprechung (Phase III)"
+    }
+   ],
+   "7": [
+    {
+     "std": 1,
+     "was": "LS 03.1 · TE 6 · Erstinformation, Vermittlerstatus, Schlichtung, Einwilligung und Beratungsdokumentation (Phase I)"
+    },
+    {
+     "std": 1,
+     "was": "Klassenarbeit · LS 03.1 bis Woche 6 (R4-3) (Phase III)"
+    },
+    {
+     "std": 1,
+     "was": "TE 7 · Prüfungsphase, Antragserklärung und Haftung des Vermittlers (Phase I)"
+    }
+   ],
+   "9": [
+    {
+     "std": 1,
+     "was": "LS 03.1 · Phase III · Dossier mit Abnahme · Ernstfall im GAP-Format · Retrospektive"
+    },
+    {
+     "std": 1,
+     "was": "UB 3 schreiben · danach Selbstkorrektur und Nachbesprechung (Phase III)"
+    },
+    {
+     "std": 1,
+     "was": "Phase III · Dossier mit Abnahme · Ernstfall im GAP-Format · Retrospektive · mit Rückgabe der Klassenarbeit"
+    }
+   ],
+   "10": [
+    {
+     "std": 1,
+     "was": "LS 03.2 · TE 1 · Analyse- und Angebotsphase: bedarfs- und produktbezogene Beratung (Phase I)"
+    },
+    {
+     "std": 1,
+     "was": "Phase II · Werkstatt Beratungsgespräch mit Deutsch (Themenbereich 4): Analyse, Angebot, Eröffnung, Fälle aus Lernfeld 2"
+    }
+   ],
+   "11": [
+    {
+     "std": 1,
+     "was": "LS 03.2 · TE 2 · Gesprächsvorbereitung, Gesprächseröffnung und Kundenbetreuung (Phase I)"
+    },
+    {
+     "std": 2,
+     "was": "Phase II · Werkstatt Beratungsgespräch mit Deutsch (Themenbereich 4): Analyse, Angebot, Eröffnung, Fälle aus Lernfeld 2"
+    }
+   ],
+   "13": [
+    {
+     "std": 1,
+     "was": "LS 03.2 · Phase II · Werkstatt Beratungsgespräch mit Deutsch (Themenbereich 4): Analyse, Angebot, Eröffnung, Fälle aus Lernfeld 2"
+    },
+    {
+     "std": 1,
+     "was": "Phase III · Beratungsgespräch mit Beobachtungsbogen · Beratungsdokumentation · Retrospektive"
+    }
+   ],
+   "14": [
+    {
+     "std": 1,
+     "was": "LS 03.2 · Phase III · Beratungsgespräch mit Beobachtungsbogen · Beratungsdokumentation · Retrospektive"
+    },
+    {
+     "std": 2,
+     "was": "Schuljahresabschluss"
+    }
+   ]
+  },
+  "de": {
+   "1": [
+    {
+     "std": 1,
+     "was": "Kennenlernen und Organisatorisches: Ablauf des Faches, Material, Leistungsbewertung"
+    },
+    {
+     "std": 1,
+     "was": "Ist · kein Deutschunterricht (Abfrage 45)"
+    }
+   ],
+   "2": [
+    {
+     "std": 2,
+     "was": "Ist · kein Deutschunterricht (Abfrage 45)"
+    }
+   ],
+   "3": [
+    {
+     "std": 2,
+     "was": "Themenbereich 1 · Fachtexte erschließen und exzerpieren · Einstieg in das Fach (Woche 1 von 2)"
+    }
+   ],
+   "4": [
+    {
+     "std": 2,
+     "was": "Themenbereich 1 · Fachtexte erschließen und exzerpieren (Woche 2 von 2)"
+    }
+   ],
+   "5": [
+    {
+     "std": 2,
+     "was": "Jahresabschluss vor den Weihnachtsferien"
+    }
+   ],
+   "6": [
+    {
+     "std": 2,
+     "was": "Themenbereich 2 · Kommunikation und Gesprächsführung: Anfrage per E-Mail, Kommunikationsquadrat, Gesprächsregeln, offene Fragen (Woche 1 von 2)"
+    }
+   ],
+   "7": [
+    {
+     "std": 2,
+     "was": "Themenbereich 2 · Kommunikation und Gesprächsführung: Anfrage per E-Mail, Kommunikationsquadrat, Gesprächsregeln, offene Fragen (Woche 2 von 2)"
+    }
+   ],
+   "8": [
+    {
+     "std": 2,
+     "was": "Themenbereich 3 · Fragetechniken und Einwandbehandlung (Woche 1 von 2)"
+    }
+   ],
+   "9": [
+    {
+     "std": 2,
+     "was": "Themenbereich 3 · Fragetechniken und Einwandbehandlung (Woche 2 von 2)"
+    }
+   ],
+   "10": [
+    {
+     "std": 1,
+     "was": "Themenbereich 4 · Beratungsgespräche vorbereiten, führen und dokumentieren (Woche 1 von 4)"
+    }
+   ],
+   "11": [
+    {
+     "std": 2,
+     "was": "Themenbereich 4 · Beratungsgespräche vorbereiten, führen und dokumentieren (Woche 2 von 4)"
+    }
+   ],
+   "12": [
+    {
+     "std": 2,
+     "was": "Themenbereich 4 · Beratungsgespräche vorbereiten, führen und dokumentieren (Woche 3 von 4)"
+    }
+   ],
+   "13": [
+    {
+     "std": 1,
+     "was": "Themenbereich 4 · Beratungsgespräche vorbereiten, führen und dokumentieren (Woche 4 von 4)"
+    }
+   ],
+   "14": [
+    {
+     "std": 2,
+     "was": "Schuljahresabschluss"
+    }
+   ]
+  },
+  "lf4": {
+   "1": [
+    {
+     "std": 1,
+     "was": "Kennenlernen und Organisatorisches: Ablauf des Faches, Material, Leistungsbewertung"
+    },
+    {
+     "std": 1,
+     "was": "Ist · LS 04.1 · Was ist versichert und wogegen? · Einstieg in das Fach und in die Lernsituation (Phase I)"
+    },
+    {
+     "std": 7,
+     "was": "Vorbaustein · Grundlagen der Versicherungswirtschaft (7 Std. von 7)"
+    }
+   ],
+   "2": [
+    {
+     "std": 1,
+     "was": "Ist · Fragen zur Probefassung und Übung zum Vorbaustein"
+    },
+    {
+     "std": 1,
+     "was": "Ist · LS 04.1 · UB 1 schreiben · danach Selbstkorrektur und Nachbesprechung (Phase III)"
+    },
+    {
+     "std": 2,
+     "was": "Ist · TE 1 · Risikodeckung in der Hausratversicherung"
+    },
+    {
+     "std": 2,
+     "was": "Ist · TE 2 · Versicherte und nicht versicherte Sachen: der Grundsatz"
+    },
+    {
+     "std": 2,
+     "was": "Ist · TE 3 · Versicherte Sachen im Einzelnen und versicherte Gefahren im Überblick"
+    },
+    {
+     "std": 1,
+     "was": "Ist · Übung zu B01: versicherte und nicht versicherte Sachen"
+    }
+   ],
+   "3": [
+    {
+     "std": 1,
+     "was": "LS 04.1 · TE 4 · Brand (Phase I)"
+    },
+    {
+     "std": 2,
+     "was": "TE 5 · Einbruchdiebstahl, Vandalismus, Raub und Leitungswasser (Phase I)"
+    },
+    {
+     "std": 6,
+     "was": "Phase II · Fallakte Hausrat: Schadenmeldungen prüfen, Deckungsvermerk, Kreuzabnahme"
+    }
+   ],
+   "4": [
+    {
+     "std": 1,
+     "was": "LS 04.1 · Phase II · Fallakte Hausrat: Schadenmeldungen prüfen, Deckungsvermerk, Kreuzabnahme"
+    },
+    {
+     "std": 1,
+     "was": "UB 2 schreiben · danach Selbstkorrektur und Nachbesprechung (Phase III)"
+    },
+    {
+     "std": 2,
+     "was": "Phase II · Fallakte Hausrat: Schadenmeldungen prüfen, Deckungsvermerk, Kreuzabnahme"
+    },
+    {
+     "std": 5,
+     "was": "Phase III · Dossier mit Abnahme · Ernstfall im GAP-Format · Beratungsgespräch mit Beobachtungsbogen"
+    }
+   ],
+   "5": [
+    {
+     "std": 2,
+     "was": "LS 04.2 · TE 1 · Naturgefahren Sturm und Hagel (Phase I)"
+    },
+    {
+     "std": 2,
+     "was": "TE 2 · Räumlicher Geltungsbereich und Außenversicherung (Phase I)"
+    },
+    {
+     "std": 1,
+     "was": "TE 3 · Wohnungswechsel (Phase I)"
+    },
+    {
+     "std": 2,
+     "was": "TE 4 · Klauselvereinbarungen und Glasversicherung (Phase I)"
+    },
+    {
+     "std": 2,
+     "was": "Jahresabschluss vor den Weihnachtsferien"
+    }
+   ],
+   "6": [
+    {
+     "std": 7,
+     "was": "LS 04.2 · Phase II · Fallakte Umzug und Reise: Geltungsbereich, Außenversicherung, Klauseln und Glas"
+    },
+    {
+     "std": 2,
+     "was": "Phase III · Dossier mit Abnahme · Ernstfall im GAP-Format · Retrospektive"
+    }
+   ],
+   "7": [
+    {
+     "std": 1,
+     "was": "LS 04.2 · Phase III · Dossier mit Abnahme · Ernstfall im GAP-Format · Retrospektive"
+    },
+    {
+     "std": 1,
+     "was": "UB 3 schreiben · danach Selbstkorrektur und Nachbesprechung (Phase III)"
+    },
+    {
+     "std": 2,
+     "was": "LS 04.3 · TE 1 · Versicherungswert, Versicherungssumme und Unterversicherungsverzicht (Phase I)"
+    },
+    {
+     "std": 2,
+     "was": "TE 2 · Tarifierung, Prämienberechnung und Neuordnung des Vertrags (Phase I)"
+    },
+    {
+     "std": 1,
+     "was": "TE 3 · Entschädigung für versicherte Sachen und Unterversicherung (Phase I)"
+    },
+    {
+     "std": 2,
+     "was": "Phase II · Fallakte Schadenregulierung Hausrat: Versicherungswert, Prämie, Entschädigung, Unterversicherung"
+    }
+   ],
+   "8": [
+    {
+     "std": 6,
+     "was": "LS 04.3 · Phase II · Fallakte Schadenregulierung Hausrat: Versicherungswert, Prämie, Entschädigung, Unterversicherung"
+    },
+    {
+     "std": 3,
+     "was": "Phase III · Ernstfall im GAP-Format · Beratungsgespräch mit Beobachtungsbogen · Retrospektive"
+    }
+   ],
+   "9": [
+    {
+     "std": 2,
+     "was": "LS 04.4 · TE 1 · Risikodeckung für ein Wohngebäude: Vertragsgrundlagen und Anwendungsbereich (Phase I)"
+    },
+    {
+     "std": 1,
+     "was": "Klassenarbeit 1 · LS 04.3 Wert, Prämie, Entschädigung im Hausrat (Phase III)"
+    },
+    {
+     "std": 2,
+     "was": "TE 2 · Gebäudezubehör, versicherte Gefahren und Elementarschäden (Phase I)"
+    },
+    {
+     "std": 2,
+     "was": "TE 3 · Ergänzende Versicherungsverträge rund um das Gebäude (Phase I)"
+    },
+    {
+     "std": 2,
+     "was": "TE 4 · Versicherungswert Wert 1914 (Phase I)"
+    }
+   ],
+   "10": [
+    {
+     "std": 2,
+     "was": "LS 04.4 · TE 5 · Prämie und Unterversicherung beim Wert 1914 · mit Rückgabe der Klassenarbeit 1 (Phase I)"
+    },
+    {
+     "std": 2,
+     "was": "TE 6 · Anpassung von Versicherungssumme und Prämie (Phase I)"
+    },
+    {
+     "std": 1,
+     "was": "UB 4 schreiben · danach Selbstkorrektur und Nachbesprechung (Phase III)"
+    }
+   ],
+   "11": [
+    {
+     "std": 1,
+     "was": "LS 04.4 · Phase II · Durchgang A · Fallakte Wohngebäude: versicherte Sachen und Gefahren, Wert 1914, Prämie, Anpassung"
+    },
+    {
+     "std": 1,
+     "was": "Klassenarbeit 2 · LS 04.4 Das Wohngebäude versichern, bewerten und betreuen (Phase III)"
+    },
+    {
+     "std": 7,
+     "was": "Phase II · Durchgang A · Fallakte Wohngebäude: versicherte Sachen und Gefahren, Wert 1914, Prämie, Anpassung"
+    }
+   ],
+   "12": [
+    {
+     "std": 1,
+     "was": "LS 04.4 · Phase II · Durchgang A · Fallakte Wohngebäude: versicherte Sachen und Gefahren, Wert 1914, Prämie, Anpassung · mit Rückgabe der Klassenarbeit 2"
+    },
+    {
+     "std": 2,
+     "was": "TE 7 · Neuordnung, vorzeitige Beendigung, Veräußerung und Vererbung (Phase I)"
+    },
+    {
+     "std": 2,
+     "was": "TE 8 · Summenmodell und Wohnflächenmodell (Phase I)"
+    },
+    {
+     "std": 2,
+     "was": "TE 9 · Schadenregulierung: Versicherungsfall und Entschädigungsberechnung (Phase I)"
+    },
+    {
+     "std": 1,
+     "was": "TE 10 · Anrechnung einer Unterversicherung am Gebäude (Phase I)"
+    },
+    {
+     "std": 1,
+     "was": "UB 5 schreiben · danach Selbstkorrektur und Nachbesprechung (Phase III)"
+    }
+   ],
+   "13": [
+    {
+     "std": 1,
+     "was": "LS 04.4 · Phase II · Durchgang A · Fallakte Wohngebäude: versicherte Sachen und Gefahren, Wert 1914, Prämie, Anpassung"
+    },
+    {
+     "std": 5,
+     "was": "Phase III · Durchgang A · Dossier mit Abnahme · Ernstfall im GAP-Format · Beratungsgespräch mit Beobachtungsbogen"
+    },
+    {
+     "std": 1,
+     "was": "Phase II · Durchgang B · Fallakte Agentur: Neuordnung, Veräußerung, Summen- und Wohnflächenmodell, Schadenregulierung"
+    }
+   ],
+   "14": [
+    {
+     "std": 5,
+     "was": "LS 04.4 · Phase II · Durchgang B · Fallakte Agentur: Neuordnung, Veräußerung, Summen- und Wohnflächenmodell, Schadenregulierung"
+    },
+    {
+     "std": 2,
+     "was": "Phase III · Durchgang B · Ernstfall im GAP-Format · Beratungsgespräch mit Beobachtungsbogen · Retrospektive"
+    },
+    {
+     "std": 2,
+     "was": "Schuljahresabschluss"
+    }
+   ]
+  },
+  "lf5": {
+   "1": [
+    {
+     "std": 1,
+     "was": "Kennenlernen und Organisatorisches: Ablauf des Faches, Material, Leistungsbewertung"
+    },
+    {
+     "std": 4,
+     "was": "Organisatorisches und Klassenleitertätigkeiten zum Schulstart"
+    },
+    {
+     "std": 1,
+     "was": "Ist · LS 05.1 · Einstieg in das Fach und in die Lernsituation"
+    }
+   ],
+   "2": [
+    {
+     "std": 2,
+     "was": "Ist · TE 1 · Grundlagen der Haftung und Voraussetzungen der Verschuldenshaftung"
+    },
+    {
+     "std": 2,
+     "was": "Ist · TE 2 · Verschuldensarten, Rechtswidrigkeit, Ursächlichkeit und Deliktsfähigkeit"
+    },
+    {
+     "std": 2,
+     "was": "Ist · B01 nach V104: Haftungsarten und Gefährdungshaftung (B02 Prüfschema offen)"
+    }
+   ],
+   "3": [
+    {
+     "std": 2,
+     "was": "LS 05.1 · TE 3 · Versichertes Risiko in der Privathaftpflicht (Phase I)"
+    },
+    {
+     "std": 2,
+     "was": "TE 4 · Versicherte Personen in der Privathaftpflicht (Phase I)"
+    },
+    {
+     "std": 2,
+     "was": "TE 5 · Besondere Regelungen für private Risiken I, Teil 1 (Phase I)"
+    }
+   ],
+   "4": [
+    {
+     "std": 2,
+     "was": "LS 05.1 · TE 6 · Besondere Regelungen für private Risiken I, Teil 2 (Phase I)"
+    },
+    {
+     "std": 4,
+     "was": "Phase II · Fallakte Haftung: Prüfschema der Verschuldenshaftung, versichertes Risiko und versicherte Personen"
+    }
+   ],
+   "5": [
+    {
+     "std": 1,
+     "was": "LS 05.1 · Phase II · Fallakte Haftung: Prüfschema der Verschuldenshaftung, versichertes Risiko und versicherte Personen"
+    },
+    {
+     "std": 1,
+     "was": "UB 1 schreiben · danach Selbstkorrektur und Nachbesprechung (Phase III)"
+    },
+    {
+     "std": 2,
+     "was": "Phase II · Fallakte Haftung: Prüfschema der Verschuldenshaftung, versichertes Risiko und versicherte Personen"
+    },
+    {
+     "std": 2,
+     "was": "Jahresabschluss vor den Weihnachtsferien"
+    }
+   ],
+   "6": [
+    {
+     "std": 3,
+     "was": "LS 05.1 · Phase III · Dossier mit Abnahme · Ernstfall im GAP-Format · Retrospektive"
+    },
+    {
+     "std": 2,
+     "was": "LS 05.2 · TE 1 · Besondere Regelungen für private Risiken II (Phase I)"
+    },
+    {
+     "std": 1,
+     "was": "Phase II · Fallakte Privathaftpflicht: besondere Regelungen, Ausschlüsse, Veränderung des Risikos"
+    }
+   ],
+   "7": [
+    {
+     "std": 2,
+     "was": "LS 05.2 · TE 2 · Besondere Regelungen für private Risiken III, Teil 1 (Phase I)"
+    },
+    {
+     "std": 2,
+     "was": "TE 3 · Besondere Regelungen für private Risiken III, Teil 2 (Phase I)"
+    },
+    {
+     "std": 1,
+     "was": "TE 4 · Allgemeine Ausschlüsse in der Privathaftpflicht, Teil 1 (Phase I)"
+    },
+    {
+     "std": 1,
+     "was": "UB 2 schreiben · danach Selbstkorrektur und Nachbesprechung (Phase III)"
+    }
+   ],
+   "8": [
+    {
+     "std": 1,
+     "was": "LS 05.2 · TE 5 · Allgemeine Ausschlüsse in der Privathaftpflicht, Teil 2 (Phase I)"
+    },
+    {
+     "std": 1,
+     "was": "TE 6 · Veränderung des Risikos, Vorsorgeversicherung, Rechte und Pflichten der Vertragsparteien (Phase I)"
+    },
+    {
+     "std": 4,
+     "was": "Phase II · Fallakte Privathaftpflicht: besondere Regelungen, Ausschlüsse, Veränderung des Risikos"
+    }
+   ],
+   "9": [
+    {
+     "std": 6,
+     "was": "LS 05.2 · Phase II · Fallakte Privathaftpflicht: besondere Regelungen, Ausschlüsse, Veränderung des Risikos"
+    }
+   ],
+   "10": [
+    {
+     "std": 1,
+     "was": "LS 05.2 · Phase II · Fallakte Privathaftpflicht: besondere Regelungen, Ausschlüsse, Veränderung des Risikos"
+    },
+    {
+     "std": 1,
+     "was": "Klassenarbeit · LS 05.2 Besondere Risiken und Ausschlüsse in der Privathaftpflicht (Phase III)"
+    },
+    {
+     "std": 1,
+     "was": "Phase II · Fallakte Privathaftpflicht: besondere Regelungen, Ausschlüsse, Veränderung des Risikos"
+    },
+    {
+     "std": 1,
+     "was": "Phase III · Ernstfall im GAP-Format · Beratungsgespräch mit Beobachtungsbogen · Retrospektive"
+    }
+   ],
+   "11": [
+    {
+     "std": 5,
+     "was": "LS 05.2 · Phase III · Ernstfall im GAP-Format · Beratungsgespräch mit Beobachtungsbogen · Retrospektive · mit Rückgabe der Klassenarbeit"
+    },
+    {
+     "std": 1,
+     "was": "LS 05.3 · Rechtsschutz, mit Fällen aus Haftpflicht und Rechtsschutz · Ausgangssituation und Wissensarchitektur (Phase I)"
+    }
+   ],
+   "12": [
+    {
+     "std": 2,
+     "was": "LS 05.3 · TE 1 · Umfang der Rechtsschutzversicherung und Leistungsarten (Phase I)"
+    },
+    {
+     "std": 1,
+     "was": "TE 2 · Ausgeschlossene Rechtsangelegenheiten und Versicherungsfall (Phase I)"
+    },
+    {
+     "std": 1,
+     "was": "UB 3 schreiben · danach Selbstkorrektur und Nachbesprechung (Phase III)"
+    },
+    {
+     "std": 2,
+     "was": "Phase II · Gemischte Fälle Haftpflicht und Rechtsschutz: Umfang, Ausschlüsse, Versicherungsfall"
+    }
+   ],
+   "13": [
+    {
+     "std": 4,
+     "was": "LS 05.3 · Phase II · Gemischte Fälle Haftpflicht und Rechtsschutz: Umfang, Ausschlüsse, Versicherungsfall"
+    }
+   ],
+   "14": [
+    {
+     "std": 1,
+     "was": "LS 05.3 · Phase II · Gemischte Fälle Haftpflicht und Rechtsschutz: Umfang, Ausschlüsse, Versicherungsfall"
+    },
+    {
+     "std": 3,
+     "was": "Phase III · Beratungsgespräch mit Beobachtungsbogen · Ernstfall im GAP-Format · Retrospektive"
+    },
+    {
+     "std": 2,
+     "was": "Schuljahresabschluss"
+    }
+   ]
+  }
+ },
+ "strecken": [
+  {
+   "fach": "lf1",
+   "woche": 7,
+   "blatt": "SLS01",
+   "strecke": "Paket",
+   "titel": "Vertragliche und gesetzliche Rechtsgrundlagen",
+   "seiten": "S. 66",
+   "minuten": 5,
+   "ausgabe": "Freitag, 19.02.2027, am Ende der Blockwoche 7",
+   "zeitraum": "19.02.2027 bis 07.03.2027 · veranschlagt sind 5 Minuten außerhalb der Unterrichtszeit",
+   "pruefung": "Forms-Nachweis QLF01_SLS01 bis zum Beginn der Blockwoche 8 am 08.03.2027, unbenotet",
+   "datei": "KVF_LF01_SLS01_SuS.docx",
+   "fundstelle": ""
+  },
+  {
+   "fach": "lf1",
+   "woche": 12,
+   "blatt": "SLS02",
+   "strecke": "Paket",
+   "titel": "Arbeitszeit · Durchsetzung ausbildungsrechtlicher und arbeitsrechtlicher Ansprüche · Institutionen zur Durchsetzung arbeitsrechtlicher Ansprüche",
+   "seiten": "S. 78, 84–86",
+   "minuten": 40,
+   "ausgabe": "Freitag, 11.06.2027, am Ende der Blockwoche 12",
+   "zeitraum": "11.06.2027 bis 20.06.2027 · veranschlagt sind 40 Minuten außerhalb der Unterrichtszeit",
+   "pruefung": "Forms-Nachweis QLF01_SLS02 bis zum Beginn der Blockwoche 13 am 21.06.2027, unbenotet",
+   "datei": "KVF_LF01_SLS02_SuS.docx",
+   "fundstelle": ""
+  },
+  {
+   "fach": "lf2",
+   "woche": 4,
+   "blatt": "SLS01",
+   "strecke": "Paket",
+   "titel": "Informationspflichten des Versicherers vor Vertragsabschluss",
+   "seiten": "S. 119–125",
+   "minuten": 65,
+   "ausgabe": "Freitag, 20.11.2026, am Ende der Blockwoche 4",
+   "zeitraum": "20.11.2026 bis 06.12.2026 · veranschlagt sind 65 Minuten außerhalb der Unterrichtszeit",
+   "pruefung": "Wochenfrist (R4-1): Forms-Nachweis QLF02_SLS01 bis Mo 30.11.2026 (65 Min.), unbenotet · bewertet in UB 2 der Woche 6",
+   "datei": "KVF_LF02_SLS01_SuS.docx",
+   "fundstelle": ""
+  },
+  {
+   "fach": "lf2",
+   "woche": 5,
+   "blatt": "SLS02",
+   "strecke": "Paket",
+   "titel": "Besonderheiten bei Fernabsatzverträgen · Rechtsquellen für Versicherungsverträge · Regelungen zur Gefahrerhöhung nach VVG u. a.",
+   "seiten": "S. 150–151, 158–163, 382–397",
+   "minuten": 235,
+   "ausgabe": "Freitag, 11.12.2026, am Ende der Blockwoche 5",
+   "zeitraum": "11.12.2026 bis 17.01.2027 · veranschlagt sind 235 Minuten außerhalb der Unterrichtszeit",
+   "pruefung": "Wochenfristen (R4-1), je Teil ein Forms-Teilnachweis, unbenotet: QLF02_SLS02a bis Mo 21.12.2026 (S. 150–151, 158–163, 80 Min.) · QLF02_SLS02b bis Mo 28.12.2026 (S. 382–386, 50 Min.) · QLF02_SLS02c bis Mo 04.01.2027 (S. 387–395, 80 Min.) · QLF02_SLS02d bis Mo 11.01.2027 (S. 395–397, 25 Min.) · bewertet in UB 2 der Woche 6",
+   "datei": "KVF_LF02_SLS02_SuS.docx",
+   "fundstelle": ""
+  },
+  {
+   "fach": "lf2",
+   "woche": 8,
+   "blatt": "SLS03",
+   "strecke": "Paket",
+   "titel": "Bundesanstalt für Finanzdienstleistungsaufsicht · Nachhaltigkeit · Digitalisierung",
+   "seiten": "S. 191–195, 197–200",
+   "minuten": 85,
+   "ausgabe": "Freitag, 12.03.2027, am Ende der Blockwoche 8",
+   "zeitraum": "12.03.2027 bis 11.04.2027 · veranschlagt sind 85 Minuten außerhalb der Unterrichtszeit",
+   "pruefung": "Wochenfrist (R4-1): Forms-Nachweis QLF02_SLS03 bis Mo 22.03.2027 (85 Min.), unbenotet · bewertet in Klassenarbeit der Woche 12",
+   "datei": "KVF_LF02_SLS03_SuS.docx",
+   "fundstelle": ""
+  },
+  {
+   "fach": "lf2",
+   "woche": 11,
+   "blatt": "SLS04",
+   "strecke": "Paket",
+   "titel": "Zeitablauf · Prämienschicksal bei vorzeitiger Vertragsbeendigung",
+   "seiten": "S. 201, 205, 207",
+   "minuten": 25,
+   "ausgabe": "Freitag, 28.05.2027, am Ende der Blockwoche 11",
+   "zeitraum": "28.05.2027 bis 06.06.2027 · veranschlagt sind 25 Minuten außerhalb der Unterrichtszeit",
+   "pruefung": "Forms-Nachweis QLF02_SLS04 bis zum Beginn der Blockwoche 12 am 07.06.2027, unbenotet",
+   "datei": "KVF_LF02_SLS04_SuS.docx",
+   "fundstelle": ""
+  },
+  {
+   "fach": "lf3",
+   "woche": 3,
+   "blatt": "SLS01",
+   "strecke": "Paket",
+   "titel": "Angestellte des Versicherers im Außendienst · Versicherungsmakler · Direktvertrieb u. a.",
+   "seiten": "S. 212–217, 223–227, 229",
+   "minuten": 105,
+   "ausgabe": "Freitag, 16.10.2026, am Ende der Blockwoche 3",
+   "zeitraum": "16.10.2026 bis 15.11.2026 · veranschlagt sind 105 Minuten außerhalb der Unterrichtszeit",
+   "pruefung": "Wochenfrist (R4-1): Forms-Nachweis QLF03_SLS01 bis Mo 26.10.2026 (105 Min.), unbenotet",
+   "datei": "KVF_LF03_SLS01_SuS.docx",
+   "fundstelle": ""
+  },
+  {
+   "fach": "de",
+   "woche": 9,
+   "blatt": "SLS01",
+   "strecke": "Paket",
+   "titel": "Präsentieren",
+   "seiten": "S. 710–712",
+   "minuten": 30,
+   "ausgabe": "Freitag, 16.04.2027, am Ende der Blockwoche 9",
+   "zeitraum": "16.04.2027 bis 02.05.2027 · veranschlagt sind 30 Minuten außerhalb der Unterrichtszeit",
+   "pruefung": "Wochenfrist (R4-1): Forms-Nachweis QDE_SLS01 bis Mo 26.04.2027 (30 Min.), unbenotet",
+   "datei": "KVF_DE_SLS01_SuS.docx",
+   "fundstelle": ""
+  },
+  {
+   "fach": "lf4",
+   "woche": 3,
+   "blatt": "SLS01",
+   "strecke": "Paket",
+   "titel": "Blitzschlag und Überspannung durch Blitz · Explosion, Verpuffung, Implosion · Schäden durch Luftfahrzeuge",
+   "seiten": "S. 300–304",
+   "minuten": 50,
+   "ausgabe": "Freitag, 16.10.2026, am Ende der Blockwoche 3",
+   "zeitraum": "16.10.2026 bis 15.11.2026 · veranschlagt sind 50 Minuten außerhalb der Unterrichtszeit",
+   "pruefung": "Wochenfristen (R4-1), je Teil ein Forms-Teilnachweis, unbenotet: QLF04_SLS01a bis Mo 26.10.2026 (S. 300, 10 Min.) · QLF04_SLS01b bis Mo 02.11.2026 (S. 301–304, 40 Min.)",
+   "datei": "KVF_LF04_SLS01_SuS.docx",
+   "fundstelle": ""
+  },
+  {
+   "fach": "lf4",
+   "woche": 5,
+   "blatt": "SLS02",
+   "strecke": "Paket",
+   "titel": "Versicherung weiterer Naturgefahren (Elementargefahren) · Generelle Ausschlüsse · Leistungskürzung im Verhältnis der Schwere des Verschuldens u. a.",
+   "seiten": "S. 321–326, 328, 340–341, 344",
+   "minuten": 95,
+   "ausgabe": "Freitag, 11.12.2026, am Ende der Blockwoche 5",
+   "zeitraum": "11.12.2026 bis 17.01.2027 · veranschlagt sind 95 Minuten außerhalb der Unterrichtszeit",
+   "pruefung": "Wochenfristen (R4-1), je Teil ein Forms-Teilnachweis, unbenotet: QLF04_SLS02a bis Mo 11.01.2027 (S. 321–326, 60 Min.) · QLF04_SLS02b bis Mo 18.01.2027 (S. 328, 340–341, 344, 35 Min.)",
+   "datei": "KVF_LF04_SLS02_SuS.docx",
+   "fundstelle": ""
+  },
+  {
+   "fach": "lf4",
+   "woche": 7,
+   "blatt": "SLS03",
+   "strecke": "Paket",
+   "titel": "Neuwert und gemeiner Wert · Vorsorgebetrag und Summenanpassung",
+   "seiten": "S. 366–369",
+   "minuten": 35,
+   "ausgabe": "Freitag, 19.02.2027, am Ende der Blockwoche 7",
+   "zeitraum": "19.02.2027 bis 07.03.2027 · veranschlagt sind 35 Minuten außerhalb der Unterrichtszeit",
+   "pruefung": "Forms-Nachweis QLF04_SLS03 bis zum Beginn der Blockwoche 8 am 08.03.2027, unbenotet",
+   "datei": "KVF_LF04_SLS03_SuS.docx",
+   "fundstelle": ""
+  },
+  {
+   "fach": "lf4",
+   "woche": 8,
+   "blatt": "SLS04",
+   "strecke": "Paket",
+   "titel": "Versicherungsperiode und · Gründe für eine Neuordnung · Vorzeitige Beendigung des Versicherungsvertrages u. a.",
+   "seiten": "S. 376–381, 398–399",
+   "minuten": 70,
+   "ausgabe": "Freitag, 12.03.2027, am Ende der Blockwoche 8",
+   "zeitraum": "12.03.2027 bis 11.04.2027 · veranschlagt sind 70 Minuten außerhalb der Unterrichtszeit",
+   "pruefung": "Wochenfristen (R4-1), je Teil ein Forms-Teilnachweis, unbenotet: QLF04_SLS04a bis Mo 22.03.2027 (S. 376–378, 20 Min.) · QLF04_SLS04b bis Mo 29.03.2027 (S. 379–381, 398–399, 50 Min.)",
+   "datei": "KVF_LF04_SLS04_SuS.docx",
+   "fundstelle": ""
+  },
+  {
+   "fach": "lf4",
+   "woche": 9,
+   "blatt": "SLS05",
+   "strecke": "Paket",
+   "titel": "Gebäude und Gebäudebestandteile · Nicht versicherte Sachen · Zusätzlich versicherbare Sachen u. a.",
+   "seiten": "S. 423–424, 426–430, 435–438",
+   "minuten": 105,
+   "ausgabe": "Freitag, 16.04.2027, am Ende der Blockwoche 9",
+   "zeitraum": "16.04.2027 bis 02.05.2027 · veranschlagt sind 105 Minuten außerhalb der Unterrichtszeit",
+   "pruefung": "Wochenfristen (R4-1), je Teil ein Forms-Teilnachweis, unbenotet: QLF04_SLS05a bis Mo 26.04.2027 (S. 423–424, 426, 25 Min.) · QLF04_SLS05b bis Mo 03.05.2027 (S. 427–430, 435–438, 80 Min.)",
+   "datei": "KVF_LF04_SLS05_SuS.docx",
+   "fundstelle": ""
+  },
+  {
+   "fach": "lf4",
+   "woche": 10,
+   "blatt": "SLS06",
+   "strecke": "Paket",
+   "titel": "Versicherte Kosten, versicherter Mietausfall und Aufwendungsersatz",
+   "seiten": "S. 448",
+   "minuten": 5,
+   "ausgabe": "Freitag, 07.05.2027, am Ende der Blockwoche 10",
+   "zeitraum": "07.05.2027 bis 23.05.2027 · veranschlagt sind 5 Minuten außerhalb der Unterrichtszeit",
+   "pruefung": "Forms-Nachweis QLF04_SLS06 bis zum Beginn der Blockwoche 11 am 24.05.2027, unbenotet",
+   "datei": "KVF_LF04_SLS06_SuS.docx",
+   "fundstelle": ""
+  },
+  {
+   "fach": "lf4",
+   "woche": 11,
+   "blatt": "SLS07",
+   "strecke": "Paket",
+   "titel": "Entschädigungsberechnung · Eintritt des Versicherungsfalles · Obliegenheiten im Versicherungsfall",
+   "seiten": "S. 490, 492",
+   "minuten": 15,
+   "ausgabe": "Freitag, 28.05.2027, am Ende der Blockwoche 11",
+   "zeitraum": "28.05.2027 bis 06.06.2027 · veranschlagt sind 15 Minuten außerhalb der Unterrichtszeit",
+   "pruefung": "Forms-Nachweis QLF04_SLS07 bis zum Beginn der Blockwoche 12 am 07.06.2027, unbenotet",
+   "datei": "KVF_LF04_SLS07_SuS.docx",
+   "fundstelle": ""
+  },
+  {
+   "fach": "lf5",
+   "woche": 3,
+   "blatt": "SLS01",
+   "strecke": "Paket",
+   "titel": "Haftung des Gebäudebesitzers · Haftung für Haustiere als Nutztiere · Vermutetes Verschulden des Haftpflichtigen für fremdes Handeln u. a.",
+   "seiten": "S. 533–559",
+   "minuten": 270,
+   "ausgabe": "Freitag, 16.10.2026, am Ende der Blockwoche 3",
+   "zeitraum": "16.10.2026 bis 15.11.2026 · veranschlagt sind 270 Minuten außerhalb der Unterrichtszeit",
+   "pruefung": "Wochenfristen (R4-1), je Teil ein Forms-Teilnachweis, unbenotet: QLF05_SLS01a bis Mo 02.11.2026 (S. 533–540, 75 Min.) · QLF05_SLS01b bis Mo 09.11.2026 (S. 540–550, 115 Min.) · QLF05_SLS01c bis Mo 16.11.2026 (S. 551–559, 80 Min.) · bewertet in UB 1 der Woche 5",
+   "datei": "KVF_LF05_SLS01_SuS.docx",
+   "fundstelle": ""
+  },
+  {
+   "fach": "lf5",
+   "woche": 3,
+   "blatt": "SLS02",
+   "strecke": "Paket",
+   "titel": "Haftpflichtrisiko und Vorsorgemöglichkeiten · Risikoanalyse · Aufgaben der Haftpflichtversicherung u. a.",
+   "seiten": "S. 560–562",
+   "minuten": 30,
+   "ausgabe": "Freitag, 16.10.2026, am Ende der Blockwoche 3",
+   "zeitraum": "16.10.2026 bis 15.11.2026 · veranschlagt sind 30 Minuten außerhalb der Unterrichtszeit",
+   "pruefung": "Wochenfrist (R4-1): Forms-Nachweis QLF05_SLS02 bis Mo 16.11.2026 (30 Min.), unbenotet",
+   "datei": "KVF_LF05_SLS02_SuS.docx",
+   "fundstelle": ""
+  },
+  {
+   "fach": "lf5",
+   "woche": 4,
+   "blatt": "SLS03",
+   "strecke": "Paket",
+   "titel": "Gegenstand der Haftpflichtversicherung · Leistungspflichten des Versicherers",
+   "seiten": "S. 574–586",
+   "minuten": 130,
+   "ausgabe": "Freitag, 20.11.2026, am Ende der Blockwoche 4",
+   "zeitraum": "20.11.2026 bis 06.12.2026 · veranschlagt sind 130 Minuten außerhalb der Unterrichtszeit",
+   "pruefung": "Wochenfristen (R4-1), je Teil ein Forms-Teilnachweis, unbenotet: QLF05_SLS03a bis Mo 30.11.2026 (S. 574–577, 40 Min.) · QLF05_SLS03b bis Mo 07.12.2026 (S. 578–586, 90 Min.)",
+   "datei": "KVF_LF05_SLS03_SuS.docx",
+   "fundstelle": ""
+  },
+  {
+   "fach": "lf5",
+   "woche": 8,
+   "blatt": "SLS04",
+   "strecke": "Paket",
+   "titel": "Forderungsausfallversicherung · Neuwertentschädigung · Versicherungsbeginn und Prämienzahlung u. a.",
+   "seiten": "S. 636–648, 659, 663–664, 666, 670–672, 677–680, 684–687, 691–692",
+   "minuten": 280,
+   "ausgabe": "Freitag, 12.03.2027, am Ende der Blockwoche 8",
+   "zeitraum": "12.03.2027 bis 11.04.2027 · veranschlagt sind 280 Minuten außerhalb der Unterrichtszeit",
+   "pruefung": "Wochenfristen (R4-1), je Teil ein Forms-Teilnachweis, unbenotet: QLF05_SLS04a bis Mo 29.03.2027 (S. 636–642, 60 Min.) · QLF05_SLS04b bis Mo 05.04.2027 (S. 643–648, 659, 663–664, 666, 670–671, 110 Min.) · QLF05_SLS04c bis Mo 12.04.2027 (S. 672, 677–680, 684–687, 691–692, 110 Min.)",
+   "datei": "KVF_LF05_SLS04_SuS.docx",
+   "fundstelle": ""
+  },
+  {
+   "fach": "lf5",
+   "woche": 10,
+   "blatt": "SLS05",
+   "strecke": "Paket",
+   "titel": "Zeitliche Ausschlüsse · Inhaltliche Ausschlüsse · Voraussetzungen für den Anspruch auf Versicherungsschutz u. a.",
+   "seiten": "S. 694–698, 700, 702",
+   "minuten": 60,
+   "ausgabe": "Freitag, 07.05.2027, am Ende der Blockwoche 10",
+   "zeitraum": "07.05.2027 bis 23.05.2027 · veranschlagt sind 60 Minuten außerhalb der Unterrichtszeit",
+   "pruefung": "Forms-Nachweis QLF05_SLS05 bis zum Beginn der Blockwoche 11 am 24.05.2027, unbenotet",
+   "datei": "KVF_LF05_SLS05_SuS.docx",
+   "fundstelle": ""
+  }
+ ],
+ "leistungen": [
+  {
+   "lid": "lf1_W2_PUB",
+   "fach": "lf1",
+   "woche": 2,
+   "art": "PUB",
+   "form": "Papier",
+   "titel": "Probefassung zur UB 1: Berufsausbildungsvertrag",
+   "nr": "1",
+   "benotet": false,
+   "datei": "Forms KVF_LF01_PUB1",
+   "fundstelle": ""
+  },
+  {
+   "lid": "lf1_W3_UB",
+   "fach": "lf1",
+   "woche": 3,
+   "art": "UB",
+   "form": "Papier · MC · 20 Min. · 21 Punkte",
+   "titel": "Berufsausbildungsvertrag",
+   "nr": "1",
+   "benotet": true,
+   "datei": "KVF_LF01_LS0101_UB1_SuS.docx",
+   "fundstelle": ""
+  },
+  {
+   "lid": "lf1_W5_PUB",
+   "fach": "lf1",
+   "woche": 5,
+   "art": "PUB",
+   "form": "Papier",
+   "titel": "Probefassung zur UB 2: Jugendarbeitsschutz und Rechtsquellen",
+   "nr": "2",
+   "benotet": false,
+   "datei": "Forms KVF_LF01_PUB2",
+   "fundstelle": ""
+  },
+  {
+   "lid": "lf1_W6_UB",
+   "fach": "lf1",
+   "woche": 6,
+   "art": "UB",
+   "form": "Papier · MC · 20 Min. · 21 Punkte",
+   "titel": "Jugendarbeitsschutz und Rechtsquellen",
+   "nr": "2",
+   "benotet": true,
+   "datei": "KVF_LF01_LS0101_UB2_SuS.docx",
+   "fundstelle": ""
+  },
+  {
+   "lid": "lf1_W7_PUB",
+   "fach": "lf1",
+   "woche": 7,
+   "art": "PUB",
+   "form": "Papier",
+   "titel": "Probefassung zur Klassenarbeit: Berufsausbildungsvertrag, Jugendarbeitsschutz, Rechtsquellen und Arbeitsvertrag",
+   "nr": "KA",
+   "benotet": false,
+   "datei": "Forms KVF_LF01_PKA",
+   "fundstelle": ""
+  },
+  {
+   "lid": "lf1_W8_KA",
+   "fach": "lf1",
+   "woche": 8,
+   "art": "KA",
+   "form": "Papier · MC · 40 Min. · 42 Punkte",
+   "titel": "Berufsausbildungsvertrag, Jugendarbeitsschutz, Rechtsquellen und Arbeitsvertrag",
+   "nr": "",
+   "benotet": true,
+   "datei": "KVF_LF01_LS0102_KA_SuS.docx",
+   "fundstelle": ""
+  },
+  {
+   "lid": "lf1_W9_PUB",
+   "fach": "lf1",
+   "woche": 9,
+   "art": "PUB",
+   "form": "Papier",
+   "titel": "Probefassung zur UB 3: Beendigung von Arbeitsverhältnissen, Arbeitsschutz und Schutzgesetze",
+   "nr": "3",
+   "benotet": false,
+   "datei": "Forms KVF_LF01_PUB3",
+   "fundstelle": ""
+  },
+  {
+   "lid": "lf1_W10_UB",
+   "fach": "lf1",
+   "woche": 10,
+   "art": "UB",
+   "form": "Papier · MC · 20 Min. · 21 Punkte",
+   "titel": "Beendigung von Arbeitsverhältnissen, Arbeitsschutz und Schutzgesetze",
+   "nr": "3",
+   "benotet": true,
+   "datei": "KVF_LF01_LS0102_UB3_SuS.docx",
+   "fundstelle": ""
+  },
+  {
+   "lid": "sk_W2_PUB",
+   "fach": "sk",
+   "woche": 2,
+   "art": "PUB",
+   "form": "Forms",
+   "titel": "Probefassung zur UB 1: Organisation und Führung",
+   "nr": "1",
+   "benotet": false,
+   "datei": "Forms KVF_SK_PUB1",
+   "fundstelle": ""
+  },
+  {
+   "lid": "sk_W3_UB",
+   "fach": "sk",
+   "woche": 3,
+   "art": "UB",
+   "form": "Forms · MC · 20 Min. · 21 Punkte",
+   "titel": "Aufbauorganisation, Ablauforganisation, Leitungssysteme und Führungsstile",
+   "nr": "1",
+   "benotet": true,
+   "datei": "Forms KVF_SK_UB1",
+   "fundstelle": ""
+  },
+  {
+   "lid": "sk_W5_PUB",
+   "fach": "sk",
+   "woche": 5,
+   "art": "PUB",
+   "form": "Forms",
+   "titel": "Probefassung zur Klassenarbeit: Organisation, Digitalisierung, Sicherheit, Umwelt und Energie",
+   "nr": "KA",
+   "benotet": false,
+   "datei": "Forms KVF_SK_PKA",
+   "fundstelle": ""
+  },
+  {
+   "lid": "sk_W6_KA",
+   "fach": "sk",
+   "woche": 6,
+   "art": "KA",
+   "form": "Forms · MC · 40 Min. · 42 Punkte",
+   "titel": "Aufbau- und Ablauforganisation, Leitungssysteme und Führungsstile, Digitalisierung, Sicherheit am Arbeitsplatz, Umwelt und Energie im Betrieb (SK-B1 bis SK-B4)",
+   "nr": "",
+   "benotet": true,
+   "datei": "Forms KVF_SK_KA",
+   "fundstelle": ""
+  },
+  {
+   "lid": "sk_W10_PUB",
+   "fach": "sk",
+   "woche": 10,
+   "art": "PUB",
+   "form": "Forms",
+   "titel": "Probefassung zur UB 2: Tarif, Arbeitskampf und Sozialversicherung",
+   "nr": "2",
+   "benotet": false,
+   "datei": "Forms KVF_SK_PUB2",
+   "fundstelle": ""
+  },
+  {
+   "lid": "sk_W11_UB",
+   "fach": "sk",
+   "woche": 11,
+   "art": "UB",
+   "form": "Forms · MC · 20 Min. · 21 Punkte",
+   "titel": "Tarifautonomie, Tarifverhandlung, Schlichtung, Streik, Aussperrung, Sozialversicherung und Unfallversicherung",
+   "nr": "2",
+   "benotet": true,
+   "datei": "Forms KVF_SK_UB2",
+   "fundstelle": ""
+  },
+  {
+   "lid": "sk_W11_PUB",
+   "fach": "sk",
+   "woche": 11,
+   "art": "PUB",
+   "form": "Forms",
+   "titel": "Probefassung zur UB 3: Mitbestimmung",
+   "nr": "3",
+   "benotet": false,
+   "datei": "Forms KVF_SK_PUB3",
+   "fundstelle": ""
+  },
+  {
+   "lid": "sk_W12_UB",
+   "fach": "sk",
+   "woche": 12,
+   "art": "UB",
+   "form": "Forms · MC · 20 Min. · 21 Punkte",
+   "titel": "Mitbestimmung: Betriebsrat, Betriebsratswahl, Jugend- und Auszubildendenvertretung, Beteiligungsrechte (ohne Betriebsvereinbarung, R4-23)",
+   "nr": "3",
+   "benotet": true,
+   "datei": "Forms KVF_SK_UB3",
+   "fundstelle": ""
+  },
+  {
+   "lid": "lf2_W3_PUB",
+   "fach": "lf2",
+   "woche": 3,
+   "art": "PUB",
+   "form": "Papier",
+   "titel": "Probefassung zur UB 1: Willenserklärung, Zugang und Antragsmodell und Rechts- und Geschäftsfähigkeit",
+   "nr": "1",
+   "benotet": false,
+   "datei": "KVF_LF02_LS0201_PUB1_SuS.docx",
+   "fundstelle": ""
+  },
+  {
+   "lid": "lf2_W4_UB",
+   "fach": "lf2",
+   "woche": 4,
+   "art": "UB",
+   "form": "Papier · 25 Min. · 22 Punkte, davon 16 offen · Situation + MC",
+   "titel": "Willenserklärung, Zugang und Antragsmodell und Rechts- und Geschäftsfähigkeit",
+   "nr": "1",
+   "benotet": true,
+   "datei": "KVF_LF02_LS0201_UB1_SuS.docx",
+   "fundstelle": ""
+  },
+  {
+   "lid": "lf2_W5_PUB",
+   "fach": "lf2",
+   "woche": 5,
+   "art": "PUB",
+   "form": "Papier",
+   "titel": "Probefassung zur UB 2: VVG-Kompass, Antrag und Annahme und Informationspflichten",
+   "nr": "2",
+   "benotet": false,
+   "datei": "KVF_LF02_LS0201_PUB2_SuS.docx",
+   "fundstelle": ""
+  },
+  {
+   "lid": "lf2_W6_UB",
+   "fach": "lf2",
+   "woche": 6,
+   "art": "UB",
+   "form": "Papier · 25 Min. · 22 Punkte, davon 16 offen · Situation + MC",
+   "titel": "VVG-Kompass, Antrag und Annahme und Informationspflichten",
+   "nr": "2",
+   "benotet": true,
+   "datei": "KVF_LF02_LS0201_UB2_SuS.docx",
+   "fundstelle": ""
+  },
+  {
+   "lid": "lf2_W7_PUB",
+   "fach": "lf2",
+   "woche": 7,
+   "art": "PUB",
+   "form": "Papier",
+   "titel": "Probefassung zur UB 3: Versicherungsbeginn und Widerrufsrecht",
+   "nr": "3",
+   "benotet": false,
+   "datei": "KVF_LF02_LS0201_PUB3_SuS.docx",
+   "fundstelle": ""
+  },
+  {
+   "lid": "lf2_W8_UB",
+   "fach": "lf2",
+   "woche": 8,
+   "art": "UB",
+   "form": "Papier · 25 Min. · 22 Punkte, davon 16 offen · Situation + MC",
+   "titel": "Versicherungsbeginn und Widerrufsrecht",
+   "nr": "3",
+   "benotet": true,
+   "datei": "KVF_LF02_LS0201_UB3_SuS.docx",
+   "fundstelle": ""
+  },
+  {
+   "lid": "lf2_W11_PUB",
+   "fach": "lf2",
+   "woche": 11,
+   "art": "PUB",
+   "form": "Papier",
+   "titel": "Probefassung zur Klassenarbeit: Rechte und Pflichten, Prämienzahlung, Vorvertragliche Anzeigepflicht und Beschwerdemöglichkeiten und Beendigung",
+   "nr": "KA",
+   "benotet": false,
+   "datei": "KVF_LF02_LS0202_PKA_SuS.docx",
+   "fundstelle": ""
+  },
+  {
+   "lid": "lf2_W12_KA",
+   "fach": "lf2",
+   "woche": 12,
+   "art": "KA",
+   "form": "Papier · 45 Min. · 42 Punkte, davon 30 offen · Situation + MC",
+   "titel": "Rechte und Pflichten, Prämienzahlung, Vorvertragliche Anzeigepflicht und Beschwerdemöglichkeiten und Beendigung",
+   "nr": "",
+   "benotet": true,
+   "datei": "KVF_LF02_LS0202_KA_SuS.docx",
+   "fundstelle": ""
+  },
+  {
+   "lid": "lf3_W3_PUB",
+   "fach": "lf3",
+   "woche": 3,
+   "art": "PUB",
+   "form": "Papier",
+   "titel": "Probefassung zur UB 1: Vertriebswege im Überblick, Versicherungsvertreter und Makler, Datenschutz und Beratungsphasen",
+   "nr": "1",
+   "benotet": false,
+   "datei": "KVF_LF03_LS0301_PUB1_SuS.docx",
+   "fundstelle": ""
+  },
+  {
+   "lid": "lf3_W4_UB",
+   "fach": "lf3",
+   "woche": 4,
+   "art": "UB",
+   "form": "Papier · 25 Min. · 22 Punkte, davon 16 offen · Situation + MC",
+   "titel": "Vertriebswege im Überblick, Versicherungsvertreter und Makler, Datenschutz und Beratungsphasen",
+   "nr": "1",
+   "benotet": true,
+   "datei": "KVF_LF03_LS0301_UB1_SuS.docx",
+   "fundstelle": ""
+  },
+  {
+   "lid": "lf3_W5_PUB",
+   "fach": "lf3",
+   "woche": 5,
+   "art": "PUB",
+   "form": "Papier",
+   "titel": "Probefassung zur UB 2: Vermittlerpflichten",
+   "nr": "2",
+   "benotet": false,
+   "datei": "KVF_LF03_LS0301_PUB2_SuS.docx",
+   "fundstelle": ""
+  },
+  {
+   "lid": "lf3_W6_UB",
+   "fach": "lf3",
+   "woche": 6,
+   "art": "UB",
+   "form": "Papier · 25 Min. · 22 Punkte, davon 16 offen · Situation + MC",
+   "titel": "Vermittlerpflichten",
+   "nr": "2",
+   "benotet": true,
+   "datei": "KVF_LF03_LS0301_UB2_SuS.docx",
+   "fundstelle": ""
+  },
+  {
+   "lid": "lf3_W6_PUB",
+   "fach": "lf3",
+   "woche": 6,
+   "art": "PUB",
+   "form": "Papier",
+   "titel": "Probefassung zur Klassenarbeit: Vertriebswege im Überblick, Versicherungsvertreter und Makler, Datenschutz, Beratungsphasen und Vermittlerpflichten",
+   "nr": "KA",
+   "benotet": false,
+   "datei": "KVF_LF03_LS0301_PKA_SuS.docx",
+   "fundstelle": ""
+  },
+  {
+   "lid": "lf3_W7_KA",
+   "fach": "lf3",
+   "woche": 7,
+   "art": "KA",
+   "form": "Papier · 45 Min. · 42 Punkte, davon 30 offen · Situation + MC",
+   "titel": "Vertriebswege im Überblick, Versicherungsvertreter und Makler, Datenschutz, Beratungsphasen und Vermittlerpflichten",
+   "nr": "",
+   "benotet": true,
+   "datei": "KVF_LF03_LS0301_KA_SuS.docx",
+   "fundstelle": ""
+  },
+  {
+   "lid": "lf3_W7_PUB",
+   "fach": "lf3",
+   "woche": 7,
+   "art": "PUB",
+   "form": "Papier",
+   "titel": "Probefassung zur UB 3: Erstinformation und Beratungsdokumentation und Antragserklärung und Vermittlerhaftung",
+   "nr": "3",
+   "benotet": false,
+   "datei": "KVF_LF03_LS0301_PUB3_SuS.docx",
+   "fundstelle": ""
+  },
+  {
+   "lid": "lf3_W9_UB",
+   "fach": "lf3",
+   "woche": 9,
+   "art": "UB",
+   "form": "Papier · 25 Min. · 22 Punkte, davon 16 offen · Situation + MC",
+   "titel": "Erstinformation und Beratungsdokumentation und Antragserklärung und Vermittlerhaftung",
+   "nr": "3",
+   "benotet": true,
+   "datei": "KVF_LF03_LS0301_UB3_SuS.docx",
+   "fundstelle": ""
+  },
+  {
+   "lid": "de_W3_PUB",
+   "fach": "de",
+   "woche": 3,
+   "art": "PUB",
+   "form": "Text",
+   "titel": "Probefassung zur UB 1: Exzerpt zu einem Fachtext",
+   "nr": "1",
+   "benotet": false,
+   "datei": "KVF_DE_TB1_PUB1_SuS.docx",
+   "fundstelle": ""
+  },
+  {
+   "lid": "de_W4_UB",
+   "fach": "de",
+   "woche": 4,
+   "art": "UB",
+   "form": "Text · 30 Min. · 20 Punkte",
+   "titel": "Exzerpt zu einem Fachtext",
+   "nr": "1",
+   "benotet": true,
+   "datei": "KVF_DE_TB1_UB1_SuS.docx",
+   "fundstelle": ""
+  },
+  {
+   "lid": "de_W6_PUB",
+   "fach": "de",
+   "woche": 6,
+   "art": "PUB",
+   "form": "Rollenspiel mit Beobachtungsbogen",
+   "titel": "Probefassung zur UB 2: Gesprächsregeln und offene Fragen",
+   "nr": "2",
+   "benotet": false,
+   "datei": "KVF_DE_TB2_PUB2_SuS.docx",
+   "fundstelle": ""
+  },
+  {
+   "lid": "de_W7_UB",
+   "fach": "de",
+   "woche": 7,
+   "art": "UB",
+   "form": "Rollenspiel mit Beobachtungsbogen · 20 Min. · 16 Punkte",
+   "titel": "Gesprächsregeln und offene Fragen im Rollenspiel (Themenbereich 2, R2-20)",
+   "nr": "2",
+   "benotet": true,
+   "datei": "KVF_DE_TB2_UB2_SuS.docx",
+   "fundstelle": ""
+  },
+  {
+   "lid": "de_W8_PUB",
+   "fach": "de",
+   "woche": 8,
+   "art": "PUB",
+   "form": "Text",
+   "titel": "Probefassung zur UB 3: Einwandbehandlung",
+   "nr": "3",
+   "benotet": false,
+   "datei": "KVF_DE_TB3_PUB3_SuS.docx",
+   "fundstelle": ""
+  },
+  {
+   "lid": "de_W9_UB",
+   "fach": "de",
+   "woche": 9,
+   "art": "UB",
+   "form": "Text · 30 Min. · 20 Punkte",
+   "titel": "Einwandbehandlung: Methodenwahl begründen und ausformulieren (Themenbereich 3)",
+   "nr": "3",
+   "benotet": true,
+   "datei": "KVF_DE_TB3_UB3_SuS.docx",
+   "fundstelle": ""
+  },
+  {
+   "lid": "lf4_W1_PUB",
+   "fach": "lf4",
+   "woche": 1,
+   "art": "PUB",
+   "form": "Papier",
+   "titel": "Probefassung zur UB 1: Grundlagen der Versicherungswirtschaft (Vorbaustein)",
+   "nr": "1",
+   "benotet": false,
+   "datei": "KVF_LF04_LS0401_PUB1_SuS.docx",
+   "fundstelle": ""
+  },
+  {
+   "lid": "lf4_W2_UB",
+   "fach": "lf4",
+   "woche": 2,
+   "art": "UB",
+   "form": "Papier · 25 Min. · 22 Punkte, davon 16 offen · Situation + MC",
+   "titel": "Grundlagen der Versicherungswirtschaft (Vorbaustein)",
+   "nr": "1",
+   "benotet": true,
+   "datei": "KVF_LF04_LS0401_UB1_SuS.docx",
+   "fundstelle": ""
+  },
+  {
+   "lid": "lf4_W3_PUB",
+   "fach": "lf4",
+   "woche": 3,
+   "art": "PUB",
+   "form": "Papier",
+   "titel": "Probefassung zur UB 2: Risikodeckung, versicherte Sachen, versicherte Gefahren, Brand und Einbruchdiebstahl und Leitungswasser",
+   "nr": "2",
+   "benotet": false,
+   "datei": "KVF_LF04_LS0401_PUB2_SuS.docx",
+   "fundstelle": ""
+  },
+  {
+   "lid": "lf4_W4_UB",
+   "fach": "lf4",
+   "woche": 4,
+   "art": "UB",
+   "form": "Papier · 25 Min. · 22 Punkte, davon 16 offen · Situation + MC",
+   "titel": "Risikodeckung, versicherte Sachen, versicherte Gefahren, Brand und Einbruchdiebstahl und Leitungswasser",
+   "nr": "2",
+   "benotet": true,
+   "datei": "KVF_LF04_LS0401_UB2_SuS.docx",
+   "fundstelle": ""
+  },
+  {
+   "lid": "lf4_W6_PUB",
+   "fach": "lf4",
+   "woche": 6,
+   "art": "PUB",
+   "form": "Papier",
+   "titel": "Probefassung zur UB 3: Sturm und Hagel, Außenversicherung, Wohnungswechsel und Klauseln und Glas",
+   "nr": "3",
+   "benotet": false,
+   "datei": "KVF_LF04_LS0402_PUB3_SuS.docx",
+   "fundstelle": ""
+  },
+  {
+   "lid": "lf4_W7_UB",
+   "fach": "lf4",
+   "woche": 7,
+   "art": "UB",
+   "form": "Papier · 25 Min. · 22 Punkte, davon 16 offen · Situation + MC",
+   "titel": "Sturm und Hagel, Außenversicherung, Wohnungswechsel und Klauseln und Glas",
+   "nr": "3",
+   "benotet": true,
+   "datei": "KVF_LF04_LS0402_UB3_SuS.docx",
+   "fundstelle": ""
+  },
+  {
+   "lid": "lf4_W8_PUB",
+   "fach": "lf4",
+   "woche": 8,
+   "art": "PUB",
+   "form": "Papier",
+   "titel": "Probefassung zur Klassenarbeit: Versicherungswert, Prämienberechnung und Entschädigung",
+   "nr": "KA 1",
+   "benotet": false,
+   "datei": "KVF_LF04_LS0403_PKA1_SuS.docx",
+   "fundstelle": ""
+  },
+  {
+   "lid": "lf4_W9_KA",
+   "fach": "lf4",
+   "woche": 9,
+   "art": "KA",
+   "form": "Papier · 45 Min. · 42 Punkte, davon 30 offen · Situation + MC",
+   "titel": "Versicherungswert, Prämienberechnung und Entschädigung",
+   "nr": "1",
+   "benotet": true,
+   "datei": "KVF_LF04_LS0403_KA1_SuS.docx",
+   "fundstelle": ""
+  },
+  {
+   "lid": "lf4_W9_PUB",
+   "fach": "lf4",
+   "woche": 9,
+   "art": "PUB",
+   "form": "Papier",
+   "titel": "Probefassung zur UB 4: Wohngebäude, Gebäudezubehör und Elementarschäden, ergänzende Verträge, Wert 1914, Prämie und Unterversicherung und Anpassung",
+   "nr": "4",
+   "benotet": false,
+   "datei": "KVF_LF04_LS0404_PUB4_SuS.docx",
+   "fundstelle": ""
+  },
+  {
+   "lid": "lf4_W10_UB",
+   "fach": "lf4",
+   "woche": 10,
+   "art": "UB",
+   "form": "Papier · 25 Min. · 22 Punkte, davon 16 offen · Situation + MC",
+   "titel": "Wohngebäude, Gebäudezubehör und Elementarschäden, ergänzende Verträge, Wert 1914, Prämie und Unterversicherung und Anpassung",
+   "nr": "4",
+   "benotet": true,
+   "datei": "KVF_LF04_LS0404_UB4_SuS.docx",
+   "fundstelle": ""
+  },
+  {
+   "lid": "lf4_W10_PUB",
+   "fach": "lf4",
+   "woche": 10,
+   "art": "PUB",
+   "form": "Papier",
+   "titel": "Probefassung zur Klassenarbeit: Wohngebäude, Gebäudezubehör und Elementarschäden, ergänzende Verträge, Wert 1914, Prämie und Unterversicherung und Anpassung",
+   "nr": "KA 2",
+   "benotet": false,
+   "datei": "KVF_LF04_LS0404_PKA2_SuS.docx",
+   "fundstelle": ""
+  },
+  {
+   "lid": "lf4_W11_KA",
+   "fach": "lf4",
+   "woche": 11,
+   "art": "KA",
+   "form": "Papier · 45 Min. · 42 Punkte, davon 30 offen · Situation + MC",
+   "titel": "Wohngebäude, Gebäudezubehör und Elementarschäden, ergänzende Verträge, Wert 1914, Prämie und Unterversicherung und Anpassung",
+   "nr": "2",
+   "benotet": true,
+   "datei": "KVF_LF04_LS0404_KA2_SuS.docx",
+   "fundstelle": ""
+  },
+  {
+   "lid": "lf4_W11_PUB",
+   "fach": "lf4",
+   "woche": 11,
+   "art": "PUB",
+   "form": "Papier",
+   "titel": "Probefassung zur UB 5: Neuordnung und Veräußerung, Summenmodell und Wohnflächenmodell, Schadenregulierung und Unterversicherung am Gebäude",
+   "nr": "5",
+   "benotet": false,
+   "datei": "KVF_LF04_LS0404_PUB5_SuS.docx",
+   "fundstelle": ""
+  },
+  {
+   "lid": "lf4_W12_UB",
+   "fach": "lf4",
+   "woche": 12,
+   "art": "UB",
+   "form": "Papier · 25 Min. · 22 Punkte, davon 16 offen · Situation + MC",
+   "titel": "Neuordnung und Veräußerung, Summenmodell und Wohnflächenmodell, Schadenregulierung und Unterversicherung am Gebäude",
+   "nr": "5",
+   "benotet": true,
+   "datei": "KVF_LF04_LS0404_UB5_SuS.docx",
+   "fundstelle": ""
+  },
+  {
+   "lid": "lf5_W4_PUB",
+   "fach": "lf5",
+   "woche": 4,
+   "art": "PUB",
+   "form": "Papier",
+   "titel": "Probefassung zur UB 1: Verschuldenshaftung, Verschulden und Deliktsfähigkeit, versichertes Risiko, versicherte Personen und besondere Regelungen I",
+   "nr": "1",
+   "benotet": false,
+   "datei": "KVF_LF05_LS0501_PUB1_SuS.docx",
+   "fundstelle": ""
+  },
+  {
+   "lid": "lf5_W5_UB",
+   "fach": "lf5",
+   "woche": 5,
+   "art": "UB",
+   "form": "Papier · 25 Min. · 22 Punkte, davon 16 offen · Situation + MC",
+   "titel": "Verschuldenshaftung, Verschulden und Deliktsfähigkeit, versichertes Risiko, versicherte Personen und besondere Regelungen I",
+   "nr": "1",
+   "benotet": true,
+   "datei": "KVF_LF05_LS0501_UB1_SuS.docx",
+   "fundstelle": ""
+  },
+  {
+   "lid": "lf5_W6_PUB",
+   "fach": "lf5",
+   "woche": 6,
+   "art": "PUB",
+   "form": "Papier",
+   "titel": "Probefassung zur UB 2: Besondere Regelungen II, besondere Regelungen III und Ausschlüsse",
+   "nr": "2",
+   "benotet": false,
+   "datei": "KVF_LF05_LS0502_PUB2_SuS.docx",
+   "fundstelle": ""
+  },
+  {
+   "lid": "lf5_W7_UB",
+   "fach": "lf5",
+   "woche": 7,
+   "art": "UB",
+   "form": "Papier · 25 Min. · 22 Punkte, davon 16 offen · Situation + MC",
+   "titel": "Besondere Regelungen II, besondere Regelungen III und Ausschlüsse",
+   "nr": "2",
+   "benotet": true,
+   "datei": "KVF_LF05_LS0502_UB2_SuS.docx",
+   "fundstelle": ""
+  },
+  {
+   "lid": "lf5_W9_PUB",
+   "fach": "lf5",
+   "woche": 9,
+   "art": "PUB",
+   "form": "Papier",
+   "titel": "Probefassung zur Klassenarbeit: Besondere Regelungen II, besondere Regelungen III, Ausschlüsse und Veränderung des Risikos",
+   "nr": "KA",
+   "benotet": false,
+   "datei": "KVF_LF05_LS0502_PKA_SuS.docx",
+   "fundstelle": ""
+  },
+  {
+   "lid": "lf5_W10_KA",
+   "fach": "lf5",
+   "woche": 10,
+   "art": "KA",
+   "form": "Papier · 45 Min. · 42 Punkte, davon 30 offen · Situation + MC",
+   "titel": "Besondere Regelungen II, besondere Regelungen III, Ausschlüsse und Veränderung des Risikos",
+   "nr": "",
+   "benotet": true,
+   "datei": "KVF_LF05_LS0502_KA_SuS.docx",
+   "fundstelle": ""
+  },
+  {
+   "lid": "lf5_W11_PUB",
+   "fach": "lf5",
+   "woche": 11,
+   "art": "PUB",
+   "form": "Papier",
+   "titel": "Probefassung zur UB 3: Rechtsschutz: Umfang und Leistungsarten und Ausschlüsse und Versicherungsfall im Rechtsschutz",
+   "nr": "3",
+   "benotet": false,
+   "datei": "KVF_LF05_LS0503_PUB3_SuS.docx",
+   "fundstelle": ""
+  },
+  {
+   "lid": "lf5_W12_UB",
+   "fach": "lf5",
+   "woche": 12,
+   "art": "UB",
+   "form": "Papier · 25 Min. · 22 Punkte, davon 16 offen · Situation + MC",
+   "titel": "Rechtsschutz: Umfang und Leistungsarten und Ausschlüsse und Versicherungsfall im Rechtsschutz",
+   "nr": "3",
+   "benotet": true,
+   "datei": "KVF_LF05_LS0503_UB3_SuS.docx",
+   "fundstelle": ""
+  }
+ ]
+};
+const SPEICHER = "kvf26-meine-noten";
+/* Beschluss 18.09.2026: Die Lernenden tragen nur GANZE Noten ein. Die
+   Tendenzen sind aus der Auswahl genommen — ein Ueberschlag, der aus
+fremden Gewichtungen entsteht, wird durch ein Drittel Notenpunkt nicht
+   genauer, und die Eingabe wird kuerzer. */
+const NOTEN = ["1","2","3","4","5","6"];
+const WERT = {"1":1,"2":2,"3":3,"4":4,"5":5,"6":6};
+const esc = s => String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+
+/* ---------- Ordnungsdienst · Klassenführung, nicht Lehrplan ----------
+   Vier Gruppen aus den Ausbildungsunternehmen der Klasse, wöchentlich im
+   Wechsel für die Aufgaben unten zuständig, ab Woche 2. Das gehört zur
+   Klassenführung und nicht zum Stoff, den daten.js trägt — eine neue
+   Turnusplan-Variante ändert an dieser Zuordnung nichts, darum steht sie
+   fest in dieser Vorlage statt in der Datenquelle. Beschluss C. K. vom
+   20.09.2026. Ändert sich die Gruppeneinteilung, wird hier von Hand
+   nachgezogen und mit `node tafeln.js` neu gebaut — dieselbe Regel wie für
+   jeden anderen Stand dieser Seite. */
+const ORDNUNGSDIENST_GRUPPEN = [
+  { name: "Gruppe 1", firmen: "Debeka Versicherungen · FINAS" },
+  { name: "Gruppe 2", firmen: "ÖSA · Signal Iduna" },
+  { name: "Gruppe 3", firmen: "HUK-Coburg VVaG · Fuchs & Leuchtenberger OHG" },
+  { name: "Gruppe 4", firmen: "Allianz · AXA · Barmenia Gothaer AG" },
+];
+const ORDNUNGSDIENST_AUFGABEN = [
+  "Tafeldienst vor und nach jeder Stunde",
+  "Fenster schließen am Ende des Tages",
+  "Mitschüler:innen auf Unsauberkeiten aufmerksam machen",
+  "Pfandflaschen wegbringen und das Pfandgeld per PayPal übermitteln",
+];
+function ordnungsdienst(wnr){
+  if(wnr < 2) return null;
+  return ORDNUNGSDIENST_GRUPPEN[(wnr - 2) % ORDNUNGSDIENST_GRUPPEN.length];
+}
+function dienstHtml(wnr){
+  const g = ordnungsdienst(wnr);
+  if(!g) return "";
+  return '<div class="dienst"><div class="dkopf"><span class="deyebrow">Ordnungsdienst diese Woche</span>'
+    + '<span class="dn">'+esc(g.name)+'</span><span class="dfirmen">'+esc(g.firmen)+'</span></div>'
+    + '<ul>' + ORDNUNGSDIENST_AUFGABEN.map(a=>'<li>'+esc(a)+'</li>').join('') + '</ul>'
+    + '</div>';
+}
+
+let meine = {};
+/* Eine Eintragung mit Tendenz aus der Zeit davor geht nicht verloren: Sie
+   wird auf ihre ganze Note gelegt — 2+ und 2- sind eine Zwei. Ohne diese
+   Zeile stuende sie nach dem Umstieg auf "-" und waere still weg. */
+function ganzeNote(n){ const m = /^([1-6])[+-]?$/.exec(String(n == null ? "" : n)); return m ? m[1] : null; }
+function lesen(){
+  try { meine = JSON.parse(localStorage.getItem(SPEICHER) || "{}") || {}; }
+  catch(e){ meine = {}; }
+  let geaendert = false;
+  Object.keys(meine).forEach(k => {
+    const g = ganzeNote(meine[k]);
+    if(g === null){ delete meine[k]; geaendert = true; }
+    else if(g !== meine[k]){ meine[k] = g; geaendert = true; }
+  });
+  if(geaendert) schreiben();
+}
+function schreiben(){
+  try { localStorage.setItem(SPEICHER, JSON.stringify(meine)); } catch(e){}
+}
+lesen();
+
+const heute = new Date();
+/* Zeitraum einer Blockwoche. Bevorzugt werden `von` und `bis`; stehen sie
+   leer, wird er aus `termin` gewonnen — „31.08.–04.09.2026" ebenso wie
+   „21.–25.09.2026".
+   Warum: `von` und `bis` sind in sus_daten.json seit jeher leer, inventar.js
+   fuellt sie nicht. Die Seite rechnete damit ueber tag("") mit einem
+   ungültigen Datum, und jeder Vergleich damit ist falsch. Folge: `laufend`
+   war nie gesetzt, `naechste` fiel immer auf wochen[13] zurueck — die App
+   klappte am 22.09.2026, mitten in Blockwoche 2, die Woche 14 auf und
+   markierte keine Woche als laufend oder vorbei. Im Browser nachgestellt.
+   VORFASSUNG: sus.tpl.html.vor_wochenfehler_22092026 */
+function zeitraum(w){
+  if (w.von && w.bis)
+    return {von:new Date(w.von+"T00:00:00"), bis:new Date(w.bis+"T23:59:59")};
+  const teil = String(w.termin || "").split(/[–—]/);
+  const r = /(\d{1,2})\.(\d{1,2})\.(\d{4})/.exec(teil[1] || "");
+  if(!r) return {};
+  const jahr = +r[3], bisM = +r[2], bisT = +r[1];
+  const l = /(\d{1,2})\.(?:(\d{1,2})\.)?/.exec(teil[0] || "");
+  if(!l) return {};
+  const vonT = +l[1], vonM = l[2] ? +l[2] : bisM;
+  return {von:new Date(vonM > bisM ? jahr-1 : jahr, vonM-1, vonT),
+          bis:new Date(jahr, bisM-1, bisT, 23, 59, 59)};
+}
+const ZEIT = {};
+DATEN.wochen.forEach(w => { ZEIT[w.nr] = zeitraum(w); });
+const laufend = DATEN.wochen.find(w =>
+  ZEIT[w.nr].von && ZEIT[w.nr].von <= heute && heute <= ZEIT[w.nr].bis);
+const naechste = DATEN.wochen.find(w =>
+  ZEIT[w.nr].bis && ZEIT[w.nr].bis >= heute) || DATEN.wochen[13];
+
+/* ---------- Was die Klasse lesen soll · Beschluss 19.09.2026 -------------
+   Drei Regeln, alle aus dem Unterricht heraus begruendet:
+
+   1. WOCHE STATT STUNDE. Die Tafel sagt, was in der Blockwoche dran ist, und
+      nicht, was in Stunde 7 dran ist. Der Stundenplan der Woche steht ohnehin
+      an der Tafel im Raum; hier hilft der Ueberblick.
+   2. KEINE PHASEN. „Phase I", „Typ K · Phase II" sind Arbeitsangaben der
+      Lehrkraefte fuer die didaktische Bauform. Fuer die Klasse sind sie
+      Fachchinesisch und stehen deshalb nur im Turnusplan.
+   3. WO LIEGT DIE DATEI. Jedes Material, das die Klasse braucht, nennt Kanal,
+      Ordner und Dateinamen — alles auf Teams im Kurs KVF26. Eine Datei, die
+      niemand findet, ist keine Datei.                                      */
+const TEAMS = {
+  lf1: ['KVF01', 'Skripte'],
+  lf2: ['KVF02', 'Skripte'],
+  lf3: ['KVF03', 'Skripte'],
+  lf4: ['KVF04', 'Kursmaterial'],
+  lf5: ['KVF05', 'Skripte'],
+  sk:  ['KVF_SOZ', 'Skripte'],
+  de:  null,            /* noch offen */
+};
+/* Der Fachvorsatz vor der Bausteinkennung. „B03" allein ist in einer Woche
+   mit sechs Faechern nicht eindeutig — in jedem Fach gibt es ein B03. Auf der
+   Tafel heisst der Baustein deshalb „LF01_B03", „SK_B03". Beschluss C. K. vom
+   19.09.2026.
+   DER VORSATZ IST DIE SPALTE DES DATEINAMENS — festgelegt am 19.09.2026,
+   Variante 83. Die Sozialkunde heisst „SK": im Dateinamen, im Plan und hier.
+   Zuerst stand „SOZ_B03" auf der Karte und „KVF_SK_B03_Skript_SuS.docx"
+   darunter, also zwei Schreibweisen fuer dieselbe Sache. „SOZ" ist der Name
+   des Teams-Kanals (KVF_SOZ) und keine Kennung von uns. Eine Karte, eine
+   Schreibweise. */
+const SPALTE  = { lf1:'LF01', lf2:'LF02', lf3:'LF03', lf4:'LF04', lf5:'LF05', sk:'SK', de:'DE' };
+const VORSATZ = SPALTE;
+/* Der Buchstabenzusatz im Muster bleibt stehen, obwohl ihn seit Variante 86
+   keine Spalte mehr fuehrt: Lernfeld 2 hatte als letzte zwei Teilbausteine
+   (B05a, B09a); B05a ist in B05 aufgegangen, B09a ist der Baustein B10
+   geworden. Das Muster deckt den Fall weiter ab, damit ein aelterer Stand
+   ohne Aenderung baut — eine Kennung ohne Fachvorsatz mitten in der Zeile
+   waere sonst der erste sichtbare Fehler. */
+const mitFach = (t, fach) => String(t || '')
+  .replace(/(^|·\s)B(\d{2}[a-z]?)(?![\w])/g, (m, v, n) => v + (VORSATZ[fach] || '') + '_B' + n);
+
+const ohnePhase = t => String(t || '')
+  .replace(/\s*\([^()]*\bPhase\s+[IVX]+\s*\)/g, '')
+  .replace(/\s*\(\s*Typ\s+[A-Z]\s*\)/g, '')
+  .replace(/\s{2,}/g, ' ')
+  .trim();
+
+/* Die Zusammenfassung der Woche. Erst werden die vollen Titel versucht; erst
+   wenn sie ueber zwei Zeilen hinausgehen, faellt die Aufzaehlung hinter dem
+   Doppelpunkt weg und es bleibt das Thema. Damit behaelt eine ruhige Woche
+   ihre Einzelheiten und eine volle wird lesbar. */
+const GRENZE = 190;
+function themen(liste, fach){
+  /* Die Lernsituation steht einmal vorn, nicht vor jedem Thema: „LS 03.1 ·
+     Vertriebswege · LS 03.1 · Der Einfirmenvertreter" liest sich wie zwei
+     verschiedene Dinge und ist eines. */
+  let kenn = '', letzt = '';
+  const voll = liste.map(x => {
+    let t = ohnePhase(x.was);
+    const m = /^(LS \d+\.\d+)\s*·\s*/.exec(t);
+    if(m){ if(!kenn) kenn = m[1]; if(m[1] === kenn) t = t.slice(m[0].length); }
+    t = mitFach(t, fach);
+    /* Und dasselbe eine Ebene tiefer: Zwei Bloecke desselben Bausteins nennen
+       ihn einmal. „SK_B02 · Vertiefung · SK_B02 · Berechnungswerkstatt" sieht
+       nach zwei Bausteinen aus und ist einer. Ein Wechsel — B04 auf B05 —
+       bleibt stehen, denn dort ist es wirklich ein zweiter. */
+    const c = /^([A-Z0-9]+_B\d{2}[a-z]?)\s*·\s*/.exec(t);
+    if(c){ if(c[1] === letzt) t = t.slice(c[0].length); else letzt = c[1]; }
+    return t;
+  }).filter(Boolean);
+  const vorn = kenn ? kenn + ' · ' : '';
+  let text = voll.join(' · ');
+  if((vorn + text).length <= GRENZE) return vorn + text;
+  const kurz = voll.map(t => { const i = t.indexOf(':'); return i > 12 ? t.slice(0, i) : t; });
+  text = kurz.join(' · ');
+  if((vorn + text).length <= GRENZE) return vorn + text;
+  let aus = '';
+  for(const t of kurz){ if((aus + ' · ' + t).length > GRENZE) break; aus = aus ? aus + ' · ' + t : t; }
+  return vorn + aus + ' …';
+}
+
+/* Wo liegt das Skript zu den Bausteinen dieser Woche? Aus den Kennungen der
+   Woche gebaut — aber nur fuer Bausteine, deren Skript wirklich im Ordner
+   liegt (DATEN.skripte, am Bestand erhoben). Ein Baustein ohne gebautes
+   Skript bekommt „Dateiname folgt"; wer nach einer Datei sucht, die es nicht
+   gibt, sucht umsonst. Lernfeld 4 fuehrt in den Zelltexten noch die U- und
+   W-Kennungen; dort steht deshalb vorerst nichts. */
+function bausteinWo(fach, liste){
+  const t = TEAMS[fach];
+  const codes = [];
+  liste.forEach(x => {
+    const m = String(x.was || '').match(/(^|·\s)B(\d{2})(?![\w])/g) || [];
+    m.forEach(k => { const c = 'B' + k.match(/\d{2}/)[0]; if(!codes.includes(c)) codes.push(c); });
+  });
+  if(!codes.length) return '';
+  if(!t) return '<dl class="wo"><dt>Wo?</dt><dd>Teams · Kanal noch offen</dd></dl>';
+  const da = ((DATEN.skripte || {})[SPALTE[fach]] || []);
+  const namen = codes.filter(c => da.includes(c))
+                     .map(c => 'KVF_' + SPALTE[fach] + '_' + c + '_Skript_SuS.docx');
+  const wo = 'Teams · Kanal ' + t[0] + ' · Ordner ' + t[1] + ' · '
+           + (namen.length ? namen.join(' · ') : 'Dateiname folgt');
+  return '<dl class="wo"><dt>Wo?</dt><dd>' + esc(wo) + '</dd></dl>';
+}
+
+function woZeile(fach, datei, fundstelle){
+  /* Neu mit Variante 110: bei Forms-Probefassungen (PUB, PKA) und den Quiz-
+     sockel-Strecken nennt die Wo?-Zeile die Fundstelle im Skript (Seite,
+     Kasten, QR-Code) statt Teams-Kanal/Ordner/Dateiname — die Klasse
+     erreicht das Forms-Quiz ueber das Skript, nicht ueber eine abgelegte
+     Datei. Nur gesetzt, wo die Fundstelle schon feststeht (Vormerkung vom
+     22.09.2026); sonst faellt die Zeile auf die alte Logik zurueck. */
+  if(fundstelle) return fundstelle;
+  const t = TEAMS[fach];
+  if(!t) return 'Teams · Kanal noch offen';
+  /* Ein Forms-Quiz liegt in keinem Ordner: Die Klasse ruft es ueber den Link
+     oder den QR-Code auf. Der Dateiname der Importdatei ist die Sache der
+     Lehrkraft und hat hier nichts verloren. */
+  if(/Forms/i.test(datei)){
+    const code = String(datei).replace(/^Forms\s+/i, '').replace(/_?Forms\.docx$/i, '');
+    return 'Teams · Kanal ' + t[0] + ' · Forms-Quiz ' + code;
+  }
+  return 'Teams · Kanal ' + t[0] + ' · Ordner ' + t[1] + (datei ? ' · ' + datei : ' · Dateiname folgt');
+}
+
+/* „Bis wann" ist die Woche, in der es fertig sein muss — nicht der Tag der
+   Ausgabe. Sie steht im Pruefsatz des Plans; das Datum daneben ist der erste
+   Tag dieser Blockwoche. */
+function bisWann(x){
+  const bw = /Blockwoche (\d+)(?:[^.]*? am ([\d.]+))?/.exec(x.pruefung || '');
+  if(bw) return 'Blockwoche ' + bw[1] + (bw[2] ? ' · ' + bw[2] : '');
+  const d = /bis (\d{1,2}\.\d{1,2}\.\d{4})/.exec(x.zeitraum || '');
+  return d ? d[1] : '';
+}
+
+/* Der Zweck, und nur er. „zu Hause" steht schon im Abzeichen, „unbenotet" und
+   „keine Unterrichtszeit" sagten dasselbe ein zweites und drittes Mal. */
+function zweck(x){
+  const m = /bewertet in ([^,·]+?) der Woche (\d+)/.exec(x.pruefung || '');
+  if(!m) return '';
+  return 'Grundlage für ' + m[1].trim().replace(/^(der|die|das)\s+/i, '') + ' in Woche ' + m[2];
+}
+
+/* ---------- Notenspiegel ---------- */
+function spiegel(){
+  const el = document.getElementById("spiegel");
+  const benotet = DATEN.leistungen.filter(l => l.benotet);
+  const gesamt = [];
+  let html = '<div class="kopfz"><p class="eyebrow" style="margin:0">Mein Notenspiegel</p></div>';
+  DATEN.faecher.forEach(f=>{
+    const ls = benotet.filter(l => l.fach === f.id);
+    const noten = ls.map(l => meine[l.lid]).filter(Boolean).map(n => WERT[n]).filter(n=>n);
+    noten.forEach(n => gesamt.push(n));
+    const schnitt = noten.length ? (noten.reduce((a,b)=>a+b,0)/noten.length) : null;
+    html += '<div class="zeile" style="--f:var(--'+f.id+')">'
+      + '<span class="fchip"></span>'
+      + '<span><span class="fn">'+esc(f.name)+'</span><br>'
+        + '<span class="fl">'+esc(f.lk)+'</span></span>'
+      + '<span class="schnitt"><b>'+(schnitt ? schnitt.toFixed(1).replace(".",",") : "–")+'</b>'
+        + '<span>'+noten.length+' von '+ls.length+'</span></span>'
+      + '</div>';
+  });
+  const g = gesamt.length ? (gesamt.reduce((a,b)=>a+b,0)/gesamt.length) : null;
+  html += '<div class="zeile" style="--f:var(--ink);border-top:1.5px solid var(--line2)">'
+    + '<span class="fchip" style="background:var(--ink)"></span>'
+    + '<span class="fn">Alle Fächer</span>'
+    + '<span class="schnitt"><b>'+(g ? g.toFixed(1).replace(".",",") : "–")+'</b>'
+      + '<span>'+gesamt.length+' von '+benotet.length+'</span></span></div>';
+  el.innerHTML = html;
+}
+
+/* ---------- Wochen ---------- */
+function wochen(){
+  const ziel = document.getElementById("wochen");
+  ziel.innerHTML = DATEN.wochen.map(w=>{
+    const vorbei = !!ZEIT[w.nr].bis && ZEIT[w.nr].bis < heute;
+    const ist = laufend && laufend.nr === w.nr;
+    const auf = ist || (!laufend && naechste.nr === w.nr);
+    const wl = DATEN.leistungen.filter(l => l.woche === w.nr);
+    const dienstG = ordnungsdienst(w.nr);
+    const dienstTag = dienstG ? '<span style="--f:var(--ink)">Dienst '+esc(dienstG.name)+'</span>' : "";
+    const tags = dienstTag + DATEN.faecher.map(f=>{
+      const b = wl.filter(l => l.fach===f.id && l.benotet);
+      return b.length
+        ? '<span style="--f:var(--'+f.id+')">'+b.map(x=>esc(x.art)).join(" ")+' '+esc(f.name.replace("Lernfeld","LF"))+'</span>'
+        : "";
+    }).join("");
+
+    const koerper = DATEN.faecher.map(f=>{
+      const st = (DATEN.stoff[f.id]||{})[w.nr] || [];
+      const ls = wl.filter(l => l.fach === f.id);
+      const sr = (DATEN.strecken||[]).filter(x => x.fach===f.id && x.woche===w.nr);
+      if(!st.length && !ls.length && !sr.length) return "";
+      const std = st.reduce((a,x)=>a+(+x.std||0),0);
+      return '<div class="fblock" style="--f:var(--'+f.id+')">'
+        + '<div class="fkopf"><span class="fn">'+esc(f.name)+'</span>'
+          + (std ? '<span class="fstd">'+String(std).replace(".",",")+' Std</span>' : '')
+          + '<span class="fl">'+esc(f.lk)+'</span></div>'
+        + (st.length ? '<div class="wsum">'+esc(themen(st, f.id))+'</div>'
+                       + bausteinWo(f.id, st) : '')
+        + ls.map(l=>leistungHtml(l)).join("")
+        + sr.map(x=>streckeHtml(x)).join("")
+        + '</div>';
+    }).join("");
+
+    return '<details class="woche'+(vorbei?" vorbei":"")+(ist?" jetzt":"")+'"'+(auf?" open":"")+'>'
+      + '<summary><span class="wnr">'+w.nr+'</span>'
+        + '<span class="wtermin">'+esc(w.termin)+'</span>'
+        + (tags ? '<span class="wtags">'+tags+'</span>' : '')
+        + (w.kurz ? '<span class="wkurz">'+esc(w.kurz)+'</span>' : '')
+      + '</summary>' + dienstHtml(w.nr) + koerper + '</details>';
+  }).join("");
+
+  ziel.querySelectorAll("select[data-lid]").forEach(s=>{
+    s.addEventListener("change", e=>{
+      const lid = e.target.dataset.lid;
+      if(e.target.value) meine[lid] = e.target.value; else delete meine[lid];
+      schreiben();
+      e.target.classList.toggle("gesetzt", !!e.target.value);
+      spiegel();
+    });
+  });
+}
+
+/* Selbstlernstrecken · Regel 12, Variante 60.
+   Was zu Hause zu tun ist, gehoert in diese Fassung und nicht nur in den
+   Lehrerplan: wann das Blatt kommt, bis wann es zu bearbeiten ist und woran
+   es geprueft wird. */
+function streckeHtml(x){
+  const zeile = (t, w) => w ? '<dt>'+t+'</dt><dd>'+esc(w)+'</dd>' : '';
+  return '<div class="strecke">'
+    + '<div class="sk"><span class="sart">zu Hause bearbeiten</span>'
+      + (x.blatt ? '<span class="sblatt">'+esc(x.strecke ? x.strecke+' '+x.blatt : x.blatt)+'</span>' : '')
+      + (x.minuten ? '<span class="smin">rund '+x.minuten+' Min.</span>' : '')
+    + '</div>'
+    + (zweck(x) ? '<div class="st">'+esc(zweck(x))+'</div>' : '')
+    + '<dl class="wo">' + zeile('Bis wann', bisWann(x))
+            + zeile('Wo?', woZeile(x.fach, x.datei, x.fundstelle)) + '</dl>'
+    + '</div>';
+}
+
+/* Der Kopf einer Leistung. „PUB 1" statt „T 1", „PKA 1" statt „T KA 1" —
+   dieselbe Rolle, die der Dateiname traegt (Variante 85). Das alte Zeichen „T"
+   wird weiter gelesen, damit eine Tafel aus einem aelteren Stand nicht
+   plötzlich „T" zeigt, wo der Plan „PUB" sagt. */
+function leistungKopf(l){
+  const nr = String(l.nr == null ? '' : l.nr).trim();
+  if(l.art === 'PUB' || l.art === 'T')
+    return /^KA/.test(nr) ? ('PKA ' + nr.slice(2).trim()).trim() : ('PUB ' + nr).trim();
+  return (l.art + (nr ? ' ' + nr : '')).trim();
+}
+
+function leistungHtml(l){
+  const gesetzt = meine[l.lid] || "";
+  return '<div class="leist">'
+    + '<div class="lk"><span class="lart">'+esc(leistungKopf(l))+'</span>'
+      + (l.form ? '<span class="lform">'+esc(l.form)+'</span>' : '')
+      + (l.benotet
+          ? '<span class="note"><label for="n_'+esc(l.lid)+'">meine Note</label>'
+            + '<select id="n_'+esc(l.lid)+'" data-lid="'+esc(l.lid)+'"'
+            + (gesetzt?' class="gesetzt"':'')+'>'
+            + '<option value="">–</option>'
+            + NOTEN.map(n=>'<option'+(n===gesetzt?" selected":"")+'>'+n+'</option>').join("")
+            + '</select></span>'
+          : '<span class="uebung">nicht bewertet</span>')
+    + '</div>'
+    + (l.titel ? '<div class="lt">'+esc(ohnePhase(l.titel))+'</div>' : '')
+    /* Eine bewertete Leistung bekommt KEINE Wo?-Zeile: Sie wird im Unterricht
+       ausgeteilt und geschrieben, nicht zu Hause geholt. Ein Ordnerhinweis
+       daran hat nur so ausgesehen, als koenne man sich vorher bedienen.
+       Beschluss C. K. vom 19.09.2026. */
+    + (l.benotet ? '' : '<dl class="wo"><dt>Wo?</dt><dd>'+esc(woZeile(l.fach, l.datei, l.fundstelle))+'</dd></dl>')
+    + '</div>';
+}
+
+/* ---------- Sichern, einlesen, leeren ---------- */
+const dlg = document.getElementById("dlg");
+const feld = document.getElementById("dlg-feld");
+const dTitel = document.getElementById("dlg-titel");
+const dText = document.getElementById("dlg-text");
+const dOk = document.getElementById("dlg-ok");
+const dDatei = document.getElementById("dlg-datei");
+let modus = "sichern";
+
+document.getElementById("b-sichern").addEventListener("click", ()=>{
+  modus = "sichern";
+  dTitel.textContent = "Deine Eintragungen sichern";
+  dText.textContent = "Kopiere diesen Text und bewahre ihn auf, oder speichere ihn als Datei. "
+    + "Damit kannst du deine Noten später oder auf einem anderen Gerät wieder einlesen.";
+  feld.value = JSON.stringify({stand:new Date().toISOString().slice(0,10), noten:meine}, null, 1);
+  feld.readOnly = false;
+  dOk.hidden = true; dDatei.hidden = false;
+  dlg.showModal(); feld.select();
+});
+
+document.getElementById("b-laden").addEventListener("click", ()=>{
+  modus = "laden";
+  dTitel.textContent = "Sicherung einlesen";
+  dText.textContent = "Füge hier den gesicherten Text ein. Deine jetzigen Eintragungen "
+    + "werden dabei ersetzt.";
+  feld.value = ""; feld.readOnly = false;
+  dOk.hidden = false; dDatei.hidden = true;
+  dlg.showModal(); feld.focus();
+});
+
+dOk.addEventListener("click", ()=>{
+  if(modus !== "laden") return dlg.close();
+  try {
+    const x = JSON.parse(feld.value);
+    const n = (x && x.noten) ? x.noten : x;
+    if(!n || typeof n !== "object") throw new Error();
+    meine = {};
+    /* Auch eine aeltere Sicherung mit Tendenzen laesst sich einlesen. */
+    Object.keys(n).forEach(k => { const g = ganzeNote(n[k]); if(g) meine[k] = g; });
+    schreiben(); spiegel(); wochen(); dlg.close();
+  } catch(e){
+    dText.textContent = "Das war keine gültige Sicherung. Füge den ganzen Text ein, "
+      + "so wie er beim Sichern angezeigt wurde — von der ersten geschweiften Klammer bis zur letzten.";
+  }
+});
+
+dDatei.addEventListener("click", ()=>{
+  const blob = new Blob([feld.value], {type:"application/json"});
+  const a = document.createElement("a");
+  a.href = URL.createObjectURL(blob);
+  a.download = "meine-noten-kvf26.json";
+  document.body.appendChild(a); a.click(); a.remove();
+  setTimeout(()=>URL.revokeObjectURL(a.href), 4000);
+});
+
+document.getElementById("dlg-zu").addEventListener("click", ()=>dlg.close());
+document.getElementById("b-druck").addEventListener("click", ()=>{
+  document.querySelectorAll("details.woche").forEach(d=>d.open = true);
+  window.print();
+});
+document.getElementById("b-leeren").addEventListener("click", ()=>{
+  if(!Object.keys(meine).length) return;
+  if(!confirm("Alle eingetragenen Noten auf diesem Gerät löschen? Das lässt sich nicht rückgängig machen.")) return;
+  meine = {}; schreiben(); spiegel(); wochen();
+});
+
+spiegel();
+wochen();
+</script>
+
+<script>
+/* PWA + Teams-Einbettung. Greift nicht in die App-Logik ein. */
+(function () {
+  if ("serviceWorker" in navigator) {
+    addEventListener("load", function () {
+      navigator.serviceWorker.register("service-worker.js").catch(function () {});
+    });
+  }
+
+  // Teams-SDK nur laden, wenn die Seite tatsaechlich eingebettet laeuft.
+  // Standalone bleibt die App damit vollstaendig offline-faehig.
+  if (window.self === window.top) return;
+
+  var s = document.createElement("script");
+  s.src = "https://res.cdn.office.net/teams-js/2.32.0/js/microsoft.teams.min.js";
+  s.onload = function () {
+    if (!window.microsoftTeams || !microsoftTeams.app) return;
+    microsoftTeams.app.initialize().then(function () {
+      function anwenden(theme) {
+        document.documentElement.setAttribute(
+          "data-theme", theme === "dark" || theme === "contrast" ? "dark" : "light"
+        );
+      }
+      microsoftTeams.app.getContext().then(function (ctx) {
+        anwenden(ctx && ctx.app && ctx.app.theme);
+      }).catch(function () {});
+      microsoftTeams.app.registerOnThemeChangeHandler(anwenden);
+    }).catch(function () {});
+  };
+  document.head.appendChild(s);
+})();
+</script>
+</body>
+</html>
